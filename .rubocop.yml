@@ -14,6 +14,9 @@ Encoding:
 LineLength:
   Max: 100
 
+MethodLength:
+  Max: 15
+
 AlignHash:
   # Alignment of entries using hash rocket as separator. Valid values are:
   #

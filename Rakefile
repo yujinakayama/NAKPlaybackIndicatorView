@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'rubocop/rake_task'
+require 'shellwords'
 
 Rubocop::RakeTask.new(:style)
 
@@ -16,27 +17,32 @@ namespace :test do
   devices.each do |task_name, device_name|
     desc "Run tests on #{device_name}"
     task task_name do
-      workspace = Dir['*.xcworkspace'].first
-      scheme = 'NAPlaybackIndicatorView'
-      destination = {
-        platform: 'iOS Simulator',
-            name: device_name
-      }
-      action = 'test'
-
-      command = ['xcodebuild']
-      command.concat(['-workspace', workspace])
-      command.concat(['-scheme', scheme])
-      command.concat(['-destination', destination.map { |key, value| "#{key}=#{value}" }.join(',')])
-      command << action
-
-      require 'shellwords'
-      system("#{command.shelljoin} | xcpretty --color") || fail('Build failed!')
+      run_test(device_name, !ENV['NO_XCPRETTY'])
     end
   end
 
   desc 'Run tests on all devices'
   task all: devices.keys
+end
+
+def run_test(device_name, xcpretty = true)
+  workspace = Dir['*.xcworkspace'].first
+  scheme = 'NAPlaybackIndicatorView'
+  destination = {
+    platform: 'iOS Simulator',
+        name: device_name
+  }
+  action = 'test'
+
+  xcodebuild = ['xcodebuild']
+  xcodebuild.concat(['-workspace', workspace])
+  xcodebuild.concat(['-scheme', scheme])
+  xcodebuild.concat(['-destination', destination.map { |key, value| "#{key}=#{value}" }.join(',')])
+  xcodebuild << action
+
+  command = xcodebuild.shelljoin
+  command << ' | xcpretty --color' if xcpretty
+  system(command) || fail('Build failed!')
 end
 
 task :version do
