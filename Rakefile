@@ -1,4 +1,7 @@
 require 'bundler/setup'
+require 'rubocop/rake_task'
+
+Rubocop::RakeTask.new(:style)
 
 namespace :test do
   devices = [
