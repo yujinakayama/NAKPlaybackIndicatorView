@@ -31,7 +31,7 @@ namespace :test do
       command << action
 
       require 'shellwords'
-      system("#{command.shelljoin} | xcpretty --color")
+      system("#{command.shelljoin} | xcpretty --color") || fail('Build failed!')
     end
   end
 
