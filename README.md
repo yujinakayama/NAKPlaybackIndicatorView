@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/yujinakayama/NAPlaybackIndicatorView.png?branch=master)](https://travis-ci.org/yujinakayama/NAPlaybackIndicatorView)
+
 # NAPlaybackIndicatorView
 
 ## Usage
