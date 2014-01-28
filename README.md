@@ -1,8 +1,5 @@
 # NAPlaybackIndicatorView
 
-[![Version](http://cocoapod-badges.herokuapp.com/v/NAPlaybackIndicatorView/badge.png)](http://cocoadocs.org/docsets/NAPlaybackIndicatorView)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/NAPlaybackIndicatorView/badge.png)](http://cocoadocs.org/docsets/NAPlaybackIndicatorView)
-
 ## Usage
 
 To run the example project; clone the repo, and run `pod install` from the Project directory first.
