@@ -17,6 +17,7 @@ namespace :test do
   devices.each do |task_name, device_name|
     desc "Run tests on #{device_name}"
     task task_name do
+      puts " Running tests on #{device_name} ".center(80, '=')
       run_test(device_name, !ENV['NO_XCPRETTY'])
     end
   end
