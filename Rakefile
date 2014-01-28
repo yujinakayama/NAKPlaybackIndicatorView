@@ -25,6 +25,9 @@ namespace :test do
   task all: devices.keys
 end
 
+desc 'Run CI task'
+task ci: %w(test:all style)
+
 def run_test(device_name, xcpretty = true)
   workspace = Dir['*.xcworkspace'].first
   scheme = 'NAPlaybackIndicatorView'
