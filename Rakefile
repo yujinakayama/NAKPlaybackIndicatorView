@@ -1,6 +1,23 @@
-desc 'Runs the specs [EMPTY]'
-task :spec do
-  # Provide your own implementation
+require 'bundler/setup'
+
+desc 'Run tests'
+task :test do
+  workspace = Dir['*.xcworkspace'].first
+  scheme = 'NAPlaybackIndicatorView'
+  destination = {
+    platform: 'iOS Simulator',
+        name: 'iPhone Retina (4-inch)'
+  }
+  action = 'test'
+
+  command = ['xcodebuild']
+  command.concat(['-workspace', workspace])
+  command.concat(['-scheme', scheme])
+  command.concat(['-destination', destination.map { |key, value| "#{key}=#{value}" }.join(',')])
+  command << action
+
+  require 'shellwords'
+  system("#{command.shelljoin} | xcpretty --color")
 end
 
 task :version do

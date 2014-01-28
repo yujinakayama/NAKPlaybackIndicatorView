@@ -50,10 +50,13 @@ GEM
       activesupport (~> 3.0)
       colored (~> 1.2)
       rake
+    xcpretty (0.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   cocoapods (~> 0.29)
+  rake (~> 10.1)
   rubocop (~> 0.17)
+  xcpretty (~> 0.1)
