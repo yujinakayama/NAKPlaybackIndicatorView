@@ -1,4 +1,4 @@
-desc "Runs the specs [EMPTY]"
+desc 'Runs the specs [EMPTY]'
 task :spec do
   # Provide your own implementation
 end
@@ -7,7 +7,7 @@ task :version do
   git_remotes = `git remote`.strip.split("\n")
 
   if git_remotes.count > 0
-    puts "-- fetching version number from github"
+    puts '-- fetching version number from github'
     sh 'git fetch'
 
     remote_version = remote_spec_version
@@ -15,26 +15,24 @@ task :version do
 
   if remote_version.nil?
     puts "There is no current released version. You're about to release a new Pod."
-    version = "0.0.1"
+    version = '0.0.1'
   else
-    puts "The current released version of your pod is " + remote_spec_version.to_s()
+    puts 'The current released version of your pod is ' + remote_spec_version.to_s
     version = suggested_version_number
   end
-  
-  puts "Enter the version you want to release (" + version + ") "
+
+  puts 'Enter the version you want to release (' + version + ') '
   new_version_number = $stdin.gets.strip
-  if new_version_number == ""
-    new_version_number = version
-  end
+  new_version_number = version if new_version_number.empty?
 
   replace_version_number(new_version_number)
 end
 
-desc "Release a new version of the Pod"
+desc 'Release a new version of the Pod'
 task :release do
 
-  puts "* Running version"
-  sh "rake version"
+  puts '* Running version'
+  sh 'rake version'
 
   unless ENV['SKIP_CHECKS']
     if `git symbolic-ref HEAD 2>/dev/null`.strip.split('/').last != 'master'
@@ -43,7 +41,8 @@ task :release do
     end
 
     if `git tag`.strip.split("\n").include?(spec_version)
-      $stderr.puts "[!] A tag for version `#{spec_version}' already exists. Change the version in the podspec"
+      $stderr.puts "[!] A tag for version `#{spec_version}' already exists. " \
+                   'Change the version in the podspec'
       exit 1
     end
 
@@ -51,17 +50,17 @@ task :release do
     exit if $stdin.gets.strip.downcase != 'y'
   end
 
-  puts "* Running specs"
-  sh "rake spec"
- 
-  puts "* Linting the podspec"
-  sh "pod lib lint"
+  puts '* Running specs'
+  sh 'rake spec'
+
+  puts '* Linting the podspec'
+  sh 'pod lib lint'
 
   # Then release
   sh "git commit #{podspec_path} CHANGELOG.md -m 'Release #{spec_version}'"
   sh "git tag -a #{spec_version} -m 'Release #{spec_version}'"
-  sh "git push origin master"
-  sh "git push origin --tags"
+  sh 'git push origin master'
+  sh 'git push origin --tags'
   sh "pod push master #{podspec_path}"
 end
 
@@ -79,7 +78,7 @@ def remote_spec_version
   require 'cocoapods-core'
 
   if spec_file_exist_on_remote?
-    remote_spec = eval(`git show origin/master:#{podspec_path}`)
+    remote_spec = eval(`git show origin/master:#{podspec_path}`) # rubocop:disable Eval
     remote_spec.version
   else
     nil
@@ -106,7 +105,7 @@ def podspec_path
   if podspecs.count == 1
     podspecs.first
   else
-    raise "Could not select a podspec"
+    fail 'Could not select a podspec'
   end
 end
 
@@ -114,9 +113,9 @@ end
 #
 def suggested_version_number
   if spec_version != remote_spec_version
-    spec_version.to_s()
+    spec_version.to_s
   else
-    next_version(spec_version).to_s()
+    next_version(spec_version).to_s
   end
 end
 
@@ -128,10 +127,10 @@ end
 # @return [Pod::Version] The version that comes next after the version supplied.
 #
 def next_version(version)
-  version_components = version.to_s().split(".");
-  last = (version_components.last.to_i() + 1).to_s
+  version_components = version.to_s.split('.')
+  last = (version_components.last.to_i + 1).to_s
   version_components[-1] = last
-  Pod::Version.new(version_components.join("."))
+  Pod::Version.new(version_components.join('.'))
 end
 
 # @param  [String] new_version_number
@@ -144,5 +143,5 @@ end
 def replace_version_number(new_version_number)
   text = File.read(podspec_path)
   text.gsub!(/(s.version( )*= ")#{spec_version}(")/, "\\1#{new_version_number}\\3")
-  File.open(podspec_path, "w") { |file| file.puts text }
+  File.open(podspec_path, 'w') { |file| file.puts text }
 end

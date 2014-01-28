@@ -1,7 +1,7 @@
-pod "NAPlaybackIndicatorView", :path => "../NAPlaybackIndicatorView.podspec"
+pod 'NAPlaybackIndicatorView', path: '../NAPlaybackIndicatorView.podspec'
 
-target "Demo" do
+target 'Demo' do
 end
 
-target "DemoTests" do
+target 'DemoTests' do
 end
