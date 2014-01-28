@@ -28,6 +28,7 @@
 		B92DD07D189802B2006F2740 /* NAPlaybackIndicatorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD079189802B2006F2740 /* NAPlaybackIndicatorContentView.m */; };
 		B92DD07E189802B2006F2740 /* NAPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */; };
 		B92DD07F189802B2006F2740 /* NAPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */; };
+		B92DD095189830A2006F2740 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD094189830A2006F2740 /* QuartzCore.framework */; };
 		E11BDA93546A4D00A088EE38 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA55ACCF95F48BB867CD2F4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		B92DD079189802B2006F2740 /* NAPlaybackIndicatorContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorContentView.m; sourceTree = "<group>"; };
 		B92DD07A189802B2006F2740 /* NAPlaybackIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPlaybackIndicatorView.h; sourceTree = "<group>"; };
 		B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorView.m; sourceTree = "<group>"; };
+		B92DD094189830A2006F2740 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FEA55ACCF95F48BB867CD2F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B92DD095189830A2006F2740 /* QuartzCore.framework in Frameworks */,
 				B92DD03F189801FA006F2740 /* CoreGraphics.framework in Frameworks */,
 				B92DD041189801FA006F2740 /* UIKit.framework in Frameworks */,
 				B92DD03D189801F9006F2740 /* Foundation.framework in Frameworks */,
@@ -125,6 +128,7 @@
 		B92DD03B189801F9006F2740 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B92DD094189830A2006F2740 /* QuartzCore.framework */,
 				B92DD03C189801F9006F2740 /* Foundation.framework */,
 				B92DD03E189801FA006F2740 /* CoreGraphics.framework */,
 				B92DD040189801FA006F2740 /* UIKit.framework */,
