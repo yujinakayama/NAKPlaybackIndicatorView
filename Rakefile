@@ -1,23 +1,39 @@
 require 'bundler/setup'
 
-desc 'Run tests'
-task :test do
-  workspace = Dir['*.xcworkspace'].first
-  scheme = 'NAPlaybackIndicatorView'
-  destination = {
-    platform: 'iOS Simulator',
-        name: 'iPhone Retina (4-inch)'
-  }
-  action = 'test'
+namespace :test do
+  devices = [
+    'iPhone Retina (4-inch)',
+    'iPad',
+    'iPad Retina'
+  ].each_with_object({}) do |device_name, hash|
+    task_name = device_name.downcase.gsub(' ', '_').gsub(/[\(\)\-]/, '')
+    hash[task_name] = device_name
+  end
 
-  command = ['xcodebuild']
-  command.concat(['-workspace', workspace])
-  command.concat(['-scheme', scheme])
-  command.concat(['-destination', destination.map { |key, value| "#{key}=#{value}" }.join(',')])
-  command << action
+  devices.each do |task_name, device_name|
+    desc "Run tests on #{device_name}"
+    task task_name do
+      workspace = Dir['*.xcworkspace'].first
+      scheme = 'NAPlaybackIndicatorView'
+      destination = {
+        platform: 'iOS Simulator',
+            name: device_name
+      }
+      action = 'test'
 
-  require 'shellwords'
-  system("#{command.shelljoin} | xcpretty --color")
+      command = ['xcodebuild']
+      command.concat(['-workspace', workspace])
+      command.concat(['-scheme', scheme])
+      command.concat(['-destination', destination.map { |key, value| "#{key}=#{value}" }.join(',')])
+      command << action
+
+      require 'shellwords'
+      system("#{command.shelljoin} | xcpretty --color")
+    end
+  end
+
+  desc 'Run tests on all devices'
+  task all: devices.keys
 end
 
 task :version do
