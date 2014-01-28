@@ -1,0 +1,100 @@
+//
+//  NAPlaybackIndicatorView.m
+//  PlaybackIndicator
+//
+//  Created by Yuji Nakayama on 1/27/14.
+//  Copyright (c) 2014 Yuji Nakayama. All rights reserved.
+//
+
+#import "NAPlaybackIndicatorView.h"
+#import "NAPlaybackIndicatorContentView.h"
+
+@interface NAPlaybackIndicatorView ()
+
+@property (nonatomic, readonly) NAPlaybackIndicatorContentView* contentView;
+@property (nonatomic, readwrite, getter=isAnimating) BOOL animating;
+
+@end
+
+@implementation NAPlaybackIndicatorView
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder*)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit
+{
+    _contentView = [[NAPlaybackIndicatorContentView alloc] init];
+    [self addSubview:_contentView];
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)updateConstraints
+{
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                     attribute:NSLayoutAttributeCenterX
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self.contentView
+                                                     attribute:NSLayoutAttributeCenterX
+                                                    multiplier:1.0
+                                                      constant:0.0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                     attribute:NSLayoutAttributeCenterY
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self.contentView
+                                                     attribute:NSLayoutAttributeCenterY
+                                                    multiplier:1.0
+                                                      constant:0.0]];
+
+    [super updateConstraints];
+}
+
+- (CGSize)intrinsicContentSize
+{
+    return [self.contentView intrinsicContentSize];
+}
+
+- (UIView*)viewForBaselineLayout
+{
+    return self.contentView;
+}
+
+- (void)startAnimating
+{
+    if (self.isAnimating) {
+        return;
+    }
+
+    self.animating = YES;
+
+    [self.contentView stopDecay];
+    [self.contentView startOscillation];
+}
+
+- (void)stopAnimating
+{
+    if (!self.isAnimating) {
+        return;
+    }
+
+    self.animating = NO;
+
+    [self.contentView stopOscillation];
+    [self.contentView startDecay];
+}
+
+@end

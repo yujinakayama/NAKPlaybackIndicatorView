@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1121E6FE862149E583EDD002 /* libPods-NAPlaybackIndicatorViewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F39E5B2248D439B808FECA2 /* libPods-NAPlaybackIndicatorViewTests.a */; };
+		B92DD03D189801F9006F2740 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
+		B92DD03F189801FA006F2740 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03E189801FA006F2740 /* CoreGraphics.framework */; };
+		B92DD041189801FA006F2740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
+		B92DD047189801FA006F2740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B92DD045189801FA006F2740 /* InfoPlist.strings */; };
+		B92DD049189801FA006F2740 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD048189801FA006F2740 /* main.m */; };
+		B92DD04D189801FA006F2740 /* NAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD04C189801FA006F2740 /* NAAppDelegate.m */; };
+		B92DD050189801FA006F2740 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92DD04E189801FA006F2740 /* Main_iPhone.storyboard */; };
+		B92DD053189801FA006F2740 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92DD051189801FA006F2740 /* Main_iPad.storyboard */; };
+		B92DD056189801FA006F2740 /* NAMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD055189801FA006F2740 /* NAMasterViewController.m */; };
+		B92DD059189801FA006F2740 /* NADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD058189801FA006F2740 /* NADetailViewController.m */; };
+		B92DD05B189801FA006F2740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92DD05A189801FA006F2740 /* Images.xcassets */; };
+		B92DD062189801FA006F2740 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD061189801FA006F2740 /* XCTest.framework */; };
+		B92DD063189801FA006F2740 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
+		B92DD064189801FA006F2740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
+		B92DD06C189801FA006F2740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B92DD06A189801FA006F2740 /* InfoPlist.strings */; };
+		B92DD06E189801FA006F2740 /* NAPlaybackIndicatorViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */; };
+		B92DD07C189802B2006F2740 /* NAPlaybackIndicatorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD079189802B2006F2740 /* NAPlaybackIndicatorContentView.m */; };
+		B92DD07D189802B2006F2740 /* NAPlaybackIndicatorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD079189802B2006F2740 /* NAPlaybackIndicatorContentView.m */; };
+		B92DD07E189802B2006F2740 /* NAPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */; };
+		B92DD07F189802B2006F2740 /* NAPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */; };
+		E11BDA93546A4D00A088EE38 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA55ACCF95F48BB867CD2F4 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B92DD065189801FA006F2740 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B92DD031189801F9006F2740 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B92DD038189801F9006F2740;
+			remoteInfo = NAPlaybackIndicatorView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4439ADE7417242A994479CB0 /* Pods-NAPlaybackIndicatorViewTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NAPlaybackIndicatorViewTests.xcconfig"; path = "Pods/Pods-NAPlaybackIndicatorViewTests.xcconfig"; sourceTree = "<group>"; };
+		7F3A4D6FD01B479B90BDF0EC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		9F39E5B2248D439B808FECA2 /* libPods-NAPlaybackIndicatorViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NAPlaybackIndicatorViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B92DD039189801F9006F2740 /* NAPlaybackIndicatorView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NAPlaybackIndicatorView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B92DD03C189801F9006F2740 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B92DD03E189801FA006F2740 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B92DD040189801FA006F2740 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B92DD044189801FA006F2740 /* NAPlaybackIndicatorView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NAPlaybackIndicatorView-Info.plist"; sourceTree = "<group>"; };
+		B92DD046189801FA006F2740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B92DD048189801FA006F2740 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B92DD04A189801FA006F2740 /* NAPlaybackIndicatorView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NAPlaybackIndicatorView-Prefix.pch"; sourceTree = "<group>"; };
+		B92DD04B189801FA006F2740 /* NAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAAppDelegate.h; sourceTree = "<group>"; };
+		B92DD04C189801FA006F2740 /* NAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAAppDelegate.m; sourceTree = "<group>"; };
+		B92DD04F189801FA006F2740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		B92DD052189801FA006F2740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		B92DD054189801FA006F2740 /* NAMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAMasterViewController.h; sourceTree = "<group>"; };
+		B92DD055189801FA006F2740 /* NAMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAMasterViewController.m; sourceTree = "<group>"; };
+		B92DD057189801FA006F2740 /* NADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NADetailViewController.h; sourceTree = "<group>"; };
+		B92DD058189801FA006F2740 /* NADetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NADetailViewController.m; sourceTree = "<group>"; };
+		B92DD05A189801FA006F2740 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B92DD060189801FA006F2740 /* NAPlaybackIndicatorViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NAPlaybackIndicatorViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B92DD061189801FA006F2740 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B92DD069189801FA006F2740 /* NAPlaybackIndicatorViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NAPlaybackIndicatorViewTests-Info.plist"; sourceTree = "<group>"; };
+		B92DD06B189801FA006F2740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorViewTests.m; sourceTree = "<group>"; };
+		B92DD078189802B2006F2740 /* NAPlaybackIndicatorContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPlaybackIndicatorContentView.h; sourceTree = "<group>"; };
+		B92DD079189802B2006F2740 /* NAPlaybackIndicatorContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorContentView.m; sourceTree = "<group>"; };
+		B92DD07A189802B2006F2740 /* NAPlaybackIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPlaybackIndicatorView.h; sourceTree = "<group>"; };
+		B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorView.m; sourceTree = "<group>"; };
+		FEA55ACCF95F48BB867CD2F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B92DD036189801F9006F2740 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B92DD03F189801FA006F2740 /* CoreGraphics.framework in Frameworks */,
+				B92DD041189801FA006F2740 /* UIKit.framework in Frameworks */,
+				B92DD03D189801F9006F2740 /* Foundation.framework in Frameworks */,
+				E11BDA93546A4D00A088EE38 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B92DD05D189801FA006F2740 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B92DD062189801FA006F2740 /* XCTest.framework in Frameworks */,
+				B92DD064189801FA006F2740 /* UIKit.framework in Frameworks */,
+				B92DD063189801FA006F2740 /* Foundation.framework in Frameworks */,
+				1121E6FE862149E583EDD002 /* libPods-NAPlaybackIndicatorViewTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B92DD030189801F9006F2740 = {
+			isa = PBXGroup;
+			children = (
+				B92DD077189802B2006F2740 /* Classes */,
+				B92DD042189801FA006F2740 /* NAPlaybackIndicatorView */,
+				B92DD067189801FA006F2740 /* NAPlaybackIndicatorViewTests */,
+				B92DD03B189801F9006F2740 /* Frameworks */,
+				B92DD03A189801F9006F2740 /* Products */,
+				7F3A4D6FD01B479B90BDF0EC /* Pods.xcconfig */,
+				4439ADE7417242A994479CB0 /* Pods-NAPlaybackIndicatorViewTests.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		B92DD03A189801F9006F2740 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B92DD039189801F9006F2740 /* NAPlaybackIndicatorView.app */,
+				B92DD060189801FA006F2740 /* NAPlaybackIndicatorViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B92DD03B189801F9006F2740 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B92DD03C189801F9006F2740 /* Foundation.framework */,
+				B92DD03E189801FA006F2740 /* CoreGraphics.framework */,
+				B92DD040189801FA006F2740 /* UIKit.framework */,
+				B92DD061189801FA006F2740 /* XCTest.framework */,
+				FEA55ACCF95F48BB867CD2F4 /* libPods.a */,
+				9F39E5B2248D439B808FECA2 /* libPods-NAPlaybackIndicatorViewTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B92DD042189801FA006F2740 /* NAPlaybackIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				B92DD04B189801FA006F2740 /* NAAppDelegate.h */,
+				B92DD04C189801FA006F2740 /* NAAppDelegate.m */,
+				B92DD04E189801FA006F2740 /* Main_iPhone.storyboard */,
+				B92DD051189801FA006F2740 /* Main_iPad.storyboard */,
+				B92DD054189801FA006F2740 /* NAMasterViewController.h */,
+				B92DD055189801FA006F2740 /* NAMasterViewController.m */,
+				B92DD057189801FA006F2740 /* NADetailViewController.h */,
+				B92DD058189801FA006F2740 /* NADetailViewController.m */,
+				B92DD05A189801FA006F2740 /* Images.xcassets */,
+				B92DD043189801FA006F2740 /* Supporting Files */,
+			);
+			path = NAPlaybackIndicatorView;
+			sourceTree = "<group>";
+		};
+		B92DD043189801FA006F2740 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B92DD044189801FA006F2740 /* NAPlaybackIndicatorView-Info.plist */,
+				B92DD045189801FA006F2740 /* InfoPlist.strings */,
+				B92DD048189801FA006F2740 /* main.m */,
+				B92DD04A189801FA006F2740 /* NAPlaybackIndicatorView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B92DD067189801FA006F2740 /* NAPlaybackIndicatorViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */,
+				B92DD068189801FA006F2740 /* Supporting Files */,
+			);
+			path = NAPlaybackIndicatorViewTests;
+			sourceTree = "<group>";
+		};
+		B92DD068189801FA006F2740 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B92DD069189801FA006F2740 /* NAPlaybackIndicatorViewTests-Info.plist */,
+				B92DD06A189801FA006F2740 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B92DD077189802B2006F2740 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B92DD07A189802B2006F2740 /* NAPlaybackIndicatorView.h */,
+				B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */,
+				B92DD078189802B2006F2740 /* NAPlaybackIndicatorContentView.h */,
+				B92DD079189802B2006F2740 /* NAPlaybackIndicatorContentView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B92DD038189801F9006F2740 /* NAPlaybackIndicatorView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B92DD071189801FA006F2740 /* Build configuration list for PBXNativeTarget "NAPlaybackIndicatorView" */;
+			buildPhases = (
+				CE6E01A2C99B4BC0960B5AED /* Check Pods Manifest.lock */,
+				B92DD035189801F9006F2740 /* Sources */,
+				B92DD036189801F9006F2740 /* Frameworks */,
+				B92DD037189801F9006F2740 /* Resources */,
+				9E9C1D4C892C4FD98215AB40 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NAPlaybackIndicatorView;
+			productName = NAPlaybackIndicatorView;
+			productReference = B92DD039189801F9006F2740 /* NAPlaybackIndicatorView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B92DD05F189801FA006F2740 /* NAPlaybackIndicatorViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B92DD074189801FA006F2740 /* Build configuration list for PBXNativeTarget "NAPlaybackIndicatorViewTests" */;
+			buildPhases = (
+				A53051748F7242CC8C4BEEF7 /* Check Pods Manifest.lock */,
+				B92DD05C189801FA006F2740 /* Sources */,
+				B92DD05D189801FA006F2740 /* Frameworks */,
+				B92DD05E189801FA006F2740 /* Resources */,
+				1C0B6B15767340C59209597C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B92DD066189801FA006F2740 /* PBXTargetDependency */,
+			);
+			name = NAPlaybackIndicatorViewTests;
+			productName = NAPlaybackIndicatorViewTests;
+			productReference = B92DD060189801FA006F2740 /* NAPlaybackIndicatorViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B92DD031189801F9006F2740 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NA;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Yuji Nakayama";
+				TargetAttributes = {
+					B92DD05F189801FA006F2740 = {
+						TestTargetID = B92DD038189801F9006F2740;
+					};
+				};
+			};
+			buildConfigurationList = B92DD034189801F9006F2740 /* Build configuration list for PBXProject "NAPlaybackIndicatorView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B92DD030189801F9006F2740;
+			productRefGroup = B92DD03A189801F9006F2740 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B92DD038189801F9006F2740 /* NAPlaybackIndicatorView */,
+				B92DD05F189801FA006F2740 /* NAPlaybackIndicatorViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B92DD037189801F9006F2740 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B92DD053189801FA006F2740 /* Main_iPad.storyboard in Resources */,
+				B92DD05B189801FA006F2740 /* Images.xcassets in Resources */,
+				B92DD050189801FA006F2740 /* Main_iPhone.storyboard in Resources */,
+				B92DD047189801FA006F2740 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B92DD05E189801FA006F2740 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B92DD06C189801FA006F2740 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C0B6B15767340C59209597C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-NAPlaybackIndicatorViewTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E9C1D4C892C4FD98215AB40 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A53051748F7242CC8C4BEEF7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CE6E01A2C99B4BC0960B5AED /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B92DD035189801F9006F2740 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B92DD059189801FA006F2740 /* NADetailViewController.m in Sources */,
+				B92DD049189801FA006F2740 /* main.m in Sources */,
+				B92DD07E189802B2006F2740 /* NAPlaybackIndicatorView.m in Sources */,
+				B92DD056189801FA006F2740 /* NAMasterViewController.m in Sources */,
+				B92DD07C189802B2006F2740 /* NAPlaybackIndicatorContentView.m in Sources */,
+				B92DD04D189801FA006F2740 /* NAAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B92DD05C189801FA006F2740 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B92DD07D189802B2006F2740 /* NAPlaybackIndicatorContentView.m in Sources */,
+				B92DD06E189801FA006F2740 /* NAPlaybackIndicatorViewTests.m in Sources */,
+				B92DD07F189802B2006F2740 /* NAPlaybackIndicatorView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B92DD066189801FA006F2740 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B92DD038189801F9006F2740 /* NAPlaybackIndicatorView */;
+			targetProxy = B92DD065189801FA006F2740 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B92DD045189801FA006F2740 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B92DD046189801FA006F2740 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B92DD04E189801FA006F2740 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B92DD04F189801FA006F2740 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		B92DD051189801FA006F2740 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B92DD052189801FA006F2740 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		B92DD06A189801FA006F2740 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B92DD06B189801FA006F2740 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B92DD06F189801FA006F2740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B92DD070189801FA006F2740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B92DD072189801FA006F2740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F3A4D6FD01B479B90BDF0EC /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NAPlaybackIndicatorView/NAPlaybackIndicatorView-Prefix.pch";
+				INFOPLIST_FILE = "NAPlaybackIndicatorView/NAPlaybackIndicatorView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B92DD073189801FA006F2740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F3A4D6FD01B479B90BDF0EC /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NAPlaybackIndicatorView/NAPlaybackIndicatorView-Prefix.pch";
+				INFOPLIST_FILE = "NAPlaybackIndicatorView/NAPlaybackIndicatorView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B92DD075189801FA006F2740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4439ADE7417242A994479CB0 /* Pods-NAPlaybackIndicatorViewTests.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NAPlaybackIndicatorView.app/NAPlaybackIndicatorView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NAPlaybackIndicatorView/NAPlaybackIndicatorView-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"FB_REFERENCE_IMAGE_DIR=\"\\\"$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/ReferenceImages\\\"\"",
+				);
+				INFOPLIST_FILE = "NAPlaybackIndicatorViewTests/NAPlaybackIndicatorViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B92DD076189801FA006F2740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4439ADE7417242A994479CB0 /* Pods-NAPlaybackIndicatorViewTests.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NAPlaybackIndicatorView.app/NAPlaybackIndicatorView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NAPlaybackIndicatorView/NAPlaybackIndicatorView-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"FB_REFERENCE_IMAGE_DIR=\"\\\"$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/ReferenceImages\\\"\"",
+				);
+				INFOPLIST_FILE = "NAPlaybackIndicatorViewTests/NAPlaybackIndicatorViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B92DD034189801F9006F2740 /* Build configuration list for PBXProject "NAPlaybackIndicatorView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B92DD06F189801FA006F2740 /* Debug */,
+				B92DD070189801FA006F2740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B92DD071189801FA006F2740 /* Build configuration list for PBXNativeTarget "NAPlaybackIndicatorView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B92DD072189801FA006F2740 /* Debug */,
+				B92DD073189801FA006F2740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B92DD074189801FA006F2740 /* Build configuration list for PBXNativeTarget "NAPlaybackIndicatorViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B92DD075189801FA006F2740 /* Debug */,
+				B92DD076189801FA006F2740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B92DD031189801F9006F2740 /* Project object */;
+}
