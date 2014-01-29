@@ -7,15 +7,20 @@
 //
 
 #import "DMAppDelegate.h"
+#import "DMMusicViewController.h"
 
 @implementation DMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+
+    DMMusicViewController* musicViewController = [[DMMusicViewController alloc] init];
+    UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:musicViewController];
+    self.window.rootViewController = navigationController;
+
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 
