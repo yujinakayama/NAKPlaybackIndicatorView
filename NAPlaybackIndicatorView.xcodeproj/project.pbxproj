@@ -15,10 +15,6 @@
 		B92DD047189801FA006F2740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B92DD045189801FA006F2740 /* InfoPlist.strings */; };
 		B92DD049189801FA006F2740 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD048189801FA006F2740 /* main.m */; };
 		B92DD04D189801FA006F2740 /* NAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD04C189801FA006F2740 /* NAAppDelegate.m */; };
-		B92DD050189801FA006F2740 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92DD04E189801FA006F2740 /* Main_iPhone.storyboard */; };
-		B92DD053189801FA006F2740 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92DD051189801FA006F2740 /* Main_iPad.storyboard */; };
-		B92DD056189801FA006F2740 /* NAMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD055189801FA006F2740 /* NAMasterViewController.m */; };
-		B92DD059189801FA006F2740 /* NADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD058189801FA006F2740 /* NADetailViewController.m */; };
 		B92DD05B189801FA006F2740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92DD05A189801FA006F2740 /* Images.xcassets */; };
 		B92DD062189801FA006F2740 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD061189801FA006F2740 /* XCTest.framework */; };
 		B92DD063189801FA006F2740 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
@@ -52,12 +48,6 @@
 		B92DD04A189801FA006F2740 /* NAPlaybackIndicatorView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NAPlaybackIndicatorView-Prefix.pch"; sourceTree = "<group>"; };
 		B92DD04B189801FA006F2740 /* NAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAAppDelegate.h; sourceTree = "<group>"; };
 		B92DD04C189801FA006F2740 /* NAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAAppDelegate.m; sourceTree = "<group>"; };
-		B92DD04F189801FA006F2740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		B92DD052189801FA006F2740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		B92DD054189801FA006F2740 /* NAMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAMasterViewController.h; sourceTree = "<group>"; };
-		B92DD055189801FA006F2740 /* NAMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAMasterViewController.m; sourceTree = "<group>"; };
-		B92DD057189801FA006F2740 /* NADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NADetailViewController.h; sourceTree = "<group>"; };
-		B92DD058189801FA006F2740 /* NADetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NADetailViewController.m; sourceTree = "<group>"; };
 		B92DD05A189801FA006F2740 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B92DD060189801FA006F2740 /* NAPlaybackIndicatorViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NAPlaybackIndicatorViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92DD061189801FA006F2740 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -131,12 +121,6 @@
 			children = (
 				B92DD04B189801FA006F2740 /* NAAppDelegate.h */,
 				B92DD04C189801FA006F2740 /* NAAppDelegate.m */,
-				B92DD04E189801FA006F2740 /* Main_iPhone.storyboard */,
-				B92DD051189801FA006F2740 /* Main_iPad.storyboard */,
-				B92DD054189801FA006F2740 /* NAMasterViewController.h */,
-				B92DD055189801FA006F2740 /* NAMasterViewController.m */,
-				B92DD057189801FA006F2740 /* NADetailViewController.h */,
-				B92DD058189801FA006F2740 /* NADetailViewController.m */,
 				B92DD05A189801FA006F2740 /* Images.xcassets */,
 				B92DD043189801FA006F2740 /* Supporting Files */,
 			);
@@ -253,9 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B92DD053189801FA006F2740 /* Main_iPad.storyboard in Resources */,
 				B92DD05B189801FA006F2740 /* Images.xcassets in Resources */,
-				B92DD050189801FA006F2740 /* Main_iPhone.storyboard in Resources */,
 				B92DD047189801FA006F2740 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,9 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B92DD059189801FA006F2740 /* NADetailViewController.m in Sources */,
 				B92DD049189801FA006F2740 /* main.m in Sources */,
-				B92DD056189801FA006F2740 /* NAMasterViewController.m in Sources */,
 				B92DD04D189801FA006F2740 /* NAAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,22 +350,6 @@
 				B92DD046189801FA006F2740 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B92DD04E189801FA006F2740 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B92DD04F189801FA006F2740 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		B92DD051189801FA006F2740 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B92DD052189801FA006F2740 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		B92DD06A189801FA006F2740 /* InfoPlist.strings */ = {

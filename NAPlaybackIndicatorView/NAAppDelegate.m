@@ -12,40 +12,54 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
-    }
+    self.window = [[UIWindow alloc] init];
+    self.window.rootViewController = [self createViewController];
+    [self.window makeKeyAndVisible];
     return YES;
 }
-							
-- (void)applicationWillResignActive:(UIApplication *)application
+
+- (UIViewController*)createViewController
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    UIViewController* viewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+    viewController.view.backgroundColor = [UIColor whiteColor];
+
+    UILabel* label = [self createLabel];
+    [viewController.view addSubview:label];
+
+    [viewController.view addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                    attribute:NSLayoutAttributeWidth
+                                                                    relatedBy:NSLayoutRelationLessThanOrEqual
+                                                                       toItem:viewController.view
+                                                                    attribute:NSLayoutAttributeWidth
+                                                                   multiplier:0.9
+                                                                     constant:0.0]];
+    [viewController.view addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:viewController.view
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                   multiplier:1.0
+                                                                     constant:0.0]];
+    [viewController.view addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                                    attribute:NSLayoutAttributeCenterY
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:viewController.view
+                                                                    attribute:NSLayoutAttributeCenterY
+                                                                   multiplier:1.0
+                                                                     constant:0.0]];
+
+    return viewController;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+- (UILabel*)createLabel
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    UILabel* label = [[UILabel alloc] init];
+    label.text = @"This empty app is a test host which the unit tests will be injected so that views work properly. "
+                 @"See “Test Host” build setting of the unit test target.";
+    label.font = [UIFont systemFontOfSize:15.0];
+    label.numberOfLines = 0;
+    label.translatesAutoresizingMaskIntoConstraints = NO;
+    return label;
 }
 
 @end
