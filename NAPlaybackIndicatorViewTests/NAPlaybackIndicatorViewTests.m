@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <FBSnapshotTestCase/FBSnapshotTestCase.h>
-#import "NAPlaybackIndicatorView.h"
+#import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
 
 @interface NAPlaybackIndicatorViewTests : FBSnapshotTestCase
 

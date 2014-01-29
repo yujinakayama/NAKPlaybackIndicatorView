@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1121E6FE862149E583EDD002 /* libPods-NAPlaybackIndicatorViewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F39E5B2248D439B808FECA2 /* libPods-NAPlaybackIndicatorViewTests.a */; };
+		AF95F73772D3414E967474BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4A8AB229D14AC69DF3E1F5 /* libPods.a */; };
 		B92DD03D189801F9006F2740 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
 		B92DD03F189801FA006F2740 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03E189801FA006F2740 /* CoreGraphics.framework */; };
 		B92DD041189801FA006F2740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
@@ -24,11 +25,6 @@
 		B92DD064189801FA006F2740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
 		B92DD06C189801FA006F2740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B92DD06A189801FA006F2740 /* InfoPlist.strings */; };
 		B92DD06E189801FA006F2740 /* NAPlaybackIndicatorViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */; };
-		B92DD07C189802B2006F2740 /* NAPlaybackIndicatorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD079189802B2006F2740 /* NAPlaybackIndicatorContentView.m */; };
-		B92DD07D189802B2006F2740 /* NAPlaybackIndicatorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD079189802B2006F2740 /* NAPlaybackIndicatorContentView.m */; };
-		B92DD07E189802B2006F2740 /* NAPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */; };
-		B92DD07F189802B2006F2740 /* NAPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */; };
-		B92DD095189830A2006F2740 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD094189830A2006F2740 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +39,9 @@
 
 /* Begin PBXFileReference section */
 		4439ADE7417242A994479CB0 /* Pods-NAPlaybackIndicatorViewTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NAPlaybackIndicatorViewTests.xcconfig"; path = "Pods/Pods-NAPlaybackIndicatorViewTests.xcconfig"; sourceTree = "<group>"; };
+		813703004B5A4E448B0EEB33 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9F39E5B2248D439B808FECA2 /* libPods-NAPlaybackIndicatorViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NAPlaybackIndicatorViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE4A8AB229D14AC69DF3E1F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92DD039189801F9006F2740 /* NAPlaybackIndicatorView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NAPlaybackIndicatorView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92DD03C189801F9006F2740 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B92DD03E189801FA006F2740 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,11 +64,6 @@
 		B92DD069189801FA006F2740 /* NAPlaybackIndicatorViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NAPlaybackIndicatorViewTests-Info.plist"; sourceTree = "<group>"; };
 		B92DD06B189801FA006F2740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorViewTests.m; sourceTree = "<group>"; };
-		B92DD078189802B2006F2740 /* NAPlaybackIndicatorContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPlaybackIndicatorContentView.h; sourceTree = "<group>"; };
-		B92DD079189802B2006F2740 /* NAPlaybackIndicatorContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorContentView.m; sourceTree = "<group>"; };
-		B92DD07A189802B2006F2740 /* NAPlaybackIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPlaybackIndicatorView.h; sourceTree = "<group>"; };
-		B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorView.m; sourceTree = "<group>"; };
-		B92DD094189830A2006F2740 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +71,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B92DD095189830A2006F2740 /* QuartzCore.framework in Frameworks */,
 				B92DD03F189801FA006F2740 /* CoreGraphics.framework in Frameworks */,
 				B92DD041189801FA006F2740 /* UIKit.framework in Frameworks */,
 				B92DD03D189801F9006F2740 /* Foundation.framework in Frameworks */,
+				AF95F73772D3414E967474BC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,11 +95,11 @@
 		B92DD030189801F9006F2740 = {
 			isa = PBXGroup;
 			children = (
-				B92DD077189802B2006F2740 /* Classes */,
 				B92DD042189801FA006F2740 /* NAPlaybackIndicatorView */,
 				B92DD067189801FA006F2740 /* NAPlaybackIndicatorViewTests */,
 				B92DD03B189801F9006F2740 /* Frameworks */,
 				B92DD03A189801F9006F2740 /* Products */,
+				813703004B5A4E448B0EEB33 /* Pods.xcconfig */,
 				4439ADE7417242A994479CB0 /* Pods-NAPlaybackIndicatorViewTests.xcconfig */,
 			);
 			sourceTree = "<group>";
@@ -123,11 +116,11 @@
 		B92DD03B189801F9006F2740 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B92DD094189830A2006F2740 /* QuartzCore.framework */,
 				B92DD03C189801F9006F2740 /* Foundation.framework */,
 				B92DD03E189801FA006F2740 /* CoreGraphics.framework */,
 				B92DD040189801FA006F2740 /* UIKit.framework */,
 				B92DD061189801FA006F2740 /* XCTest.framework */,
+				AE4A8AB229D14AC69DF3E1F5 /* libPods.a */,
 				9F39E5B2248D439B808FECA2 /* libPods-NAPlaybackIndicatorViewTests.a */,
 			);
 			name = Frameworks;
@@ -179,17 +172,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B92DD077189802B2006F2740 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				B92DD07A189802B2006F2740 /* NAPlaybackIndicatorView.h */,
-				B92DD07B189802B2006F2740 /* NAPlaybackIndicatorView.m */,
-				B92DD078189802B2006F2740 /* NAPlaybackIndicatorContentView.h */,
-				B92DD079189802B2006F2740 /* NAPlaybackIndicatorContentView.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -197,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B92DD071189801FA006F2740 /* Build configuration list for PBXNativeTarget "NAPlaybackIndicatorView" */;
 			buildPhases = (
+				9124F7FC77FE468E974FAFB4 /* Check Pods Manifest.lock */,
 				B92DD035189801F9006F2740 /* Sources */,
 				B92DD036189801F9006F2740 /* Frameworks */,
 				B92DD037189801F9006F2740 /* Resources */,
+				2507A8C188BD4837B08F5223 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,6 +286,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-NAPlaybackIndicatorViewTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2507A8C188BD4837B08F5223 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9124F7FC77FE468E974FAFB4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		A53051748F7242CC8C4BEEF7 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,9 +340,7 @@
 			files = (
 				B92DD059189801FA006F2740 /* NADetailViewController.m in Sources */,
 				B92DD049189801FA006F2740 /* main.m in Sources */,
-				B92DD07E189802B2006F2740 /* NAPlaybackIndicatorView.m in Sources */,
 				B92DD056189801FA006F2740 /* NAMasterViewController.m in Sources */,
-				B92DD07C189802B2006F2740 /* NAPlaybackIndicatorContentView.m in Sources */,
 				B92DD04D189801FA006F2740 /* NAAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,9 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B92DD07D189802B2006F2740 /* NAPlaybackIndicatorContentView.m in Sources */,
 				B92DD06E189801FA006F2740 /* NAPlaybackIndicatorViewTests.m in Sources */,
-				B92DD07F189802B2006F2740 /* NAPlaybackIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +475,7 @@
 		};
 		B92DD072189801FA006F2740 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 813703004B5A4E448B0EEB33 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -478,6 +489,7 @@
 		};
 		B92DD073189801FA006F2740 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 813703004B5A4E448B0EEB33 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

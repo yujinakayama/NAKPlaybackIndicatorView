@@ -1,10 +1,17 @@
 PODS:
   - FBSnapshotTestCase (1.0)
+  - NAPlaybackIndicatorView (0.1.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 1.0)
+  - NAPlaybackIndicatorView (from `NAPlaybackIndicatorView.podspec`)
+
+EXTERNAL SOURCES:
+  NAPlaybackIndicatorView:
+    :path: NAPlaybackIndicatorView.podspec
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 1fdacb227081a78c5ee3e6012010f373e51c9ecd
+  NAPlaybackIndicatorView: ea8fcba0dc7e76726e79507fc045ac1dea8c8cb2
 
 COCOAPODS: 0.29.0
