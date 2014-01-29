@@ -1,6 +1,6 @@
 
 pod 'NAPlaybackIndicatorView', path: 'NAPlaybackIndicatorView.podspec'
 
-target 'NAPlaybackIndicatorViewTests' do
+target 'Tests' do
   pod 'FBSnapshotTestCase', '~> 1.0'
 end

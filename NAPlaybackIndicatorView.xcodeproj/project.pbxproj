@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1121E6FE862149E583EDD002 /* libPods-NAPlaybackIndicatorViewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F39E5B2248D439B808FECA2 /* libPods-NAPlaybackIndicatorViewTests.a */; };
 		AF95F73772D3414E967474BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4A8AB229D14AC69DF3E1F5 /* libPods.a */; };
 		B92DD03D189801F9006F2740 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
 		B92DD03F189801FA006F2740 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03E189801FA006F2740 /* CoreGraphics.framework */; };
@@ -21,6 +20,7 @@
 		B92DD064189801FA006F2740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
 		B92DD06C189801FA006F2740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B92DD06A189801FA006F2740 /* InfoPlist.strings */; };
 		B92DD06E189801FA006F2740 /* NAPlaybackIndicatorViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */; };
+		CF523484B77A4B0B8F86BEB5 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4439ADE7417242A994479CB0 /* Pods-NAPlaybackIndicatorViewTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NAPlaybackIndicatorViewTests.xcconfig"; path = "Pods/Pods-NAPlaybackIndicatorViewTests.xcconfig"; sourceTree = "<group>"; };
+		6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		813703004B5A4E448B0EEB33 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		9F39E5B2248D439B808FECA2 /* libPods-NAPlaybackIndicatorViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NAPlaybackIndicatorViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0A262308724002AEC2974F /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
 		AE4A8AB229D14AC69DF3E1F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92DD039189801F9006F2740 /* NAPlaybackIndicatorView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NAPlaybackIndicatorView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92DD03C189801F9006F2740 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,9 +49,9 @@
 		B92DD04B189801FA006F2740 /* NAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAAppDelegate.h; sourceTree = "<group>"; };
 		B92DD04C189801FA006F2740 /* NAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAAppDelegate.m; sourceTree = "<group>"; };
 		B92DD05A189801FA006F2740 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B92DD060189801FA006F2740 /* NAPlaybackIndicatorViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NAPlaybackIndicatorViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B92DD060189801FA006F2740 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92DD061189801FA006F2740 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		B92DD069189801FA006F2740 /* NAPlaybackIndicatorViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NAPlaybackIndicatorViewTests-Info.plist"; sourceTree = "<group>"; };
+		B92DD069189801FA006F2740 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		B92DD06B189801FA006F2740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorViewTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,7 +75,7 @@
 				B92DD062189801FA006F2740 /* XCTest.framework in Frameworks */,
 				B92DD064189801FA006F2740 /* UIKit.framework in Frameworks */,
 				B92DD063189801FA006F2740 /* Foundation.framework in Frameworks */,
-				1121E6FE862149E583EDD002 /* libPods-NAPlaybackIndicatorViewTests.a in Frameworks */,
+				CF523484B77A4B0B8F86BEB5 /* libPods-Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,11 +86,11 @@
 			isa = PBXGroup;
 			children = (
 				B92DD042189801FA006F2740 /* NAPlaybackIndicatorView */,
-				B92DD067189801FA006F2740 /* NAPlaybackIndicatorViewTests */,
+				B92DD067189801FA006F2740 /* Tests */,
 				B92DD03B189801F9006F2740 /* Frameworks */,
 				B92DD03A189801F9006F2740 /* Products */,
 				813703004B5A4E448B0EEB33 /* Pods.xcconfig */,
-				4439ADE7417242A994479CB0 /* Pods-NAPlaybackIndicatorViewTests.xcconfig */,
+				AA0A262308724002AEC2974F /* Pods-Tests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B92DD039189801F9006F2740 /* NAPlaybackIndicatorView.app */,
-				B92DD060189801FA006F2740 /* NAPlaybackIndicatorViewTests.xctest */,
+				B92DD060189801FA006F2740 /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,7 +111,7 @@
 				B92DD040189801FA006F2740 /* UIKit.framework */,
 				B92DD061189801FA006F2740 /* XCTest.framework */,
 				AE4A8AB229D14AC69DF3E1F5 /* libPods.a */,
-				9F39E5B2248D439B808FECA2 /* libPods-NAPlaybackIndicatorViewTests.a */,
+				6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -138,19 +138,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B92DD067189801FA006F2740 /* NAPlaybackIndicatorViewTests */ = {
+		B92DD067189801FA006F2740 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */,
 				B92DD068189801FA006F2740 /* Supporting Files */,
 			);
-			path = NAPlaybackIndicatorViewTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		B92DD068189801FA006F2740 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B92DD069189801FA006F2740 /* NAPlaybackIndicatorViewTests-Info.plist */,
+				B92DD069189801FA006F2740 /* Tests-Info.plist */,
 				B92DD06A189801FA006F2740 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -178,9 +178,9 @@
 			productReference = B92DD039189801F9006F2740 /* NAPlaybackIndicatorView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B92DD05F189801FA006F2740 /* NAPlaybackIndicatorViewTests */ = {
+		B92DD05F189801FA006F2740 /* Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B92DD074189801FA006F2740 /* Build configuration list for PBXNativeTarget "NAPlaybackIndicatorViewTests" */;
+			buildConfigurationList = B92DD074189801FA006F2740 /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
 				A53051748F7242CC8C4BEEF7 /* Check Pods Manifest.lock */,
 				B92DD05C189801FA006F2740 /* Sources */,
@@ -193,9 +193,9 @@
 			dependencies = (
 				B92DD066189801FA006F2740 /* PBXTargetDependency */,
 			);
-			name = NAPlaybackIndicatorViewTests;
+			name = Tests;
 			productName = NAPlaybackIndicatorViewTests;
-			productReference = B92DD060189801FA006F2740 /* NAPlaybackIndicatorViewTests.xctest */;
+			productReference = B92DD060189801FA006F2740 /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -227,7 +227,7 @@
 			projectRoot = "";
 			targets = (
 				B92DD038189801F9006F2740 /* NAPlaybackIndicatorView */,
-				B92DD05F189801FA006F2740 /* NAPlaybackIndicatorViewTests */,
+				B92DD05F189801FA006F2740 /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,7 +265,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-NAPlaybackIndicatorViewTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2507A8C188BD4837B08F5223 /* Copy Pods Resources */ = {
@@ -467,7 +467,7 @@
 		};
 		B92DD075189801FA006F2740 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4439ADE7417242A994479CB0 /* Pods-NAPlaybackIndicatorViewTests.xcconfig */;
+			baseConfigurationReference = AA0A262308724002AEC2974F /* Pods-Tests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NAPlaybackIndicatorView.app/NAPlaybackIndicatorView";
@@ -481,9 +481,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
-					"FB_REFERENCE_IMAGE_DIR=\"\\\"$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/ReferenceImages\\\"\"",
+					"FB_REFERENCE_IMAGE_DIR=\"\\\"$(SOURCE_ROOT)/Tests/ReferenceImages\\\"\"",
 				);
-				INFOPLIST_FILE = "NAPlaybackIndicatorViewTests/NAPlaybackIndicatorViewTests-Info.plist";
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -492,7 +492,7 @@
 		};
 		B92DD076189801FA006F2740 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4439ADE7417242A994479CB0 /* Pods-NAPlaybackIndicatorViewTests.xcconfig */;
+			baseConfigurationReference = AA0A262308724002AEC2974F /* Pods-Tests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NAPlaybackIndicatorView.app/NAPlaybackIndicatorView";
@@ -506,9 +506,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
-					"FB_REFERENCE_IMAGE_DIR=\"\\\"$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/ReferenceImages\\\"\"",
+					"FB_REFERENCE_IMAGE_DIR=\"\\\"$(SOURCE_ROOT)/Tests/ReferenceImages\\\"\"",
 				);
-				INFOPLIST_FILE = "NAPlaybackIndicatorViewTests/NAPlaybackIndicatorViewTests-Info.plist";
+				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -536,7 +536,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B92DD074189801FA006F2740 /* Build configuration list for PBXNativeTarget "NAPlaybackIndicatorViewTests" */ = {
+		B92DD074189801FA006F2740 /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B92DD075189801FA006F2740 /* Debug */,
