@@ -1,14 +1,14 @@
 //
-//  NAAppDelegate.m
+//  THAppDelegate.m
 //  NAPlaybackIndicatorView
 //
 //  Created by Yuji Nakayama on 1/29/14.
 //  Copyright (c) 2014 Yuji Nakayama. All rights reserved.
 //
 
-#import "NAAppDelegate.h"
+#import "THAppDelegate.h"
 
-@implementation NAAppDelegate
+@implementation THAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

@@ -1,5 +1,5 @@
 //
-//  NAAppDelegate.h
+//  THAppDelegate.h
 //  NAPlaybackIndicatorView
 //
 //  Created by Yuji Nakayama on 1/29/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NAAppDelegate : UIResponder <UIApplicationDelegate>
+@interface THAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

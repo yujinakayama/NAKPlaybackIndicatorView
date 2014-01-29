@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B92DD038189801F9006F2740"
-               BuildableName = "NAPlaybackIndicatorView.app"
-               BlueprintName = "NAPlaybackIndicatorView"
+               BuildableName = "TestHost.app"
+               BlueprintName = "TestHost"
                ReferencedContainer = "container:NAPlaybackIndicatorView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B92DD038189801F9006F2740"
-            BuildableName = "NAPlaybackIndicatorView.app"
-            BlueprintName = "NAPlaybackIndicatorView"
+            BuildableName = "TestHost.app"
+            BlueprintName = "TestHost"
             ReferencedContainer = "container:NAPlaybackIndicatorView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B92DD038189801F9006F2740"
-            BuildableName = "NAPlaybackIndicatorView.app"
-            BlueprintName = "NAPlaybackIndicatorView"
+            BuildableName = "TestHost.app"
+            BlueprintName = "TestHost"
             ReferencedContainer = "container:NAPlaybackIndicatorView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B92DD038189801F9006F2740"
-            BuildableName = "NAPlaybackIndicatorView.app"
-            BlueprintName = "NAPlaybackIndicatorView"
+            BuildableName = "TestHost.app"
+            BlueprintName = "TestHost"
             ReferencedContainer = "container:NAPlaybackIndicatorView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
