@@ -15,6 +15,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+    // Music.app color
+    self.window.tintColor = [UIColor colorWithHue:0.968 saturation:0.827 brightness:1.000 alpha:1.000];
+
     DMMusicViewController* musicViewController = [[DMMusicViewController alloc] init];
     UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:musicViewController];
     self.window.rootViewController = navigationController;
