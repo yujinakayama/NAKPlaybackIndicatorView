@@ -64,7 +64,7 @@
     // On iOS 7, the superview of contentView is not the cell!
     // http://stackoverflow.com/q/19162725
     [self.contentView.superview addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"|[contentView]|"
+     [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0@1)-[contentView]-(0@1)-|"
                                              options:0
                                              metrics:nil
                                                views:views]];
