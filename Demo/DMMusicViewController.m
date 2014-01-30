@@ -7,6 +7,15 @@
 //
 
 #import "DMMusicViewController.h"
+#import "DMSongCell.h"
+#import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
+
+@interface DMMusicViewController ()
+
+@property (nonatomic, assign) DMPlaybackState playbackState;
+@property (nonatomic, strong) NSIndexPath* playingIndexPath;
+
+@end
 
 @implementation DMMusicViewController
 
@@ -27,19 +36,43 @@
 {
     static NSString *kCellIdentifier = @"Cell";
 
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    DMSongCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
 
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier];
+        cell = [[DMSongCell alloc] initWithReuseIdentifier:kCellIdentifier];
     }
 
-    cell.textLabel.text = [NSString stringWithFormat:@"Song %d", indexPath.row];
+    cell.titleLabel.text = [NSString stringWithFormat:@"Song %d", indexPath.row];
+    cell.durationLabel.text = [NSString stringWithFormat:@"%d:%02d", arc4random_uniform(13), arc4random_uniform(60)];
+
+    if (self.playingIndexPath && [indexPath compare:self.playingIndexPath] == NSOrderedSame) {
+        cell.playbackState = self.playbackState;
+    }
 
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DMSongCell* selectedCell = (DMSongCell*)[tableView cellForRowAtIndexPath:indexPath];
+
+    if (self.playingIndexPath && [indexPath compare:self.playingIndexPath] == NSOrderedSame) {
+        if (self.playbackState == DMPlaybackStatePlaying) {
+            selectedCell.playbackState = DMPlaybackStatePaused;
+        } else {
+            selectedCell.playbackState = DMPlaybackStatePlaying;
+        }
+    } else {
+        if (self.playingIndexPath) {
+            DMSongCell* previousPlayingCell = (DMSongCell*)[tableView cellForRowAtIndexPath:self.playingIndexPath];
+            previousPlayingCell.playbackState = DMPlaybackStateStopped;
+        }
+        selectedCell.playbackState = DMPlaybackStatePlaying;
+        self.playingIndexPath = indexPath;
+    }
+
+    self.playbackState = selectedCell.playbackState;
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

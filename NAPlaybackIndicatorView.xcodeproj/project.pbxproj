@@ -29,6 +29,7 @@
 		B9606116189993BC00A50F87 /* DMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9606115189993BC00A50F87 /* DMAppDelegate.m */; };
 		B9606118189993BC00A50F87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9606117189993BC00A50F87 /* Images.xcassets */; };
 		B9606133189995AD00A50F87 /* DMMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9606132189995AD00A50F87 /* DMMusicViewController.m */; };
+		B960613A18999C9F00A50F87 /* DMSongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B960613918999C9F00A50F87 /* DMSongCell.m */; };
 		CF523484B77A4B0B8F86BEB5 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		B9606132189995AD00A50F87 /* DMMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMusicViewController.m; sourceTree = "<group>"; };
 		B96061341899971A00A50F87 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B96061361899977000A50F87 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		B960613818999C9F00A50F87 /* DMSongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSongCell.h; sourceTree = "<group>"; };
+		B960613918999C9F00A50F87 /* DMSongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSongCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +206,8 @@
 				B9606115189993BC00A50F87 /* DMAppDelegate.m */,
 				B9606131189995AD00A50F87 /* DMMusicViewController.h */,
 				B9606132189995AD00A50F87 /* DMMusicViewController.m */,
+				B960613818999C9F00A50F87 /* DMSongCell.h */,
+				B960613918999C9F00A50F87 /* DMSongCell.m */,
 				B9606117189993BC00A50F87 /* Images.xcassets */,
 				B960610C189993BC00A50F87 /* Supporting Files */,
 			);
@@ -463,6 +468,7 @@
 				B9606112189993BC00A50F87 /* main.m in Sources */,
 				B9606133189995AD00A50F87 /* DMMusicViewController.m in Sources */,
 				B9606116189993BC00A50F87 /* DMAppDelegate.m in Sources */,
+				B960613A18999C9F00A50F87 /* DMSongCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
