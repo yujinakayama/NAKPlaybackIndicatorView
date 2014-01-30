@@ -2,24 +2,23 @@
 
 # ![Icon](Documentation/icon.png) NAPlaybackIndicatorView
 
-## Usage
+**NAPlaybackIndicatorView** is a view that mimics the music playback indicator in the Music.app on iOS 7.
 
-To run the example project; clone the repo, and run `pod install` from the Project directory first.
-
-## Requirements
+It requires iOS 7 or later.
 
 ## Installation
 
-NAPlaybackIndicatorView is available through [CocoaPods](http://cocoapods.org), to install
-it simply add the following line to your Podfile:
+~~NAPlaybackIndicatorView is available through [CocoaPods](http://cocoapods.org)~~ **Not yet available**, to install
+it simply add the following line to your `Podfile`:
 
-    pod "NAPlaybackIndicatorView"
+```ruby
+pod 'NAPlaybackIndicatorView'
+```
 
-## Author
-
-Yuji Nakayama, nkymyj@gmail.com
+Then run `pod install`.
 
 ## License
 
-NAPlaybackIndicatorView is available under the MIT license. See the LICENSE file for more info.
+Copyright (c) 2014 Yuji Nakayama
 
+See the [LICENSE.txt](LICENSE.txt) for details.
