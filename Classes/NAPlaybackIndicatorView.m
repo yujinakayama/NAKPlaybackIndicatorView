@@ -40,6 +40,12 @@
 {
     _contentView = [[NAPlaybackIndicatorContentView alloc] init];
     [self addSubview:_contentView];
+
+    // Custom views should set default values for both orientations on creation,
+    // based on their content, typically to NSLayoutPriorityDefaultLow or NSLayoutPriorityDefaultHigh.
+    [self setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    [self setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
+
     [self setNeedsUpdateConstraints];
 }
 
