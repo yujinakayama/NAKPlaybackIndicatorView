@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9FB9899DBDA3488E89239FAE /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 268DEA9493FA41AC9C9F237E /* libPods-Demo.a */; };
 		AF95F73772D3414E967474BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4A8AB229D14AC69DF3E1F5 /* libPods.a */; };
 		B92DD03D189801F9006F2740 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
 		B92DD03F189801FA006F2740 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03E189801FA006F2740 /* CoreGraphics.framework */; };
@@ -20,6 +21,16 @@
 		B92DD064189801FA006F2740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
 		B92DD06C189801FA006F2740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B92DD06A189801FA006F2740 /* InfoPlist.strings */; };
 		B92DD06E189801FA006F2740 /* NAPlaybackIndicatorViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */; };
+		B94BDEA91899E069000527B0 /* DMSong.m in Sources */ = {isa = PBXBuildFile; fileRef = B94BDEA81899E069000527B0 /* DMSong.m */; };
+		B9606108189993BC00A50F87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
+		B9606109189993BC00A50F87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03E189801FA006F2740 /* CoreGraphics.framework */; };
+		B960610A189993BC00A50F87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
+		B9606110189993BC00A50F87 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B960610E189993BC00A50F87 /* InfoPlist.strings */; };
+		B9606112189993BC00A50F87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9606111189993BC00A50F87 /* main.m */; };
+		B9606116189993BC00A50F87 /* DMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9606115189993BC00A50F87 /* DMAppDelegate.m */; };
+		B9606118189993BC00A50F87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9606117189993BC00A50F87 /* Images.xcassets */; };
+		B9606133189995AD00A50F87 /* DMMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9606132189995AD00A50F87 /* DMMusicViewController.m */; };
+		B960613A18999C9F00A50F87 /* DMSongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B960613918999C9F00A50F87 /* DMSongCell.m */; };
 		CF523484B77A4B0B8F86BEB5 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		268DEA9493FA41AC9C9F237E /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5453B71C806E429CBAED48EF /* Pods-Demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.xcconfig"; path = "Pods/Pods-Demo.xcconfig"; sourceTree = "<group>"; };
 		6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		813703004B5A4E448B0EEB33 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		AA0A262308724002AEC2974F /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +67,22 @@
 		B92DD069189801FA006F2740 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		B92DD06B189801FA006F2740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorViewTests.m; sourceTree = "<group>"; };
+		B94BDEA71899E069000527B0 /* DMSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSong.h; sourceTree = "<group>"; };
+		B94BDEA81899E069000527B0 /* DMSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSong.m; sourceTree = "<group>"; };
+		B9606107189993BC00A50F87 /* NAPlaybackIndicatorView Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NAPlaybackIndicatorView Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B960610D189993BC00A50F87 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
+		B960610F189993BC00A50F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B9606111189993BC00A50F87 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B9606113189993BC00A50F87 /* Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Prefix.pch"; sourceTree = "<group>"; };
+		B9606114189993BC00A50F87 /* DMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMAppDelegate.h; sourceTree = "<group>"; };
+		B9606115189993BC00A50F87 /* DMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMAppDelegate.m; sourceTree = "<group>"; };
+		B9606117189993BC00A50F87 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B9606131189995AD00A50F87 /* DMMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMusicViewController.h; sourceTree = "<group>"; };
+		B9606132189995AD00A50F87 /* DMMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMusicViewController.m; sourceTree = "<group>"; };
+		B96061341899971A00A50F87 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B96061361899977000A50F87 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		B960613818999C9F00A50F87 /* DMSongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSongCell.h; sourceTree = "<group>"; };
+		B960613918999C9F00A50F87 /* DMSongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSongCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +108,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B9606104189993BC00A50F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9606109189993BC00A50F87 /* CoreGraphics.framework in Frameworks */,
+				B960610A189993BC00A50F87 /* UIKit.framework in Frameworks */,
+				B9606108189993BC00A50F87 /* Foundation.framework in Frameworks */,
+				9FB9899DBDA3488E89239FAE /* libPods-Demo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -87,10 +127,12 @@
 			children = (
 				B92DD042189801FA006F2740 /* TestHost */,
 				B92DD067189801FA006F2740 /* Tests */,
+				B960610B189993BC00A50F87 /* Demo */,
 				B92DD03B189801F9006F2740 /* Frameworks */,
 				B92DD03A189801F9006F2740 /* Products */,
 				813703004B5A4E448B0EEB33 /* Pods.xcconfig */,
 				AA0A262308724002AEC2974F /* Pods-Tests.xcconfig */,
+				5453B71C806E429CBAED48EF /* Pods-Demo.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +141,7 @@
 			children = (
 				B92DD039189801F9006F2740 /* TestHost.app */,
 				B92DD060189801FA006F2740 /* Tests.xctest */,
+				B9606107189993BC00A50F87 /* NAPlaybackIndicatorView Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,12 +149,15 @@
 		B92DD03B189801F9006F2740 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B96061361899977000A50F87 /* MediaPlayer.framework */,
+				B96061341899971A00A50F87 /* AVFoundation.framework */,
 				B92DD03C189801F9006F2740 /* Foundation.framework */,
 				B92DD03E189801FA006F2740 /* CoreGraphics.framework */,
 				B92DD040189801FA006F2740 /* UIKit.framework */,
 				B92DD061189801FA006F2740 /* XCTest.framework */,
 				AE4A8AB229D14AC69DF3E1F5 /* libPods.a */,
 				6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */,
+				268DEA9493FA41AC9C9F237E /* libPods-Demo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,6 +198,34 @@
 			children = (
 				B92DD069189801FA006F2740 /* Tests-Info.plist */,
 				B92DD06A189801FA006F2740 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B960610B189993BC00A50F87 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				B9606114189993BC00A50F87 /* DMAppDelegate.h */,
+				B9606115189993BC00A50F87 /* DMAppDelegate.m */,
+				B9606131189995AD00A50F87 /* DMMusicViewController.h */,
+				B9606132189995AD00A50F87 /* DMMusicViewController.m */,
+				B960613818999C9F00A50F87 /* DMSongCell.h */,
+				B960613918999C9F00A50F87 /* DMSongCell.m */,
+				B94BDEA71899E069000527B0 /* DMSong.h */,
+				B94BDEA81899E069000527B0 /* DMSong.m */,
+				B9606117189993BC00A50F87 /* Images.xcassets */,
+				B960610C189993BC00A50F87 /* Supporting Files */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		B960610C189993BC00A50F87 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B960610D189993BC00A50F87 /* Demo-Info.plist */,
+				B960610E189993BC00A50F87 /* InfoPlist.strings */,
+				B9606111189993BC00A50F87 /* main.m */,
+				B9606113189993BC00A50F87 /* Demo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -198,6 +272,25 @@
 			productReference = B92DD060189801FA006F2740 /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B9606106189993BC00A50F87 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B960612F189993BC00A50F87 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				48E7ED25C3E34D768053F873 /* Check Pods Manifest.lock */,
+				B9606103189993BC00A50F87 /* Sources */,
+				B9606104189993BC00A50F87 /* Frameworks */,
+				B9606105189993BC00A50F87 /* Resources */,
+				FE84D2A9585E41E388D8E81E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = B9606107189993BC00A50F87 /* NAPlaybackIndicatorView Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,6 +321,7 @@
 			targets = (
 				B92DD038189801F9006F2740 /* TestHost */,
 				B92DD05F189801FA006F2740 /* Tests */,
+				B9606106189993BC00A50F87 /* Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -247,6 +341,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B92DD06C189801FA006F2740 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9606105189993BC00A50F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9606110189993BC00A50F87 /* InfoPlist.strings in Resources */,
+				B9606118189993BC00A50F87 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +386,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		48E7ED25C3E34D768053F873 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		9124F7FC77FE468E974FAFB4 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -313,6 +431,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		FE84D2A9585E41E388D8E81E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -330,6 +463,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B92DD06E189801FA006F2740 /* NAPlaybackIndicatorViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9606103189993BC00A50F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B94BDEA91899E069000527B0 /* DMSong.m in Sources */,
+				B9606112189993BC00A50F87 /* main.m in Sources */,
+				B9606133189995AD00A50F87 /* DMMusicViewController.m in Sources */,
+				B9606116189993BC00A50F87 /* DMAppDelegate.m in Sources */,
+				B960613A18999C9F00A50F87 /* DMSongCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +501,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				B92DD06B189801FA006F2740 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B960610E189993BC00A50F87 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B960610F189993BC00A50F87 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -515,6 +668,40 @@
 			};
 			name = Release;
 		};
+		B960612B189993BC00A50F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5453B71C806E429CBAED48EF /* Pods-Demo.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				PRODUCT_NAME = "NAPlaybackIndicatorView $(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B960612C189993BC00A50F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5453B71C806E429CBAED48EF /* Pods-Demo.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				PRODUCT_NAME = "NAPlaybackIndicatorView $(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -541,6 +728,15 @@
 			buildConfigurations = (
 				B92DD075189801FA006F2740 /* Debug */,
 				B92DD076189801FA006F2740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B960612F189993BC00A50F87 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B960612B189993BC00A50F87 /* Debug */,
+				B960612C189993BC00A50F87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
