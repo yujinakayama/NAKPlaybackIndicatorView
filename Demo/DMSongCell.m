@@ -70,7 +70,7 @@
     [self.titleLabel setContentHuggingPriority:1 forAxis:UILayoutConstraintAxisHorizontal];
 
     [self.contentView addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"|-[indicator]-[title(>=0)]-[duration]-|"
+     [NSLayoutConstraint constraintsWithVisualFormat:@"|-15-[indicator]-[title(>=0)]-[duration]-15-|"
                                              options:NSLayoutFormatAlignAllBaseline
                                              metrics:nil
                                                views:views]];

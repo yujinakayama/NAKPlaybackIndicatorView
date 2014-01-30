@@ -26,6 +26,7 @@
     [super viewDidLoad];
 
     self.navigationItem.title = @"Music";
+    self.tableView.separatorInset = UIEdgeInsetsMake(0.0, 15.0, 0.0, 15.0);
 
     [self prepareSongs];
 }
