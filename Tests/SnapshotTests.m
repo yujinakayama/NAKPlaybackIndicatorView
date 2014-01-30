@@ -14,7 +14,9 @@
 
 @end
 
-@implementation SnapshotTests
+@implementation SnapshotTests {
+    NAPlaybackIndicatorView* _view;
+}
 
 - (void)setUp
 {
@@ -24,25 +26,27 @@
     // You need to do this the first time you create a test and whenever you change the snapshotted views.
     // Be careful not to commit with recordMode on though, or your tests will never fail.
     self.recordMode = NO;
+
+    _view = [[NAPlaybackIndicatorView alloc] initWithFrame:[self minimumFrame]];
+    _view.state = NAPlaybackIndicatorViewStatePaused;
 }
 
-- (void)testIdleStateContent
+- (void)testPausedContent
 {
-    NAPlaybackIndicatorView* view = [[NAPlaybackIndicatorView alloc] initWithFrame:[self minimumFrame]];
-    FBSnapshotVerifyView(view, nil);
+    FBSnapshotVerifyView(_view, nil);
 }
 
 - (void)testConteredContentPositionInLargeFrame
 {
-    NAPlaybackIndicatorView* view = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
-    FBSnapshotVerifyView(view, nil);
+    _view = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
+    _view.state = NAPlaybackIndicatorViewStatePaused;
+    FBSnapshotVerifyView(_view, nil);
 }
 
 - (void)testTintColor
 {
-    NAPlaybackIndicatorView* view = [[NAPlaybackIndicatorView alloc] initWithFrame:[self minimumFrame]];
-    view.tintColor = [self musicAppTintColor];
-    FBSnapshotVerifyView(view, nil);
+    _view.tintColor = [self musicAppTintColor];
+    FBSnapshotVerifyView(_view, nil);
 }
 
 - (void)testSuperviewTintColor
@@ -50,10 +54,9 @@
     UIView* baseView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 100.0, 100.0)];
     baseView.tintColor = [self musicAppTintColor];
 
-    NAPlaybackIndicatorView* view = [[NAPlaybackIndicatorView alloc] initWithFrame:[self minimumFrame]];
-    [baseView addSubview:view];
+    [baseView addSubview:_view];
 
-    FBSnapshotVerifyView(view, nil);
+    FBSnapshotVerifyView(_view, nil);
 }
 
 - (CGRect)minimumFrame
