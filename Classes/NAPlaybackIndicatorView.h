@@ -8,21 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, NAPlaybackIndicatorViewState) {
+    NAPlaybackIndicatorViewStateStopped = 0,
+    NAPlaybackIndicatorViewStatePlaying,
+    NAPlaybackIndicatorViewStatePaused
+};
+
 @interface NAPlaybackIndicatorView : UIView
 
-/**
- Starts the oscillating animation of the bars.
- */
-- (void)startAnimating;
-
-/**
- Stop the oscillating animation of the bars.
- */
-- (void)stopAnimating;
-
-/**
- Whether the receiver is animating.
- */
-@property (nonatomic, readonly, getter=isAnimating) BOOL animating;
+@property (nonatomic, assign) NAPlaybackIndicatorViewState state;
+@property (nonatomic, assign) BOOL hidesWhenStopped;
 
 @end

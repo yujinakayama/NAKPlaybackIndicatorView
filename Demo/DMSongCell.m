@@ -14,7 +14,6 @@
 
 @property (nonatomic, readonly) UILabel* titleLabel;
 @property (nonatomic, readonly) UILabel* durationLabel;
-@property (nonatomic, readonly) NAPlaybackIndicatorView* playbackIndicatorView;
 
 @end
 
@@ -51,7 +50,7 @@
 {
     [super prepareForReuse];
     self.song = nil;
-    self.playbackState = DMPlaybackStateStopped;
+    self.playbackIndicatorView.state = NAPlaybackIndicatorViewStateStopped;
 }
 
 - (void)updateConstraints
@@ -99,25 +98,6 @@
                                    (int32_t)song.duration / 60, (int32_t)song.duration % 60];
     } else {
         self.durationLabel.text = nil;
-    }
-}
-
-- (void)setPlaybackState:(DMPlaybackState)playbackState
-{
-    _playbackState = playbackState;
-
-    NAPlaybackIndicatorView* playbackIndicatorView = self.playbackIndicatorView;
-
-    if (_playbackState == DMPlaybackStateStopped) {
-        playbackIndicatorView.hidden = YES;
-        [playbackIndicatorView stopAnimating];
-    } else {
-        playbackIndicatorView.hidden = NO;
-        if (_playbackState == DMPlaybackStatePlaying) {
-            [playbackIndicatorView startAnimating];
-        } else {
-            [playbackIndicatorView stopAnimating];
-        }
     }
 }
 

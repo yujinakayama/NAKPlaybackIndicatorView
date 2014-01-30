@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, DMPlaybackState) {
-    DMPlaybackStateStopped = 0,
-    DMPlaybackStatePlaying,
-    DMPlaybackStatePaused
-};
-
 @class DMSong;
 @class NAPlaybackIndicatorView;
 
@@ -22,6 +16,6 @@ typedef NS_ENUM(NSInteger, DMPlaybackState) {
 - (id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 
 @property (nonatomic, strong) DMSong* song;
-@property (nonatomic, assign) DMPlaybackState playbackState;
+@property (nonatomic, readonly) NAPlaybackIndicatorView* playbackIndicatorView;
 
 @end

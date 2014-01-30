@@ -12,7 +12,7 @@
 @interface NAPlaybackIndicatorView ()
 
 @property (nonatomic, readonly) NAPlaybackIndicatorContentView* contentView;
-@property (nonatomic, readwrite, getter=isAnimating) BOOL animating;
+@property (nonatomic, readwrite, getter = isAnimating) BOOL animating;
 
 @end
 
@@ -50,6 +50,9 @@
     [self setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
 
     [self setNeedsUpdateConstraints];
+
+    self.state = NAPlaybackIndicatorViewStateStopped;
+    self.hidesWhenStopped = YES;
 }
 
 - (void)updateConstraints
@@ -80,6 +83,34 @@
 - (UIView*)viewForBaselineLayout
 {
     return self.contentView;
+}
+
+- (void)setHidesWhenStopped:(BOOL)hidesWhenStopped
+{
+    _hidesWhenStopped = hidesWhenStopped;
+
+    if (self.state == NAPlaybackIndicatorViewStateStopped) {
+        self.hidden = self.hidesWhenStopped;
+    }
+}
+
+- (void)setState:(NAPlaybackIndicatorViewState)state
+{
+    _state = state;
+
+    if (self.state == NAPlaybackIndicatorViewStateStopped) {
+        [self stopAnimating];
+        if (self.hidesWhenStopped) {
+            self.hidden = YES;
+        }
+    } else {
+        if (self.state == NAPlaybackIndicatorViewStatePlaying) {
+            [self startAnimating];
+        } else if (self.state == NAPlaybackIndicatorViewStatePaused) {
+            [self stopAnimating];
+        }
+        self.hidden = NO;
+    }
 }
 
 - (void)startAnimating

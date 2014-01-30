@@ -14,7 +14,7 @@
 @interface DMMusicViewController ()
 
 @property (nonatomic, readonly) NSArray* songs;
-@property (nonatomic, assign) DMPlaybackState playbackState;
+@property (nonatomic, assign) NAPlaybackIndicatorViewState playbackState;
 @property (nonatomic, strong) NSIndexPath* playingIndexPath;
 
 @end
@@ -62,7 +62,7 @@
     cell.song = self.songs[indexPath.row];
 
     if (self.playingIndexPath && [indexPath compare:self.playingIndexPath] == NSOrderedSame) {
-        cell.playbackState = self.playbackState;
+        cell.playbackIndicatorView.state = self.playbackState;
     }
 
     return cell;
@@ -73,21 +73,21 @@
     DMSongCell* selectedCell = (DMSongCell*)[tableView cellForRowAtIndexPath:indexPath];
 
     if (self.playingIndexPath && [indexPath compare:self.playingIndexPath] == NSOrderedSame) {
-        if (self.playbackState == DMPlaybackStatePlaying) {
-            selectedCell.playbackState = DMPlaybackStatePaused;
+        if (self.playbackState == NAPlaybackIndicatorViewStatePlaying) {
+            selectedCell.playbackIndicatorView.state = NAPlaybackIndicatorViewStatePaused;
         } else {
-            selectedCell.playbackState = DMPlaybackStatePlaying;
+            selectedCell.playbackIndicatorView.state = NAPlaybackIndicatorViewStatePlaying;
         }
     } else {
         if (self.playingIndexPath) {
             DMSongCell* previousPlayingCell = (DMSongCell*)[tableView cellForRowAtIndexPath:self.playingIndexPath];
-            previousPlayingCell.playbackState = DMPlaybackStateStopped;
+            previousPlayingCell.playbackIndicatorView.state = NAPlaybackIndicatorViewStateStopped;
         }
-        selectedCell.playbackState = DMPlaybackStatePlaying;
+        selectedCell.playbackIndicatorView.state = NAPlaybackIndicatorViewStatePlaying;
         self.playingIndexPath = indexPath;
     }
 
-    self.playbackState = selectedCell.playbackState;
+    self.playbackState = selectedCell.playbackIndicatorView.state;
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
