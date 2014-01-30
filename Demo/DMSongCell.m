@@ -8,9 +8,12 @@
 
 #import "DMSongCell.h"
 #import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
+#import "DMSong.h"
 
 @interface DMSongCell ()
 
+@property (nonatomic, readonly) UILabel* titleLabel;
+@property (nonatomic, readonly) UILabel* durationLabel;
 @property (nonatomic, readonly) NAPlaybackIndicatorView* playbackIndicatorView;
 
 @end
@@ -45,9 +48,7 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-
-    self.titleLabel.text = nil;
-    self.durationLabel.text = nil;
+    self.song = nil;
     self.playbackState = DMPlaybackStateStopped;
 }
 
@@ -83,6 +84,20 @@
                                                                   constant:1.0]];
 
     [super updateConstraints];
+}
+
+- (void)setSong:(DMSong *)song
+{
+    _song = song;
+
+    self.titleLabel.text = _song.title;
+
+    if (_song) {
+        self.durationLabel.text = [NSString stringWithFormat:@"%d:%02d",
+                                   (NSInteger)song.duration / 60, (NSInteger)song.duration % 60];
+    } else {
+        self.durationLabel.text = nil;
+    }
 }
 
 - (void)setPlaybackState:(DMPlaybackState)playbackState

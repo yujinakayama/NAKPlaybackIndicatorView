@@ -14,14 +14,14 @@ typedef NS_ENUM(NSInteger, DMPlaybackState) {
     DMPlaybackStatePaused
 };
 
+@class DMSong;
 @class NAPlaybackIndicatorView;
 
 @interface DMSongCell : UITableViewCell
 
 - (id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 
-@property (nonatomic, readonly) UILabel* titleLabel;
-@property (nonatomic, readonly) UILabel* durationLabel;
+@property (nonatomic, strong) DMSong* song;
 @property (nonatomic, assign) DMPlaybackState playbackState;
 
 @end

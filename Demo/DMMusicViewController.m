@@ -7,11 +7,13 @@
 //
 
 #import "DMMusicViewController.h"
-#import "DMSongCell.h"
 #import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
+#import "DMSong.h"
+#import "DMSongCell.h"
 
 @interface DMMusicViewController ()
 
+@property (nonatomic, readonly) NSArray* songs;
 @property (nonatomic, assign) DMPlaybackState playbackState;
 @property (nonatomic, strong) NSIndexPath* playingIndexPath;
 
@@ -22,14 +24,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     self.navigationItem.title = @"Music";
+
+    [self prepareSongs];
+}
+
+- (void)prepareSongs
+{
+    NSMutableArray* songs = [NSMutableArray array];
+
+    for (NSInteger i = 0; i < 20; i++) {
+        DMSong* song = [[DMSong alloc] initWithTitle:[NSString stringWithFormat:@"Song %d", i]
+                                            duration:arc4random_uniform(60 * 13)];
+        [songs addObject:song];
+    }
+
+    _songs = songs;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.songs.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -42,8 +60,7 @@
         cell = [[DMSongCell alloc] initWithReuseIdentifier:kCellIdentifier];
     }
 
-    cell.titleLabel.text = [NSString stringWithFormat:@"Song %d", indexPath.row];
-    cell.durationLabel.text = [NSString stringWithFormat:@"%d:%02d", arc4random_uniform(13), arc4random_uniform(60)];
+    cell.song = self.songs[indexPath.row];
 
     if (self.playingIndexPath && [indexPath compare:self.playingIndexPath] == NSOrderedSame) {
         cell.playbackState = self.playbackState;

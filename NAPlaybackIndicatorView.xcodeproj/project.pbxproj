@@ -21,6 +21,7 @@
 		B92DD064189801FA006F2740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
 		B92DD06C189801FA006F2740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B92DD06A189801FA006F2740 /* InfoPlist.strings */; };
 		B92DD06E189801FA006F2740 /* NAPlaybackIndicatorViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */; };
+		B94BDEA91899E069000527B0 /* DMSong.m in Sources */ = {isa = PBXBuildFile; fileRef = B94BDEA81899E069000527B0 /* DMSong.m */; };
 		B9606108189993BC00A50F87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
 		B9606109189993BC00A50F87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03E189801FA006F2740 /* CoreGraphics.framework */; };
 		B960610A189993BC00A50F87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
@@ -66,6 +67,8 @@
 		B92DD069189801FA006F2740 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		B92DD06B189801FA006F2740 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B92DD06D189801FA006F2740 /* NAPlaybackIndicatorViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorViewTests.m; sourceTree = "<group>"; };
+		B94BDEA71899E069000527B0 /* DMSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSong.h; sourceTree = "<group>"; };
+		B94BDEA81899E069000527B0 /* DMSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSong.m; sourceTree = "<group>"; };
 		B9606107189993BC00A50F87 /* NAPlaybackIndicatorView Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NAPlaybackIndicatorView Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B960610D189993BC00A50F87 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
 		B960610F189993BC00A50F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				B9606132189995AD00A50F87 /* DMMusicViewController.m */,
 				B960613818999C9F00A50F87 /* DMSongCell.h */,
 				B960613918999C9F00A50F87 /* DMSongCell.m */,
+				B94BDEA71899E069000527B0 /* DMSong.h */,
+				B94BDEA81899E069000527B0 /* DMSong.m */,
 				B9606117189993BC00A50F87 /* Images.xcassets */,
 				B960610C189993BC00A50F87 /* Supporting Files */,
 			);
@@ -465,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B94BDEA91899E069000527B0 /* DMSong.m in Sources */,
 				B9606112189993BC00A50F87 /* main.m in Sources */,
 				B9606133189995AD00A50F87 /* DMMusicViewController.m in Sources */,
 				B9606116189993BC00A50F87 /* DMAppDelegate.m in Sources */,
