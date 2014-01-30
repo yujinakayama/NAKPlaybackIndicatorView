@@ -23,8 +23,6 @@
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
-
         _playbackIndicatorView = [[NAPlaybackIndicatorView alloc] init];
         _playbackIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_playbackIndicatorView];
