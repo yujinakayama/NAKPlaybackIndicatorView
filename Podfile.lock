@@ -1,17 +1,23 @@
 PODS:
+  - Expecta (0.2.3)
   - FBSnapshotTestCase (1.0)
   - NAPlaybackIndicatorView (0.1.0)
+  - Specta (0.2.1)
 
 DEPENDENCIES:
+  - Expecta (~> 0.2)
   - FBSnapshotTestCase (~> 1.0)
   - NAPlaybackIndicatorView (from `NAPlaybackIndicatorView.podspec`)
+  - Specta (~> 0.2)
 
 EXTERNAL SOURCES:
   NAPlaybackIndicatorView:
     :path: NAPlaybackIndicatorView.podspec
 
 SPEC CHECKSUMS:
+  Expecta: dbc4a27fabb853bdd2e907e33f11ee43a9a47d0c
   FBSnapshotTestCase: 1fdacb227081a78c5ee3e6012010f373e51c9ecd
   NAPlaybackIndicatorView: 54f84ee60bb573bcc09865346d13fc3bda0fc584
+  Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
 
 COCOAPODS: 0.29.0
