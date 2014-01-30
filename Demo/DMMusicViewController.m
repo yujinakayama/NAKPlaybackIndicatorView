@@ -36,9 +36,7 @@
     NSMutableArray* songs = [NSMutableArray array];
 
     for (NSInteger i = 0; i < 20; i++) {
-        DMSong* song = [[DMSong alloc] initWithTitle:[NSString stringWithFormat:@"Song %d", i]
-                                            duration:arc4random_uniform(60 * 13)];
-        [songs addObject:song];
+        [songs addObject:[DMSong randomSong]];
     }
 
     _songs = songs;

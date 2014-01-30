@@ -10,6 +10,8 @@
 
 @interface DMSong : NSObject
 
++ (instancetype)randomSong;
+
 - (id)initWithTitle:(NSString*)title duration:(NSTimeInterval)duration;
 
 @property (nonatomic, readonly) NSString* title;
