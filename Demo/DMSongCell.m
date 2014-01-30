@@ -96,7 +96,7 @@
 
     if (_song) {
         self.durationLabel.text = [NSString stringWithFormat:@"%d:%02d",
-                                   (NSInteger)song.duration / 60, (NSInteger)song.duration % 60];
+                                   (int32_t)song.duration / 60, (int32_t)song.duration % 60];
     } else {
         self.durationLabel.text = nil;
     }
