@@ -8,7 +8,7 @@
 
 #import "DMSongCell.h"
 #import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
-#import "DMSong.h"
+#import "DMMediaItem.h"
 
 @interface DMSongCell ()
 
@@ -85,15 +85,16 @@
     [super updateConstraints];
 }
 
-- (void)setSong:(DMSong *)song
+- (void)setSong:(MPMediaItem*)song
 {
     _song = song;
 
-    self.titleLabel.text = _song.title;
+    self.titleLabel.text = [self.song valueForProperty:MPMediaItemPropertyTitle];
 
-    if (_song) {
+    if (self.song) {
+        NSTimeInterval duration = [[self.song valueForProperty:MPMediaItemPropertyPlaybackDuration] doubleValue];
         self.durationLabel.text = [NSString stringWithFormat:@"%d:%02d",
-                                   (int32_t)song.duration / 60, (int32_t)song.duration % 60];
+                                   (int32_t)duration / 60, (int32_t)duration % 60];
     } else {
         self.durationLabel.text = nil;
     }

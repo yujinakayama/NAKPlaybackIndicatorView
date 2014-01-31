@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Yuji Nakayama. All rights reserved.
 //
 
-#import "DMSong.h"
+#import "DMMediaItem.h"
 
 static NSString* const kLipsum =
 @"Lorem ipsum dolor sit amet, consectetur adipisicing elit, "
@@ -15,11 +15,19 @@ static NSString* const kLipsum =
 @"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
 @"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-@implementation DMSong
+@interface DMMediaItem ()
 
-+ (instancetype)randomSong
+@property (nonatomic, readonly) NSDictionary* properties;
+
+@end
+
+@implementation DMMediaItem
+
++ (instancetype)randomSongWithAlbumTrackNumber:(NSUInteger)albumTrackNumber
 {
-    return [[self alloc] initWithTitle:[self randomTitle] duration:[self randomDuration]];
+    return [[self alloc] initWithTitle:[self randomTitle]
+                      playbackDuration:[self randomPlaybackDuration]
+                      albumTrackNumber:albumTrackNumber];
 }
 
 + (NSString*)randomTitle
@@ -35,7 +43,7 @@ static NSString* const kLipsum =
     return [[words componentsJoinedByString:@" "] capitalizedString];
 }
 
-+ (NSTimeInterval)randomDuration
++ (NSTimeInterval)randomPlaybackDuration
 {
     return arc4random_uniform(60 * 13);
 }
@@ -47,22 +55,38 @@ static NSString* const kLipsum =
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         vocabulary = [kLipsum componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]];
-        vocabulary = [vocabulary filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* string, NSDictionary *bindings) {
+        NSPredicate* predicate = [NSPredicate predicateWithBlock:^BOOL(NSString* string, NSDictionary *bindings) {
             return string.length > 0;
-        }]];
+        }];
+        vocabulary = [vocabulary filteredArrayUsingPredicate:predicate];
     });
 
     return vocabulary;
 }
 
-- (id)initWithTitle:(NSString *)title duration:(NSTimeInterval)duration
+- (id)initWithTitle:(NSString *)title
+   playbackDuration:(NSTimeInterval)playbackDuration
+   albumTrackNumber:(NSUInteger)albumTrackNumber
 {
     self = [super init];
     if (self) {
-        _title = title;
-        _duration = duration;
+        _properties = @{ MPMediaItemPropertyPersistentID     : @((uint64_t)self),
+                         MPMediaItemPropertyTitle            : title,
+                         MPMediaItemPropertyAlbumTrackNumber : @(albumTrackNumber),
+                         MPMediaItemPropertyPlaybackDuration : @(playbackDuration),
+                         MPMediaItemPropertyAlbumTitle       : @"An Album" };
     }
     return self;
+}
+
+- (id)copy
+{
+    return self;
+}
+
+- (id)valueForProperty:(NSString *)property
+{
+    return self.properties[property];
 }
 
 @end

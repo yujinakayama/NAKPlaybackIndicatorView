@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
-@class DMSong;
+@class DMMediaItem;
 @class NAPlaybackIndicatorView;
 
 @interface DMSongCell : UITableViewCell
 
 - (id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 
-@property (nonatomic, strong) DMSong* song;
+@property (nonatomic, strong) MPMediaItem* song;
 @property (nonatomic, readonly) NAPlaybackIndicatorView* playbackIndicatorView;
 
 @end
