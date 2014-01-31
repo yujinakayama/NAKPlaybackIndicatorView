@@ -16,6 +16,8 @@
 
 @property (nonatomic, readonly) MPMusicPlayerController* musicPlayer;
 @property (nonatomic, readonly) NSArray* collections;
+@property (nonatomic, readonly) NSArray* collectionSections;
+@property (nonatomic, readonly) NSArray* sectionIndexTitles;
 
 @end
 
@@ -47,6 +49,13 @@
 #else
     MPMediaQuery* query = [MPMediaQuery albumsQuery];
     _collections = query.collections;
+    _collectionSections = query.collectionSections;
+
+    NSMutableArray* sectionIndexTitles = [NSMutableArray array];
+    for (MPMediaQuerySection* section in _collectionSections) {
+        [sectionIndexTitles addObject:section.title];
+    }
+    _sectionIndexTitles = sectionIndexTitles;
 
     _musicPlayer = [MPMusicPlayerController iPodMusicPlayer];
 #endif
@@ -80,6 +89,19 @@
     MPMediaItemCollection* collection = self.collections[section];
     return [collection.representativeItem valueForProperty:MPMediaItemPropertyAlbumTitle];
 }
+
+#if !TARGET_IPHONE_SIMULATOR
+- (NSArray*)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return self.sectionIndexTitles;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    MPMediaQuerySection* section = self.collectionSections[index];
+    return section.range.location;
+}
+#endif
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
