@@ -74,6 +74,7 @@ static NSString* const kLipsum =
                          MPMediaItemPropertyTitle            : title,
                          MPMediaItemPropertyAlbumTrackNumber : @(albumTrackNumber),
                          MPMediaItemPropertyPlaybackDuration : @(playbackDuration),
+                         MPMediaItemPropertyAlbumArtist      : @"An Artist",
                          MPMediaItemPropertyAlbumTitle       : @"An Album" };
     }
     return self;

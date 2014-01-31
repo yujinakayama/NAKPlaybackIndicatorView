@@ -105,7 +105,10 @@
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     MPMediaItemCollection* collection = self.collections[section];
-    return [collection.representativeItem valueForProperty:MPMediaItemPropertyAlbumTitle];
+    MPMediaItem* representativeItem = collection.representativeItem;
+    return [NSString stringWithFormat:@"%@ – %@",
+            [representativeItem valueForProperty:MPMediaItemPropertyAlbumTitle],
+            [representativeItem valueForProperty:MPMediaItemPropertyAlbumArtist]];
 }
 
 #if !TARGET_IPHONE_SIMULATOR
