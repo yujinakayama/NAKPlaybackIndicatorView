@@ -20,7 +20,7 @@ static const CGFloat kBarMinPeakHeight = 6.0;
 static const CGFloat kBarMaxPeakHeight = 12.0;
 
 static const CFTimeInterval kMinBaseOscillationPeriod = 0.6;
-static const CFTimeInterval kMaxBaseOscillationPeriod = 0.9;
+static const CFTimeInterval kMaxBaseOscillationPeriod = 0.8;
 
 static NSString* const kOscillationAnimationKey = @"oscillation";
 
