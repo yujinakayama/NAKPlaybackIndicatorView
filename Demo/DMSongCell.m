@@ -9,6 +9,12 @@
 #import "DMSongCell.h"
 #import "DMMediaItem.h"
 
+#if TARGET_IPHONE_SIMULATOR
+static const CGFloat kPlaybackDurationLabelRightSpacing = 15.0;
+#else
+static const CGFloat kPlaybackDurationLabelRightSpacing = 8.0;
+#endif
+
 @interface DMSongCell ()
 
 @property (nonatomic, readonly) NAPlaybackIndicatorView* playbackIndicatorView;
@@ -64,6 +70,8 @@
                              @"title"       : self.titleLabel,
                              @"duration"    : self.durationLabel };
 
+    NSDictionary* metrics = @{ @"spacing": @(kPlaybackDurationLabelRightSpacing) };
+
     // On iOS 7, the superview of contentView is not the cell!
     // http://stackoverflow.com/q/19162725
     [self.contentView.superview addConstraints:
@@ -75,9 +83,9 @@
     [self.titleLabel setContentHuggingPriority:1 forAxis:UILayoutConstraintAxisHorizontal];
 
     [self.contentView addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"|-15-[indicator]-12-[title(>=0)]-[duration]-15-|"
+     [NSLayoutConstraint constraintsWithVisualFormat:@"|-15-[indicator]-12-[title(>=0)]-[duration]-spacing-|"
                                              options:NSLayoutFormatAlignAllBaseline
-                                             metrics:nil
+                                             metrics:metrics
                                                views:views]];
 
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.albumTrackNumberLabel
