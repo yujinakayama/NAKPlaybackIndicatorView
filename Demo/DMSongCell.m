@@ -60,7 +60,7 @@ static const CGFloat kPlaybackDurationLabelRightSpacing = 8.0;
 {
     [super prepareForReuse];
     self.song = nil;
-    self.playbackIndicatorView.state = NAPlaybackIndicatorViewStateStopped;
+    self.state = NAPlaybackIndicatorViewStateStopped;
 }
 
 - (void)updateConstraints
