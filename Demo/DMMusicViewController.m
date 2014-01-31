@@ -161,12 +161,12 @@
 {
     if ([self isNowPlayingSong:cell.song]) {
         if (self.musicPlayer.playbackState == MPMusicPlaybackStatePaused) {
-            cell.playbackIndicatorView.state = NAPlaybackIndicatorViewStatePaused;
+            cell.state = NAPlaybackIndicatorViewStatePaused;
         } else {
-            cell.playbackIndicatorView.state = NAPlaybackIndicatorViewStatePlaying;
+            cell.state = NAPlaybackIndicatorViewStatePlaying;
         }
     } else {
-        cell.playbackIndicatorView.state = NAPlaybackIndicatorViewStateStopped;
+        cell.state = NAPlaybackIndicatorViewStateStopped;
     }
 }
 

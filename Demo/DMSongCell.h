@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
 
 @class DMMediaItem;
-@class NAPlaybackIndicatorView;
 
 @interface DMSongCell : UITableViewCell
 
 - (id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 
 @property (nonatomic, strong) MPMediaItem* song;
-@property (nonatomic, readonly) NAPlaybackIndicatorView* playbackIndicatorView;
+@property (nonatomic, assign) NAPlaybackIndicatorViewState state;
 
 @end

@@ -7,11 +7,12 @@
 //
 
 #import "DMSongCell.h"
-#import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
 #import "DMMediaItem.h"
 
 @interface DMSongCell ()
 
+@property (nonatomic, readonly) NAPlaybackIndicatorView* playbackIndicatorView;
+@property (nonatomic, readonly) UILabel* albumTrackNumberLabel;
 @property (nonatomic, readonly) UILabel* titleLabel;
 @property (nonatomic, readonly) UILabel* durationLabel;
 
@@ -26,6 +27,11 @@
         _playbackIndicatorView = [[NAPlaybackIndicatorView alloc] init];
         _playbackIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_playbackIndicatorView];
+
+        _albumTrackNumberLabel = [[UILabel alloc] init];
+        _albumTrackNumberLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _albumTrackNumberLabel.font = [UIFont systemFontOfSize:14.0];
+        [self.contentView addSubview:_albumTrackNumberLabel];
 
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -69,10 +75,26 @@
     [self.titleLabel setContentHuggingPriority:1 forAxis:UILayoutConstraintAxisHorizontal];
 
     [self.contentView addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"|-15-[indicator]-[title(>=0)]-[duration]-15-|"
+     [NSLayoutConstraint constraintsWithVisualFormat:@"|-15-[indicator]-12-[title(>=0)]-[duration]-15-|"
                                              options:NSLayoutFormatAlignAllBaseline
                                              metrics:nil
                                                views:views]];
+
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.albumTrackNumberLabel
+                                                                 attribute:NSLayoutAttributeLeading
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.playbackIndicatorView
+                                                                 attribute:NSLayoutAttributeLeading
+                                                                multiplier:1.0
+                                                                  constant:0.0]];
+
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.albumTrackNumberLabel
+                                                                 attribute:NSLayoutAttributeBaseline
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.titleLabel
+                                                                 attribute:NSLayoutAttributeBaseline
+                                                                multiplier:1.0
+                                                                  constant:0.0]];
 
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLabel
                                                                  attribute:NSLayoutAttributeCenterY
@@ -89,6 +111,7 @@
 {
     _song = song;
 
+    self.albumTrackNumberLabel.text = [[self.song valueForProperty:MPMediaItemPropertyAlbumTrackNumber] stringValue];
     self.titleLabel.text = [self.song valueForProperty:MPMediaItemPropertyTitle];
 
     if (self.song) {
@@ -98,6 +121,17 @@
     } else {
         self.durationLabel.text = nil;
     }
+}
+
+- (NAPlaybackIndicatorViewState)state
+{
+    return self.playbackIndicatorView.state;
+}
+
+- (void)setState:(NAPlaybackIndicatorViewState)state
+{
+    self.playbackIndicatorView.state = state;
+    self.albumTrackNumberLabel.hidden = (state != NAPlaybackIndicatorViewStateStopped);
 }
 
 @end
