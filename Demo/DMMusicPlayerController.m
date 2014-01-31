@@ -28,6 +28,15 @@
     return instance;
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _playbackState = MPMusicPlaybackStateStopped;
+    }
+    return self;
+}
+
 - (void)play
 {
     self.playbackState = MPMusicPlaybackStatePlaying;

@@ -19,6 +19,9 @@
 @property (nonatomic, readonly) NSArray* collectionSections;
 @property (nonatomic, readonly) NSArray* sectionIndexTitles;
 
+@property (nonatomic, readonly) UIBarButtonItem* playBarButtonItem;
+@property (nonatomic, readonly) UIBarButtonItem* pauseBarButtonItem;
+
 @end
 
 @implementation DMMusicViewController
@@ -26,11 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [self prepareMediaPlayer];
-
-    self.navigationItem.title = @"Music";
-    self.tableView.separatorInset = UIEdgeInsetsMake(0.0, 15.0, 0.0, 15.0);
+    [self prepareUI];
 }
 
 - (void)prepareMediaPlayer
@@ -46,6 +46,7 @@
     _collections = @[collection];
 
     _musicPlayer = (MPMusicPlayerController*)[DMMusicPlayerController iPodMusicPlayer];
+    _musicPlayer.nowPlayingItem = songs.firstObject;
 #else
     MPMediaQuery* query = [MPMediaQuery albumsQuery];
     _collections = query.collections;
@@ -69,6 +70,23 @@
                                                  name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
                                                object:self.musicPlayer];
     [self.musicPlayer beginGeneratingPlaybackNotifications];
+}
+
+- (void)prepareUI
+{
+    self.navigationItem.title = @"Music";
+
+    _playBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
+                                                                       target:self
+                                                                       action:@selector(playBarButtonItemDidPush:)];
+
+    _pauseBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
+                                                                        target:self
+                                                                        action:@selector(pauseBarButtonItemDidPush:)];
+
+    [self updateRightBarButtonItem];
+
+    self.tableView.separatorInset = UIEdgeInsetsMake(0.0, 15.0, 0.0, 15.0);
 }
 
 - (void)dealloc
@@ -184,11 +202,22 @@
     if ([self isNowPlayingSong:cell.song]) {
         if (self.musicPlayer.playbackState == MPMusicPlaybackStatePaused) {
             cell.state = NAPlaybackIndicatorViewStatePaused;
+        } else if (self.musicPlayer.playbackState == MPMusicPlaybackStateStopped) {
+            cell.state = NAPlaybackIndicatorViewStateStopped;
         } else {
             cell.state = NAPlaybackIndicatorViewStatePlaying;
         }
     } else {
         cell.state = NAPlaybackIndicatorViewStateStopped;
+    }
+}
+
+- (void)updateRightBarButtonItem
+{
+    if (self.musicPlayer.playbackState == MPMusicPlaybackStatePlaying) {
+        self.navigationItem.rightBarButtonItem = self.pauseBarButtonItem;
+    } else {
+        self.navigationItem.rightBarButtonItem = self.playBarButtonItem;
     }
 }
 
@@ -202,6 +231,19 @@
 - (void)musicPlayerDidChangePlaybackState:(NSNotification*)notification
 {
     [self updatePlaybackIndicatorOfVisibleCells];
+    [self updateRightBarButtonItem];
+}
+
+#pragma mark - Actions
+
+- (void)playBarButtonItemDidPush:(id)sender
+{
+    [self.musicPlayer play];
+}
+
+- (void)pauseBarButtonItemDidPush:(id)sender
+{
+    [self.musicPlayer pause];
 }
 
 @end
