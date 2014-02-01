@@ -30,6 +30,7 @@ static NSString* const kDecayAnimationKey = @"decay";
 @interface NAPlaybackIndicatorContentView ()
 
 @property (nonatomic, readonly) NSArray* barLayers;
+@property (nonatomic, assign) BOOL hasInstalledConstraints;
 
 @end
 
@@ -102,23 +103,27 @@ static NSString* const kDecayAnimationKey = @"decay";
 
 - (void)updateConstraints
 {
-    CGSize size = [self intrinsicContentSize];
+    if (!self.hasInstalledConstraints) {
+        CGSize size = [self intrinsicContentSize];
 
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                     attribute:NSLayoutAttributeWidth
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:nil
-                                                     attribute:NSLayoutAttributeNotAnAttribute
-                                                    multiplier:0.0
-                                                      constant:size.width]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                         attribute:NSLayoutAttributeWidth
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:nil
+                                                         attribute:NSLayoutAttributeNotAnAttribute
+                                                        multiplier:0.0
+                                                          constant:size.width]];
 
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                     attribute:NSLayoutAttributeHeight
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:nil
-                                                     attribute:NSLayoutAttributeNotAnAttribute
-                                                    multiplier:0.0
-                                                      constant:size.height]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                         attribute:NSLayoutAttributeHeight
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:nil
+                                                         attribute:NSLayoutAttributeNotAnAttribute
+                                                        multiplier:0.0
+                                                          constant:size.height]];
+
+        self.hasInstalledConstraints = YES;
+    }
 
     [super updateConstraints];
 }
