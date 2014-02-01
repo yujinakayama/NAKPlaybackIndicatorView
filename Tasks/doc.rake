@@ -1,14 +1,29 @@
+require 'shellwords'
 
 namespace :doc do
   {
-    'DocSet' => 'Generate DocSet and install it to Xcode',
-    'HTML'   => 'Generate HTML documentation'
-  }.each do |type_name, description|
-    type = type_name.downcase.to_sym
-
+    docset: 'Generate DocSet and install it to Xcode',
+      html: 'Generate HTML documentation'
+  }.each do |doc_type, description|
     desc description
-    task type do
-      run_appledoc(type)
+    task doc_type do
+      run_appledoc(doc_type)
+    end
+  end
+
+  desc 'Publish documentation with GitHub pages'
+  task ghpage: :html do
+    commit_message = 'Auto-commit by doc:ghpage task'
+    repo_url = 'git@github.com:yujinakayama/NAPlaybackIndicatorView.git'
+    branch = 'gh-pages'
+
+    Dir.chdir('Documentation/html') do
+      system('git init')
+      system("git checkout -b #{branch.shellescape}")
+      system('git add -A')
+      system("git commit -m #{commit_message.shellescape}")
+      system("git remote add origin #{repo_url.shellescape}")
+      system("git push -f origin #{branch.shellescape}")
     end
   end
 end

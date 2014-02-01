@@ -17,6 +17,10 @@ pod 'NAPlaybackIndicatorView'
 
 Then run `pod install`.
 
+## Class Reference
+
+NAPlaybackIndicatorView's reference is available [here](http://yujinakayama.me/NAPlaybackIndicatorView/Classes/NAPlaybackIndicatorView.html).
+
 ## License
 
 Copyright (c) 2014 Yuji Nakayama
