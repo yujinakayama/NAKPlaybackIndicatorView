@@ -86,6 +86,11 @@
     return [self.contentView intrinsicContentSize];
 }
 
+- (CGSize)sizeThatFits:(CGSize)size
+{
+    return [self intrinsicContentSize];
+}
+
 - (UIView*)viewForBaselineLayout
 {
     return self.contentView;

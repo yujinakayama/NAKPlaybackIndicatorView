@@ -35,6 +35,27 @@ describe(@"NAPlaybackIndicatorView", ^{
         });
     });
 
+    describe(@"-sizeToFit", ^{
+        it(@"resizes the view to fit to the content", ^{
+            UIView* baseView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 100.0, 100.0)];
+
+            view = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectMake(10.0, 10.0, 50.0, 50.0)];
+            [baseView addSubview:view];
+
+            CGRect expectedRect;
+
+            if ([UIScreen mainScreen].scale == 2.0) {
+                expectedRect = CGRectMake(10.0, 10.0, 12.0, 12.0);
+            } else {
+                expectedRect = CGRectMake(10.0, 10.0, 13.0, 12.0);
+            }
+
+            [view sizeToFit];
+
+            expect(view.frame).to.equal(expectedRect);
+        });
+    });
+
     describe(@"-state", ^{
         context(@"initially", ^{
             it(@"is NAPlaybackIndicatorViewStateStopped", ^{
