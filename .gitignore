@@ -24,3 +24,7 @@ Pods
 
 # Bundler
 Gemfile.lock
+
+# AppleDoc
+/Documentation/html
+docset-installed.txt
