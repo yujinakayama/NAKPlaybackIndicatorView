@@ -30,10 +30,10 @@ NAPlaybackIndicatorView *indicator = [[NAPlaybackIndicatorView alloc] initWithFr
 // and the `hidesWhenStopped` property is YES.
 // Thus, the view is hidden at this time.
 
-// The bars starts animation.
+// The view appears and the bars start animation.
 indicator.state = NAPlaybackIndicatorViewStatePlaying;
 
-// The bars stops animation and becomes idle.
+// The bars stop animation and become idle.
 indicator.state = NAPlaybackIndicatorViewStatePaused;
 
 // The view becomes hidden.
