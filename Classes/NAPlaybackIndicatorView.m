@@ -39,6 +39,8 @@
 
 - (void)commonInit
 {
+    self.layer.masksToBounds = YES;
+
     _contentView = [[NAPlaybackIndicatorContentView alloc] init];
     [self addSubview:_contentView];
 

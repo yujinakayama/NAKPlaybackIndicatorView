@@ -43,6 +43,17 @@
     FBSnapshotVerifyView(_view, nil);
 }
 
+- (void)testClippedContentInSmallFrame
+{
+    UIView* baseView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0)];
+
+    _view = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectMake(5.0, 5.0, 10.0, 10.0)];
+    _view.state = NAPlaybackIndicatorViewStatePaused;
+    [baseView addSubview:_view];
+
+    FBSnapshotVerifyView(baseView, nil);
+}
+
 - (void)testTintColor
 {
     _view.tintColor = [self musicAppTintColor];
