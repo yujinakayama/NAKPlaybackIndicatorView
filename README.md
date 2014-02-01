@@ -93,7 +93,7 @@ Or if you explicitly specify size, the bars will be placed in the center of the 
 
 ## Class Reference
 
-NAPlaybackIndicatorView's reference is available [here](http://yujinakayama.me/NAPlaybackIndicatorView/Classes/NAPlaybackIndicatorView.html).
+NAPlaybackIndicatorView's reference is available [here](http://yujinakayama.me/NAPlaybackIndicatorView/).
 
 ## License
 

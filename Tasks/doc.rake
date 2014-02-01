@@ -33,7 +33,8 @@ def run_appledoc(output_type)
   company = 'Yuji Nakayama'
   company_id = 'me.yujinakayama'
   output_path = 'Documentation'
-  source_path = 'Classes'
+  # Omitting NAPlaybackIndicatorContentView.h since it's private header.
+  source_paths = ['Classes/NAPlaybackIndicatorView.h']
 
   action = case output_type
            when :docset
@@ -50,7 +51,7 @@ def run_appledoc(output_type)
   command.concat(['--company-id', company_id])
   command.concat(action)
   command.concat(['--output', output_path])
-  command << source_path
+  command.concat(source_paths)
 
   system(*command)
 end
