@@ -9,3 +9,5 @@ end
 
 desc 'Run CI task'
 task ci: %w(test:all style)
+
+task default: 'test:all'
