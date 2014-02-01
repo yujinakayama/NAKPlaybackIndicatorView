@@ -23,7 +23,7 @@ Then run `pod install`.
 
 Here's a basic example:
 
-```objc
+```objective-c
 NAPlaybackIndicatorView *indicator = [[NAPlaybackIndicatorView alloc] initWithFrame:frame];
 
 // Initially the `state` property is NAPlaybackIndicatorViewStateStopped
@@ -44,7 +44,7 @@ You can use NAPlaybackIndicatorView in both code and Storyboard, and also with b
 
 ### Code with Auto Layout
 
-```objc
+```objective-c
 NAPlaybackIndicatorView *indicator = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
 indicator.translatesAutoresizingMaskIntoConstraints = NO;
 [self.view addSubview:indicator];
@@ -57,7 +57,7 @@ indicator.translatesAutoresizingMaskIntoConstraints = NO;
 
 ### Code with Frame-Based Layout
 
-```objc
+```objective-c
 NAPlaybackIndicatorView *indicator = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
 [indicator sizeToFit]; // Resize itself to fit its content.
 [self.view addSubview:indicator];
