@@ -181,7 +181,9 @@
 {
     MPMediaItemCollection* album = self.collections[indexPath.section];
 
+    [self.musicPlayer pause];
     [self.musicPlayer setQueueWithItemCollection:album];
+    // set this property to that item while the music player is stopped or paused.
     self.musicPlayer.nowPlayingItem = album.items[indexPath.row];
     [self.musicPlayer play];
 }
