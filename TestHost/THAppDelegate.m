@@ -1,6 +1,6 @@
 //
 //  THAppDelegate.m
-//  NAPlaybackIndicatorView
+//  NAKPlaybackIndicatorView
 //
 //  Created by Yuji Nakayama on 1/29/14.
 //  Copyright (c) 2014 Yuji Nakayama. All rights reserved.

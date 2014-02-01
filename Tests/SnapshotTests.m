@@ -8,14 +8,14 @@
 
 #import <XCTest/XCTest.h>
 #import <FBSnapshotTestCase/FBSnapshotTestCase.h>
-#import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
+#import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
 
 @interface SnapshotTests : FBSnapshotTestCase
 
 @end
 
 @implementation SnapshotTests {
-    NAPlaybackIndicatorView* _view;
+    NAKPlaybackIndicatorView* _view;
 }
 
 - (void)setUp
@@ -27,8 +27,8 @@
     // Be careful not to commit with recordMode on though, or your tests will never fail.
     self.recordMode = NO;
 
-    _view = [[NAPlaybackIndicatorView alloc] initWithFrame:[self minimumFrame]];
-    _view.state = NAPlaybackIndicatorViewStatePaused;
+    _view = [[NAKPlaybackIndicatorView alloc] initWithFrame:[self minimumFrame]];
+    _view.state = NAKPlaybackIndicatorViewStatePaused;
 }
 
 - (void)testPausedContent
@@ -38,8 +38,8 @@
 
 - (void)testConteredContentPositionInLargeFrame
 {
-    _view = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
-    _view.state = NAPlaybackIndicatorViewStatePaused;
+    _view = [[NAKPlaybackIndicatorView alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
+    _view.state = NAKPlaybackIndicatorViewStatePaused;
     FBSnapshotVerifyView(_view, nil);
 }
 
@@ -47,8 +47,8 @@
 {
     UIView* baseView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0)];
 
-    _view = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectMake(5.0, 5.0, 10.0, 10.0)];
-    _view.state = NAPlaybackIndicatorViewStatePaused;
+    _view = [[NAKPlaybackIndicatorView alloc] initWithFrame:CGRectMake(5.0, 5.0, 10.0, 10.0)];
+    _view.state = NAKPlaybackIndicatorViewStatePaused;
     [baseView addSubview:_view];
 
     FBSnapshotVerifyView(baseView, nil);

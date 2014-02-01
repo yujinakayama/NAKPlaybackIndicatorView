@@ -14,7 +14,7 @@ namespace :doc do
   desc 'Publish documentation with GitHub pages'
   task ghpage: :html do
     commit_message = 'Auto-commit by doc:ghpage task'
-    repo_url = 'git@github.com:yujinakayama/NAPlaybackIndicatorView.git'
+    repo_url = 'git@github.com:yujinakayama/NAKPlaybackIndicatorView.git'
     branch = 'gh-pages'
 
     Dir.chdir('Documentation/html') do
@@ -29,12 +29,12 @@ namespace :doc do
 end
 
 def run_appledoc(output_type)
-  project_name = 'NAPlaybackIndicatorView'
+  project_name = 'NAKPlaybackIndicatorView'
   company = 'Yuji Nakayama'
   company_id = 'me.yujinakayama'
   output_path = 'Documentation'
-  # Omitting NAPlaybackIndicatorContentView.h since it's private header.
-  source_paths = ['Classes/NAPlaybackIndicatorView.h']
+  # Omitting NAKPlaybackIndicatorContentView.h since it's private header.
+  source_paths = ['Classes/NAKPlaybackIndicatorView.h']
 
   action = case output_type
            when :docset

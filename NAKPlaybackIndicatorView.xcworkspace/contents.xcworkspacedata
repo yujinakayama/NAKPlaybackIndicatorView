@@ -5,20 +5,20 @@
       location = "group:Classes"
       name = "Classes">
       <FileRef
-         location = "group:NAPlaybackIndicatorView.h">
+         location = "group:NAKPlaybackIndicatorView.h">
       </FileRef>
       <FileRef
-         location = "group:NAPlaybackIndicatorView.m">
+         location = "group:NAKPlaybackIndicatorView.m">
       </FileRef>
       <FileRef
-         location = "group:NAPlaybackIndicatorContentView.h">
+         location = "group:NAKPlaybackIndicatorContentView.h">
       </FileRef>
       <FileRef
-         location = "group:NAPlaybackIndicatorContentView.m">
+         location = "group:NAKPlaybackIndicatorContentView.m">
       </FileRef>
    </Group>
    <FileRef
-      location = "group:NAPlaybackIndicatorView.xcodeproj">
+      location = "group:NAKPlaybackIndicatorView.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

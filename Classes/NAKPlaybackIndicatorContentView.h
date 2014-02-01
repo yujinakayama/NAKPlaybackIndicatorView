@@ -1,5 +1,5 @@
 //
-//  NAPlaybackIndicatorContentView.h
+//  NAKPlaybackIndicatorContentView.h
 //  PlaybackIndicator
 //
 //  Created by Yuji Nakayama on 1/28/14.
@@ -12,7 +12,7 @@
 /**
  This is an internal private class. Do not use this class directly.
  */
-@interface NAPlaybackIndicatorContentView : UIView
+@interface NAKPlaybackIndicatorContentView : UIView
 
 - (void)startOscillation;
 - (void)stopOscillation;

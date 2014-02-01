@@ -23,7 +23,7 @@
 		B92DD06E189801FA006F2740 /* SnapshotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD06D189801FA006F2740 /* SnapshotTests.m */; };
 		B9497866189BE09B00A0FD8B /* DMMusicPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9497865189BE09B00A0FD8B /* DMMusicPlayerController.m */; };
 		B94BDEA91899E069000527B0 /* DMMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B94BDEA81899E069000527B0 /* DMMediaItem.m */; };
-		B94EDD2E189AD92600552FA0 /* NAPlaybackIndicatorViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B94EDD2D189AD92600552FA0 /* NAPlaybackIndicatorViewSpec.m */; };
+		B94EDD2E189AD92600552FA0 /* NAKPlaybackIndicatorViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B94EDD2D189AD92600552FA0 /* NAKPlaybackIndicatorViewSpec.m */; };
 		B9606108189993BC00A50F87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
 		B9606109189993BC00A50F87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03E189801FA006F2740 /* CoreGraphics.framework */; };
 		B960610A189993BC00A50F87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
@@ -42,7 +42,7 @@
 			containerPortal = B92DD031189801F9006F2740 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B92DD038189801F9006F2740;
-			remoteInfo = NAPlaybackIndicatorView;
+			remoteInfo = NAKPlaybackIndicatorView;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -73,8 +73,8 @@
 		B9497865189BE09B00A0FD8B /* DMMusicPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMusicPlayerController.m; sourceTree = "<group>"; };
 		B94BDEA71899E069000527B0 /* DMMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMediaItem.h; sourceTree = "<group>"; };
 		B94BDEA81899E069000527B0 /* DMMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMediaItem.m; sourceTree = "<group>"; };
-		B94EDD2D189AD92600552FA0 /* NAPlaybackIndicatorViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPlaybackIndicatorViewSpec.m; sourceTree = "<group>"; };
-		B9606107189993BC00A50F87 /* NAPlaybackIndicatorView Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NAPlaybackIndicatorView Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B94EDD2D189AD92600552FA0 /* NAKPlaybackIndicatorViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorViewSpec.m; sourceTree = "<group>"; };
+		B9606107189993BC00A50F87 /* NAKPlaybackIndicatorView Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NAKPlaybackIndicatorView Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B960610D189993BC00A50F87 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
 		B960610F189993BC00A50F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B9606111189993BC00A50F87 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 			children = (
 				B92DD039189801F9006F2740 /* TestHost.app */,
 				B92DD060189801FA006F2740 /* Tests.xctest */,
-				B9606107189993BC00A50F87 /* NAPlaybackIndicatorView Demo.app */,
+				B9606107189993BC00A50F87 /* NAKPlaybackIndicatorView Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,7 +192,7 @@
 		B92DD067189801FA006F2740 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B94EDD2D189AD92600552FA0 /* NAPlaybackIndicatorViewSpec.m */,
+				B94EDD2D189AD92600552FA0 /* NAKPlaybackIndicatorViewSpec.m */,
 				B92DD06D189801FA006F2740 /* SnapshotTests.m */,
 				B92DD068189801FA006F2740 /* Supporting Files */,
 			);
@@ -264,7 +264,7 @@
 			dependencies = (
 			);
 			name = TestHost;
-			productName = NAPlaybackIndicatorView;
+			productName = NAKPlaybackIndicatorView;
 			productReference = B92DD039189801F9006F2740 /* TestHost.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -284,7 +284,7 @@
 				B92DD066189801FA006F2740 /* PBXTargetDependency */,
 			);
 			name = Tests;
-			productName = NAPlaybackIndicatorViewTests;
+			productName = NAKPlaybackIndicatorViewTests;
 			productReference = B92DD060189801FA006F2740 /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -304,7 +304,7 @@
 			);
 			name = Demo;
 			productName = Demo;
-			productReference = B9606107189993BC00A50F87 /* NAPlaybackIndicatorView Demo.app */;
+			productReference = B9606107189993BC00A50F87 /* NAKPlaybackIndicatorView Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -322,7 +322,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B92DD034189801F9006F2740 /* Build configuration list for PBXProject "NAPlaybackIndicatorView" */;
+			buildConfigurationList = B92DD034189801F9006F2740 /* Build configuration list for PBXProject "NAKPlaybackIndicatorView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -479,7 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B92DD06E189801FA006F2740 /* SnapshotTests.m in Sources */,
-				B94EDD2E189AD92600552FA0 /* NAPlaybackIndicatorViewSpec.m in Sources */,
+				B94EDD2E189AD92600552FA0 /* NAKPlaybackIndicatorViewSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,7 +700,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Demo/Demo-Info.plist";
-				PRODUCT_NAME = "NAPlaybackIndicatorView $(TARGET_NAME)";
+				PRODUCT_NAME = "NAKPlaybackIndicatorView $(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -715,7 +715,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
 				INFOPLIST_FILE = "Demo/Demo-Info.plist";
-				PRODUCT_NAME = "NAPlaybackIndicatorView $(TARGET_NAME)";
+				PRODUCT_NAME = "NAKPlaybackIndicatorView $(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -723,7 +723,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B92DD034189801F9006F2740 /* Build configuration list for PBXProject "NAPlaybackIndicatorView" */ = {
+		B92DD034189801F9006F2740 /* Build configuration list for PBXProject "NAKPlaybackIndicatorView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B92DD06F189801FA006F2740 /* Debug */,

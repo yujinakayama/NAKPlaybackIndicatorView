@@ -1,13 +1,13 @@
 //
 //  DMMusicViewController.m
-//  NAPlaybackIndicatorView
+//  NAKPlaybackIndicatorView
 //
 //  Created by Yuji Nakayama on 1/30/14.
 //  Copyright (c) 2014 Yuji Nakayama. All rights reserved.
 //
 
 #import "DMMusicViewController.h"
-#import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
+#import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
 #import "DMMusicPlayerController.h"
 #import "DMMediaItem.h"
 #import "DMSongCell.h"
@@ -206,14 +206,14 @@
 {
     if ([self isNowPlayingSong:cell.song]) {
         if (self.musicPlayer.playbackState == MPMusicPlaybackStatePaused) {
-            cell.state = NAPlaybackIndicatorViewStatePaused;
+            cell.state = NAKPlaybackIndicatorViewStatePaused;
         } else if (self.musicPlayer.playbackState == MPMusicPlaybackStateStopped) {
-            cell.state = NAPlaybackIndicatorViewStateStopped;
+            cell.state = NAKPlaybackIndicatorViewStateStopped;
         } else {
-            cell.state = NAPlaybackIndicatorViewStatePlaying;
+            cell.state = NAKPlaybackIndicatorViewStatePlaying;
         }
     } else {
-        cell.state = NAPlaybackIndicatorViewStateStopped;
+        cell.state = NAKPlaybackIndicatorViewStateStopped;
     }
 }
 

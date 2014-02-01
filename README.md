@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/yujinakayama/NAPlaybackIndicatorView.png?branch=master)](https://travis-ci.org/yujinakayama/NAPlaybackIndicatorView)
+[![Build Status](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView.png?branch=master)](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView)
 
-# ![Icon](Documentation/icon.png) NAPlaybackIndicatorView
+# ![Icon](Documentation/icon.png) NAKPlaybackIndicatorView
 
-**NAPlaybackIndicatorView** is a view that mimics the music playback indicator in the Music.app on iOS 7.
+**NAKPlaybackIndicatorView** is a view that mimics the music playback indicator in the Music.app on iOS 7.
 
 It has three vertical bars and they oscillate randomly.
 
@@ -10,11 +10,11 @@ It requires iOS 7 or later.
 
 ## Installation
 
-~~NAPlaybackIndicatorView is available through [CocoaPods](http://cocoapods.org)~~ **Not yet available**,
+~~NAKPlaybackIndicatorView is available through [CocoaPods](http://cocoapods.org)~~ **Not yet available**,
 to install it simply add the following line to your `Podfile`:
 
 ```ruby
-pod 'NAPlaybackIndicatorView'
+pod 'NAKPlaybackIndicatorView'
 ```
 
 Then run `pod install`.
@@ -24,41 +24,41 @@ Then run `pod install`.
 Here's a basic example:
 
 ```objective-c
-NAPlaybackIndicatorView *indicator = [[NAPlaybackIndicatorView alloc] initWithFrame:frame];
+NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWithFrame:frame];
 
-// Initially the `state` property is NAPlaybackIndicatorViewStateStopped
+// Initially the `state` property is NAKPlaybackIndicatorViewStateStopped
 // and the `hidesWhenStopped` property is YES.
 // Thus, the view is hidden at this time.
 
 // The view appears and the bars start animation.
-indicator.state = NAPlaybackIndicatorViewStatePlaying;
+indicator.state = NAKPlaybackIndicatorViewStatePlaying;
 
 // The bars stop animation and become idle.
-indicator.state = NAPlaybackIndicatorViewStatePaused;
+indicator.state = NAKPlaybackIndicatorViewStatePaused;
 
 // The view becomes hidden.
-indicator.state = NAPlaybackIndicatorViewStateStopped;
+indicator.state = NAKPlaybackIndicatorViewStateStopped;
 ```
 
-You can use NAPlaybackIndicatorView in both code and Storyboard, and also with both Auto Layout and frame-based layout.
+You can use NAKPlaybackIndicatorView in both code and Storyboard, and also with both Auto Layout and frame-based layout.
 
 ### Code with Auto Layout
 
 ```objective-c
-NAPlaybackIndicatorView *indicator = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
+NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
 indicator.translatesAutoresizingMaskIntoConstraints = NO;
 [self.view addSubview:indicator];
 
 // Then, add some positioning layout constraints.
 // Note that normally you don't need to add sizing constraints
-// since NAPlaybackIndicatorView has an intrinsic content size.
+// since NAKPlaybackIndicatorView has an intrinsic content size.
 // It will be automatically resized to fit its content.
 ```
 
 ### Code with Frame-Based Layout
 
 ```objective-c
-NAPlaybackIndicatorView *indicator = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
+NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
 [indicator sizeToFit]; // Resize itself to fit its content.
 [self.view addSubview:indicator];
 ```
@@ -66,14 +66,14 @@ NAPlaybackIndicatorView *indicator = [[NAPlaybackIndicatorView alloc] initWithFr
 ### Storyboard with Auto Layout
 
 1. Put a `UIView` on your view.
-2. Set its custom class to `NAPlaybackIndicatorView`.
+2. Set its custom class to `NAKPlaybackIndicatorView`.
 3. In the **Size Inspector** (⌥⌘5), set the **Intrinsic Size** to **Placeholder** and set the width to 13 and the height to 12. Note that this is just for convenience of the appearance on the Storyboard, and the placeholder size won't be used at runtime.
 4. Add some positioning layout constraints.
 
 ### Storyboard with Frame-Based Layout
 
 1. Put a `UIView` on your view.
-2. Set its custom class to `NAPlaybackIndicatorView`.
+2. Set its custom class to `NAKPlaybackIndicatorView`.
 3. In the **Size Inspector** (⌥⌘5), set the width to 13 and the height to 12. In fact, the content width is 12 points on Retina device, and 13 points on non-Retina device.
 
 ## Customization
@@ -93,7 +93,7 @@ Or if you explicitly specify size, the bars will be placed in the center of the 
 
 ## Class Reference
 
-NAPlaybackIndicatorView's reference is available [here](http://yujinakayama.me/NAPlaybackIndicatorView/).
+NAKPlaybackIndicatorView's reference is available [here](http://yujinakayama.me/NAKPlaybackIndicatorView/).
 
 ## License
 

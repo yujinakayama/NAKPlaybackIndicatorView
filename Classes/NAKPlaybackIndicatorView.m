@@ -1,23 +1,23 @@
 //
-//  NAPlaybackIndicatorView.m
+//  NAKPlaybackIndicatorView.m
 //  PlaybackIndicator
 //
 //  Created by Yuji Nakayama on 1/27/14.
 //  Copyright (c) 2014 Yuji Nakayama. All rights reserved.
 //
 
-#import "NAPlaybackIndicatorView.h"
-#import "NAPlaybackIndicatorContentView.h"
+#import "NAKPlaybackIndicatorView.h"
+#import "NAKPlaybackIndicatorContentView.h"
 
-@interface NAPlaybackIndicatorView ()
+@interface NAKPlaybackIndicatorView ()
 
-@property (nonatomic, readonly) NAPlaybackIndicatorContentView* contentView;
+@property (nonatomic, readonly) NAKPlaybackIndicatorContentView* contentView;
 @property (nonatomic, readwrite, getter = isAnimating) BOOL animating;
 @property (nonatomic, assign) BOOL hasInstalledConstraints;
 
 @end
 
-@implementation NAPlaybackIndicatorView
+@implementation NAKPlaybackIndicatorView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -41,7 +41,7 @@
 {
     self.layer.masksToBounds = YES;
 
-    _contentView = [[NAPlaybackIndicatorContentView alloc] init];
+    _contentView = [[NAKPlaybackIndicatorContentView alloc] init];
     [self addSubview:_contentView];
 
     // Custom views should set default values for both orientations on creation,
@@ -54,7 +54,7 @@
 
     [self setNeedsUpdateConstraints];
 
-    self.state = NAPlaybackIndicatorViewStateStopped;
+    self.state = NAKPlaybackIndicatorViewStateStopped;
     self.hidesWhenStopped = YES;
 }
 
@@ -102,24 +102,24 @@
 {
     _hidesWhenStopped = hidesWhenStopped;
 
-    if (self.state == NAPlaybackIndicatorViewStateStopped) {
+    if (self.state == NAKPlaybackIndicatorViewStateStopped) {
         self.hidden = self.hidesWhenStopped;
     }
 }
 
-- (void)setState:(NAPlaybackIndicatorViewState)state
+- (void)setState:(NAKPlaybackIndicatorViewState)state
 {
     _state = state;
 
-    if (self.state == NAPlaybackIndicatorViewStateStopped) {
+    if (self.state == NAKPlaybackIndicatorViewStateStopped) {
         [self stopAnimating];
         if (self.hidesWhenStopped) {
             self.hidden = YES;
         }
     } else {
-        if (self.state == NAPlaybackIndicatorViewStatePlaying) {
+        if (self.state == NAKPlaybackIndicatorViewStatePlaying) {
             [self startAnimating];
-        } else if (self.state == NAPlaybackIndicatorViewStatePaused) {
+        } else if (self.state == NAKPlaybackIndicatorViewStatePaused) {
             [self stopAnimating];
         }
         self.hidden = NO;

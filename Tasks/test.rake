@@ -24,7 +24,7 @@ end
 
 def run_test(device_name, xcpretty = true)
   workspace = Dir['*.xcworkspace'].first
-  scheme = 'NAPlaybackIndicatorView'
+  scheme = 'NAKPlaybackIndicatorView'
   destination = {
     platform: 'iOS Simulator',
         name: device_name

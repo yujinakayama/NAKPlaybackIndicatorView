@@ -1,6 +1,6 @@
 //
 //  DMMusicPlayerController.m
-//  NAPlaybackIndicatorView
+//  NAKPlaybackIndicatorView
 //
 //  Created by Yuji Nakayama on 1/31/14.
 //  Copyright (c) 2014 Yuji Nakayama. All rights reserved.

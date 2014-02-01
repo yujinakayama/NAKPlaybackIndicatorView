@@ -1,6 +1,6 @@
 //
 //  DMSongCell.h
-//  NAPlaybackIndicatorView
+//  NAKPlaybackIndicatorView
 //
 //  Created by Yuji Nakayama on 1/30/14.
 //  Copyright (c) 2014 Yuji Nakayama. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
+#import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
 
 @class DMMediaItem;
 
@@ -17,6 +17,6 @@
 - (id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 
 @property (nonatomic, strong) MPMediaItem* song;
-@property (nonatomic, assign) NAPlaybackIndicatorViewState state;
+@property (nonatomic, assign) NAKPlaybackIndicatorViewState state;
 
 @end

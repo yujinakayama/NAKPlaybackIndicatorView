@@ -1,5 +1,5 @@
 //
-//  NAPlaybackIndicatorViewSpec.m
+//  NAKPlaybackIndicatorViewSpec.m
 //  Tests
 //
 //  Created by Yuji Nakayama on 1/31/14.
@@ -10,15 +10,15 @@
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
-#import <NAPlaybackIndicatorView/NAPlaybackIndicatorView.h>
+#import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
 
-SpecBegin(NAPlaybackIndicatorView)
+SpecBegin(NAKPlaybackIndicatorView)
 
-describe(@"NAPlaybackIndicatorView", ^{
-    __block NAPlaybackIndicatorView* view;
+describe(@"NAKPlaybackIndicatorView", ^{
+    __block NAKPlaybackIndicatorView* view;
 
     before(^{
-        view = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
+        view = [[NAKPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
     });
 
     describe(@"-intrinsicContentSize", ^{
@@ -39,7 +39,7 @@ describe(@"NAPlaybackIndicatorView", ^{
         it(@"resizes the view to fit to the content", ^{
             UIView* baseView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 100.0, 100.0)];
 
-            view = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectMake(10.0, 10.0, 50.0, 50.0)];
+            view = [[NAKPlaybackIndicatorView alloc] initWithFrame:CGRectMake(10.0, 10.0, 50.0, 50.0)];
             [baseView addSubview:view];
 
             CGRect expectedRect;
@@ -58,24 +58,24 @@ describe(@"NAPlaybackIndicatorView", ^{
 
     describe(@"-state", ^{
         context(@"initially", ^{
-            it(@"is NAPlaybackIndicatorViewStateStopped", ^{
-                expect(view.state).to.equal(NAPlaybackIndicatorViewStateStopped);
+            it(@"is NAKPlaybackIndicatorViewStateStopped", ^{
+                expect(view.state).to.equal(NAKPlaybackIndicatorViewStateStopped);
             });
         });
     });
 
     describe(@"-setState:", ^{
         it(@"sets the state", ^{
-            view.state = NAPlaybackIndicatorViewStatePlaying;
-            expect(view.state).to.equal(NAPlaybackIndicatorViewStatePlaying);
+            view.state = NAKPlaybackIndicatorViewStatePlaying;
+            expect(view.state).to.equal(NAKPlaybackIndicatorViewStatePlaying);
         });
 
-        context(@"when NAPlaybackIndicatorViewStateStopped is passed", ^{
+        context(@"when NAKPlaybackIndicatorViewStateStopped is passed", ^{
             it(@"stops the animation", ^{
                 id mock = [OCMockObject partialMockForObject:view];
                 [[mock expect] stopAnimating];
 
-                view.state = NAPlaybackIndicatorViewStateStopped;
+                view.state = NAKPlaybackIndicatorViewStateStopped;
 
                 [mock verify];
             });
@@ -87,7 +87,7 @@ describe(@"NAPlaybackIndicatorView", ^{
 
                 it(@"hides the view", ^{
                     view.hidden = NO;
-                    view.state = NAPlaybackIndicatorViewStateStopped;
+                    view.state = NAKPlaybackIndicatorViewStateStopped;
                     expect(view.isHidden).to.equal(YES);
                 });
             });
@@ -99,7 +99,7 @@ describe(@"NAPlaybackIndicatorView", ^{
 
                 it(@"does not change the visibility", ^{
                     view.hidden = NO;
-                    view.state = NAPlaybackIndicatorViewStateStopped;
+                    view.state = NAKPlaybackIndicatorViewStateStopped;
                     expect(view.isHidden).to.equal(NO);
                 });
             });
@@ -131,33 +131,33 @@ describe(@"NAPlaybackIndicatorView", ^{
             });
         });
 
-        context(@"when NAPlaybackIndicatorViewStatePlaying is passed", ^{
+        context(@"when NAKPlaybackIndicatorViewStatePlaying is passed", ^{
             it(@"starts the animation", ^{
                 id mock = [OCMockObject partialMockForObject:view];
                 [[mock expect] startAnimating];
 
-                view.state = NAPlaybackIndicatorViewStatePlaying;
+                view.state = NAKPlaybackIndicatorViewStatePlaying;
 
                 [mock verify];
             });
 
             itBehavesLike(@"always shows the view", ^{
-                return @{ @"state" : @(NAPlaybackIndicatorViewStatePlaying) };
+                return @{ @"state" : @(NAKPlaybackIndicatorViewStatePlaying) };
             });
         });
 
-        context(@"when NAPlaybackIndicatorViewStatePaused is passed", ^{
+        context(@"when NAKPlaybackIndicatorViewStatePaused is passed", ^{
             it(@"stops the animation", ^{
                 id mock = [OCMockObject partialMockForObject:view];
                 [[mock expect] stopAnimating];
 
-                view.state = NAPlaybackIndicatorViewStatePaused;
+                view.state = NAKPlaybackIndicatorViewStatePaused;
 
                 [mock verify];
             });
 
             itBehavesLike(@"always shows the view", ^{
-                return @{ @"state" : @(NAPlaybackIndicatorViewStatePaused) };
+                return @{ @"state" : @(NAKPlaybackIndicatorViewStatePaused) };
             });
         });
     });
@@ -189,18 +189,18 @@ describe(@"NAPlaybackIndicatorView", ^{
                 view.hidesWhenStopped = YES;
             });
 
-            context(@"when -state is NAPlaybackIndicatorViewStateStopped", ^{
+            context(@"when -state is NAKPlaybackIndicatorViewStateStopped", ^{
                 it(@"shows the view", ^{
-                    view.state = NAPlaybackIndicatorViewStateStopped;
+                    view.state = NAKPlaybackIndicatorViewStateStopped;
                     expect(view.isHidden).to.equal(YES);
                     view.hidesWhenStopped = NO;
                     expect(view.isHidden).to.equal(NO);
                 });
             });
 
-            context(@"when -state is other than NAPlaybackIndicatorViewStateStopped", ^{
+            context(@"when -state is other than NAKPlaybackIndicatorViewStateStopped", ^{
                 it(@"does not change the visibility", ^{
-                    view.state = NAPlaybackIndicatorViewStatePaused;
+                    view.state = NAKPlaybackIndicatorViewStatePaused;
                     expect(view.isHidden).to.equal(NO);
                     view.hidesWhenStopped = NO;
                     expect(view.isHidden).to.equal(NO);
@@ -213,18 +213,18 @@ describe(@"NAPlaybackIndicatorView", ^{
                 view.hidesWhenStopped = NO;
             });
 
-            context(@"when -state is NAPlaybackIndicatorViewStateStopped", ^{
+            context(@"when -state is NAKPlaybackIndicatorViewStateStopped", ^{
                 it(@"hides the view", ^{
-                    view.state = NAPlaybackIndicatorViewStateStopped;
+                    view.state = NAKPlaybackIndicatorViewStateStopped;
                     expect(view.isHidden).to.equal(NO);
                     view.hidesWhenStopped = YES;
                     expect(view.isHidden).to.equal(YES);
                 });
             });
 
-            context(@"when -state is other than NAPlaybackIndicatorViewStateStopped", ^{
+            context(@"when -state is other than NAKPlaybackIndicatorViewStateStopped", ^{
                 it(@"does not change the visibility", ^{
-                    view.state = NAPlaybackIndicatorViewStatePaused;
+                    view.state = NAKPlaybackIndicatorViewStatePaused;
                     expect(view.isHidden).to.equal(NO);
                     view.hidesWhenStopped = YES;
                     expect(view.isHidden).to.equal(NO);

@@ -1,6 +1,6 @@
 //
 //  DMSongCell.m
-//  NAPlaybackIndicatorView
+//  NAKPlaybackIndicatorView
 //
 //  Created by Yuji Nakayama on 1/30/14.
 //  Copyright (c) 2014 Yuji Nakayama. All rights reserved.
@@ -17,7 +17,7 @@ static const CGFloat kPlaybackDurationLabelRightSpacing = 8.0;
 
 @interface DMSongCell ()
 
-@property (nonatomic, readonly) NAPlaybackIndicatorView* playbackIndicatorView;
+@property (nonatomic, readonly) NAKPlaybackIndicatorView* playbackIndicatorView;
 @property (nonatomic, readonly) UILabel* albumTrackNumberLabel;
 @property (nonatomic, readonly) UILabel* titleLabel;
 @property (nonatomic, readonly) UILabel* durationLabel;
@@ -31,7 +31,7 @@ static const CGFloat kPlaybackDurationLabelRightSpacing = 8.0;
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
-        _playbackIndicatorView = [[NAPlaybackIndicatorView alloc] init];
+        _playbackIndicatorView = [[NAKPlaybackIndicatorView alloc] init];
         _playbackIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_playbackIndicatorView];
 
@@ -61,7 +61,7 @@ static const CGFloat kPlaybackDurationLabelRightSpacing = 8.0;
 {
     [super prepareForReuse];
     self.song = nil;
-    self.state = NAPlaybackIndicatorViewStateStopped;
+    self.state = NAKPlaybackIndicatorViewStateStopped;
 }
 
 - (void)updateConstraints
@@ -136,15 +136,15 @@ static const CGFloat kPlaybackDurationLabelRightSpacing = 8.0;
     }
 }
 
-- (NAPlaybackIndicatorViewState)state
+- (NAKPlaybackIndicatorViewState)state
 {
     return self.playbackIndicatorView.state;
 }
 
-- (void)setState:(NAPlaybackIndicatorViewState)state
+- (void)setState:(NAKPlaybackIndicatorViewState)state
 {
     self.playbackIndicatorView.state = state;
-    self.albumTrackNumberLabel.hidden = (state != NAPlaybackIndicatorViewStateStopped);
+    self.albumTrackNumberLabel.hidden = (state != NAKPlaybackIndicatorViewStateStopped);
 }
 
 @end

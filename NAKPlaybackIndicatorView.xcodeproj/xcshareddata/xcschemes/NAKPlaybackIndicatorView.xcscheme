@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B9606106189993BC00A50F87"
-               BuildableName = "NAPlaybackIndicatorView Demo.app"
-               BlueprintName = "Demo"
-               ReferencedContainer = "container:NAPlaybackIndicatorView.xcodeproj">
+               BlueprintIdentifier = "B92DD038189801F9006F2740"
+               BuildableName = "TestHost.app"
+               BlueprintName = "TestHost"
+               ReferencedContainer = "container:NAKPlaybackIndicatorView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,34 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B92DD05F189801FA006F2740"
+               BuildableName = "Tests.xctest"
+               BlueprintName = "Tests"
+               ReferencedContainer = "container:NAKPlaybackIndicatorView.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B960611C189993BC00A50F87"
+               BuildableName = "DemoTests.xctest"
+               BlueprintName = "DemoTests"
+               ReferencedContainer = "container:NAKPlaybackIndicatorView.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B9606106189993BC00A50F87"
-            BuildableName = "NAPlaybackIndicatorView Demo.app"
-            BlueprintName = "Demo"
-            ReferencedContainer = "container:NAPlaybackIndicatorView.xcodeproj">
+            BlueprintIdentifier = "B92DD038189801F9006F2740"
+            BuildableName = "TestHost.app"
+            BlueprintName = "TestHost"
+            ReferencedContainer = "container:NAKPlaybackIndicatorView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +71,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B9606106189993BC00A50F87"
-            BuildableName = "NAPlaybackIndicatorView Demo.app"
-            BlueprintName = "Demo"
-            ReferencedContainer = "container:NAPlaybackIndicatorView.xcodeproj">
+            BlueprintIdentifier = "B92DD038189801F9006F2740"
+            BuildableName = "TestHost.app"
+            BlueprintName = "TestHost"
+            ReferencedContainer = "container:NAKPlaybackIndicatorView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +89,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B9606106189993BC00A50F87"
-            BuildableName = "NAPlaybackIndicatorView Demo.app"
-            BlueprintName = "Demo"
-            ReferencedContainer = "container:NAPlaybackIndicatorView.xcodeproj">
+            BlueprintIdentifier = "B92DD038189801F9006F2740"
+            BuildableName = "TestHost.app"
+            BlueprintName = "TestHost"
+            ReferencedContainer = "container:NAKPlaybackIndicatorView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

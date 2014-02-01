@@ -1,12 +1,12 @@
 //
-//  NAPlaybackIndicatorContentView.m
+//  NAKPlaybackIndicatorContentView.m
 //  PlaybackIndicator
 //
 //  Created by Yuji Nakayama on 1/28/14.
 //  Copyright (c) 2014 Yuji Nakayama. All rights reserved.
 //
 
-#import "NAPlaybackIndicatorContentView.h"
+#import "NAKPlaybackIndicatorContentView.h"
 
 static const NSInteger kBarCount = 3;
 
@@ -27,14 +27,14 @@ static NSString* const kOscillationAnimationKey = @"oscillation";
 static const CFTimeInterval kDecayDuration = 0.3;
 static NSString* const kDecayAnimationKey = @"decay";
 
-@interface NAPlaybackIndicatorContentView ()
+@interface NAKPlaybackIndicatorContentView ()
 
 @property (nonatomic, readonly) NSArray* barLayers;
 @property (nonatomic, assign) BOOL hasInstalledConstraints;
 
 @end
 
-@implementation NAPlaybackIndicatorContentView
+@implementation NAKPlaybackIndicatorContentView
 
 - (id)init
 {
