@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+/**
+ This is an internal private class. Do not use this class directly.
+ */
 @interface NAPlaybackIndicatorContentView : UIView
 
 - (void)startOscillation;
