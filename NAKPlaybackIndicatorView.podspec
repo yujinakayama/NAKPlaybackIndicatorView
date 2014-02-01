@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'NAKPlaybackIndicatorView'
-  s.version      = '0.1.0'
+  s.version      = '0.0.1'
   s.summary      = 'A view that mimics the music playback indicator in the Music.app on iOS 7.'
   s.description  = <<-DESC
                     A view that mimics the music playback indicator in the Music.app on iOS 7.
