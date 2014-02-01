@@ -47,7 +47,6 @@ You can use NAPlaybackIndicatorView in both code and Storyboard, and also with b
 ```objc
 NAPlaybackIndicatorView *indicator = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
 indicator.translatesAutoresizingMaskIntoConstraints = NO;
-indicator.tintColor = [UIColor redColor]; // Or it automatically inherits the tintColor of its ancestor view.
 [self.view addSubview:indicator];
 
 // Then, add some positioning layout constraints.
@@ -61,7 +60,6 @@ indicator.tintColor = [UIColor redColor]; // Or it automatically inherits the ti
 ```objc
 NAPlaybackIndicatorView *indicator = [[NAPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
 [indicator sizeToFit]; // Resize itself to fit its content.
-indicator.tintColor = [UIColor redColor]; // Or it automatically inherits the tintColor of its ancestor view.
 [self.view addSubview:indicator];
 ```
 
