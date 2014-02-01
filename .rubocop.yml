@@ -4,7 +4,6 @@ AllCops:
     - Rakefile
     - Gemfile
     - Podfile
-    - '*.podspec'
   Excludes:
     - vendor/*
 

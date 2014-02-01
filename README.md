@@ -4,7 +4,7 @@
 
 **NAPlaybackIndicatorView** is a view that mimics the music playback indicator in the Music.app on iOS 7.
 
-The view has three vertical bars and they oscillate randomly.
+It has three vertical bars and they oscillate randomly.
 
 It requires iOS 7 or later.
 
