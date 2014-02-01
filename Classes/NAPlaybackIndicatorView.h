@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, NAPlaybackIndicatorViewState) {
 
  Out of the box it works well with Auto Layout system as it provides sensible layout information
  such as intrinsic content size, baseline, and priorities of content hugging / compression resistence.
+ Of course, it can work with frame-based layout system also.
  */
 @interface NAPlaybackIndicatorView : UIView
 
