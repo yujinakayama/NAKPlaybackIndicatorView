@@ -46,8 +46,8 @@ task :release do
     exit if $stdin.gets.strip.downcase != 'y'
   end
 
-  puts '* Running specs'
-  sh 'rake spec'
+  puts '* Running tests'
+  sh 'rake test:all'
 
   puts '* Linting the podspec'
   sh 'pod lib lint'
