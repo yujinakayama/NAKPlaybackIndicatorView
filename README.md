@@ -28,6 +28,7 @@ Here's a basic example:
 #import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
 
 NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWithFrame:frame];
+[self.view addSubview:indicator];
 
 // Initially the `state` property is NAKPlaybackIndicatorViewStateStopped
 // and the `hidesWhenStopped` property is YES.
