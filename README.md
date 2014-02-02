@@ -11,7 +11,7 @@ Requires iOS 7 or later.
 
 ## Installation
 
-~~NAKPlaybackIndicatorView is available through [CocoaPods](http://cocoapods.org)~~ **Not yet available**,
+NAKPlaybackIndicatorView is available through [CocoaPods](http://cocoapods.org),
 to install it simply add the following line to your `Podfile`:
 
 ```ruby
