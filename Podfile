@@ -1,4 +1,6 @@
 
+workspace 'NAKPlaybackIndicatorView'
+
 pod 'NAKPlaybackIndicatorView', path: 'NAKPlaybackIndicatorView.podspec'
 
 target 'Tests' do
