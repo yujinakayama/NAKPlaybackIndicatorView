@@ -11,10 +11,13 @@ Requires iOS 7 or later.
 
 ## Trying Demo App
 
-**Currentry `pod try` fails due to [an issue](https://github.com/CocoaPods/cocoapods-try/commit/9a53804b974ef6b94eeb12601dc91a0afad3b345).**
+**Note: Currentry `pod try` fails due to [an issue](https://github.com/CocoaPods/cocoapods-try/commit/9a53804b974ef6b94eeb12601dc91a0afad3b345).**
 
 ```bash
-$ pod try NAKPlaybackIndicatorView
+$ https://github.com/yujinakayama/NAKPlaybackIndicatorView.git
+$ cd NAKPlaybackIndicatorView
+$ pod install
+$ open NAKPlaybackIndicatorView.xcworkspace
 ```
 
 In the opened project, select the **Demo** scheme and run.
