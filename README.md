@@ -25,6 +25,8 @@ Then run `pod install`.
 Here's a basic example:
 
 ```objective-c
+#import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
+
 NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWithFrame:frame];
 
 // Initially the `state` property is NAKPlaybackIndicatorViewStateStopped
