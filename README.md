@@ -73,8 +73,8 @@ indicator.translatesAutoresizingMaskIntoConstraints = NO;
 
 ```objective-c
 NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
-[indicator sizeToFit]; // Resize itself to fit its content.
 [self.view addSubview:indicator];
+[indicator sizeToFit]; // Resize itself to fit its content.
 ```
 
 ### Storyboard with Auto Layout
