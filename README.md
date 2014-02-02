@@ -43,7 +43,7 @@ indicator.state = NAKPlaybackIndicatorViewStatePaused;
 indicator.state = NAKPlaybackIndicatorViewStateStopped;
 ```
 
-You can use NAKPlaybackIndicatorView in both code and Storyboard, and also with both Auto Layout and frame-based layout.
+You can use NAKPlaybackIndicatorView in both code and Storyboard, and it works well with both Auto Layout and frame-based layout.
 
 ### Code with Auto Layout
 
