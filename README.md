@@ -41,8 +41,9 @@ Here's a basic example:
 ```objective-c
 #import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
 
-NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWithFrame:frame];
+NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWithFrame:CGRectZero];
 [self.view addSubview:indicator];
+[indicator sizeToFit];
 
 // Initially the `state` property is NAKPlaybackIndicatorViewStateStopped
 // and the `hidesWhenStopped` property is YES.
