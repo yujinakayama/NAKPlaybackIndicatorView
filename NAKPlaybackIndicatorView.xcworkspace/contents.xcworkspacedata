@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <Group
-      location = "group:Classes"
-      name = "Classes">
-      <FileRef
-         location = "group:NAKPlaybackIndicatorView.h">
-      </FileRef>
-      <FileRef
-         location = "group:NAKPlaybackIndicatorView.m">
-      </FileRef>
-      <FileRef
-         location = "group:NAKPlaybackIndicatorContentView.h">
-      </FileRef>
-      <FileRef
-         location = "group:NAKPlaybackIndicatorContentView.m">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:NAKPlaybackIndicatorView.xcodeproj">
    </FileRef>

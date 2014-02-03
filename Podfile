@@ -1,8 +1,6 @@
 
 workspace 'NAKPlaybackIndicatorView'
 
-pod 'NAKPlaybackIndicatorView', path: 'NAKPlaybackIndicatorView.podspec'
-
 target 'Tests' do
   pod 'Specta',             '~> 0.2'
   pod 'Expecta',            '~> 0.2'
@@ -11,7 +9,5 @@ target 'Tests' do
 end
 
 target 'Demo' do
-  # We can just inherit outside of this block,
-  # but `pod install` fails with empty target block due to a bug.
   pod 'NAKPlaybackIndicatorView', path: 'NAKPlaybackIndicatorView.podspec'
 end

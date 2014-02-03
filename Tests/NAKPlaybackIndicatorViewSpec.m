@@ -10,7 +10,8 @@
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
-#import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
+
+#import "NAKPlaybackIndicatorView.h"
 
 SpecBegin(NAKPlaybackIndicatorView)
 

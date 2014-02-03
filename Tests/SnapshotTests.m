@@ -8,7 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import <FBSnapshotTestCase/FBSnapshotTestCase.h>
-#import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
+
+#import "NAKPlaybackIndicatorView.h"
 
 @interface SnapshotTests : FBSnapshotTestCase
 

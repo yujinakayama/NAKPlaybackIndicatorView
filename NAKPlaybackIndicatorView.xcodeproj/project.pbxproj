@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9FB9899DBDA3488E89239FAE /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 268DEA9493FA41AC9C9F237E /* libPods-Demo.a */; };
-		AF95F73772D3414E967474BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4A8AB229D14AC69DF3E1F5 /* libPods.a */; };
 		B92DD03D189801F9006F2740 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
 		B92DD03F189801FA006F2740 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03E189801FA006F2740 /* CoreGraphics.framework */; };
 		B92DD041189801FA006F2740 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
@@ -33,6 +32,12 @@
 		B9606118189993BC00A50F87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9606117189993BC00A50F87 /* Images.xcassets */; };
 		B9606133189995AD00A50F87 /* DMMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9606132189995AD00A50F87 /* DMMusicViewController.m */; };
 		B960613A18999C9F00A50F87 /* DMSongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B960613918999C9F00A50F87 /* DMSongCell.m */; };
+		B98DFF5B189FBDC300CB9A50 /* NAKPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EB23BC189FBBF50068241D /* NAKPlaybackIndicatorView.m */; };
+		B98DFF5C189FBDC600CB9A50 /* NAKPlaybackIndicatorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EB23BE189FBBF50068241D /* NAKPlaybackIndicatorContentView.m */; };
+		B9EB23C0189FBBF50068241D /* NAKPlaybackIndicatorView.h in Resources */ = {isa = PBXBuildFile; fileRef = B9EB23BB189FBBF50068241D /* NAKPlaybackIndicatorView.h */; };
+		B9EB23C1189FBBF50068241D /* NAKPlaybackIndicatorView.m in Resources */ = {isa = PBXBuildFile; fileRef = B9EB23BC189FBBF50068241D /* NAKPlaybackIndicatorView.m */; };
+		B9EB23C2189FBBF50068241D /* NAKPlaybackIndicatorContentView.h in Resources */ = {isa = PBXBuildFile; fileRef = B9EB23BD189FBBF50068241D /* NAKPlaybackIndicatorContentView.h */; };
+		B9EB23C3189FBBF50068241D /* NAKPlaybackIndicatorContentView.m in Resources */ = {isa = PBXBuildFile; fileRef = B9EB23BE189FBBF50068241D /* NAKPlaybackIndicatorContentView.m */; };
 		CF523484B77A4B0B8F86BEB5 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -50,9 +55,7 @@
 		268DEA9493FA41AC9C9F237E /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5453B71C806E429CBAED48EF /* Pods-Demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.xcconfig"; path = "Pods/Pods-Demo.xcconfig"; sourceTree = "<group>"; };
 		6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		813703004B5A4E448B0EEB33 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		AA0A262308724002AEC2974F /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
-		AE4A8AB229D14AC69DF3E1F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92DD039189801F9006F2740 /* TestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92DD03C189801F9006F2740 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B92DD03E189801FA006F2740 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,6 +91,10 @@
 		B96061361899977000A50F87 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B960613818999C9F00A50F87 /* DMSongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSongCell.h; sourceTree = "<group>"; };
 		B960613918999C9F00A50F87 /* DMSongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSongCell.m; sourceTree = "<group>"; };
+		B9EB23BB189FBBF50068241D /* NAKPlaybackIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAKPlaybackIndicatorView.h; sourceTree = "<group>"; };
+		B9EB23BC189FBBF50068241D /* NAKPlaybackIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorView.m; sourceTree = "<group>"; };
+		B9EB23BD189FBBF50068241D /* NAKPlaybackIndicatorContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAKPlaybackIndicatorContentView.h; sourceTree = "<group>"; };
+		B9EB23BE189FBBF50068241D /* NAKPlaybackIndicatorContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorContentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +105,6 @@
 				B92DD03F189801FA006F2740 /* CoreGraphics.framework in Frameworks */,
 				B92DD041189801FA006F2740 /* UIKit.framework in Frameworks */,
 				B92DD03D189801F9006F2740 /* Foundation.framework in Frameworks */,
-				AF95F73772D3414E967474BC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,12 +136,12 @@
 		B92DD030189801F9006F2740 = {
 			isa = PBXGroup;
 			children = (
+				B9EB23BF189FBBF50068241D /* Classes */,
 				B92DD042189801FA006F2740 /* TestHost */,
 				B92DD067189801FA006F2740 /* Tests */,
 				B960610B189993BC00A50F87 /* Demo */,
 				B92DD03B189801F9006F2740 /* Frameworks */,
 				B92DD03A189801F9006F2740 /* Products */,
-				813703004B5A4E448B0EEB33 /* Pods.xcconfig */,
 				AA0A262308724002AEC2974F /* Pods-Tests.xcconfig */,
 				5453B71C806E429CBAED48EF /* Pods-Demo.xcconfig */,
 			);
@@ -160,7 +166,6 @@
 				B92DD03E189801FA006F2740 /* CoreGraphics.framework */,
 				B92DD040189801FA006F2740 /* UIKit.framework */,
 				B92DD061189801FA006F2740 /* XCTest.framework */,
-				AE4A8AB229D14AC69DF3E1F5 /* libPods.a */,
 				6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */,
 				268DEA9493FA41AC9C9F237E /* libPods-Demo.a */,
 			);
@@ -246,6 +251,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B9EB23BF189FBBF50068241D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B9EB23BB189FBBF50068241D /* NAKPlaybackIndicatorView.h */,
+				B9EB23BC189FBBF50068241D /* NAKPlaybackIndicatorView.m */,
+				B9EB23BD189FBBF50068241D /* NAKPlaybackIndicatorContentView.h */,
+				B9EB23BE189FBBF50068241D /* NAKPlaybackIndicatorContentView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,11 +269,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B92DD071189801FA006F2740 /* Build configuration list for PBXNativeTarget "TestHost" */;
 			buildPhases = (
-				9124F7FC77FE468E974FAFB4 /* Check Pods Manifest.lock */,
 				B92DD035189801F9006F2740 /* Sources */,
 				B92DD036189801F9006F2740 /* Frameworks */,
 				B92DD037189801F9006F2740 /* Resources */,
-				2507A8C188BD4837B08F5223 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -357,6 +371,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B92DD06C189801FA006F2740 /* InfoPlist.strings in Resources */,
+				B9EB23C2189FBBF50068241D /* NAKPlaybackIndicatorContentView.h in Resources */,
+				B9EB23C1189FBBF50068241D /* NAKPlaybackIndicatorView.m in Resources */,
+				B9EB23C3189FBBF50068241D /* NAKPlaybackIndicatorContentView.m in Resources */,
+				B9EB23C0189FBBF50068241D /* NAKPlaybackIndicatorView.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,37 +405,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2507A8C188BD4837B08F5223 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		48E7ED25C3E34D768053F873 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9124F7FC77FE468E974FAFB4 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -469,7 +457,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B98DFF5C189FBDC600CB9A50 /* NAKPlaybackIndicatorContentView.m in Sources */,
 				B92DD049189801FA006F2740 /* main.m in Sources */,
+				B98DFF5B189FBDC300CB9A50 /* NAKPlaybackIndicatorView.m in Sources */,
 				B92DD04D189801FA006F2740 /* THAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,7 +600,6 @@
 		};
 		B92DD072189801FA006F2740 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 813703004B5A4E448B0EEB33 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -624,7 +613,6 @@
 		};
 		B92DD073189801FA006F2740 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 813703004B5A4E448B0EEB33 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
