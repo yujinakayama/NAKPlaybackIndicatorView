@@ -3,6 +3,7 @@ require 'shellwords'
 namespace :test do
   devices = [
     'iPhone Retina (4-inch)',
+    'iPhone Retina (4-inch 64-bit)',
     'iPad',
     'iPad Retina'
   ].each_with_object({}) do |device_name, hash|
