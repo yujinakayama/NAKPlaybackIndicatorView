@@ -36,6 +36,8 @@ static NSString* const kDecayAnimationKey = @"decay";
 
 @implementation NAKPlaybackIndicatorContentView
 
+#pragma mark - Initialization
+
 - (id)init
 {
     self = [super init];
@@ -83,12 +85,16 @@ static NSString* const kDecayAnimationKey = @"decay";
     }
 }
 
+#pragma mark - Tint Color
+
 - (void)tintColorDidChange
 {
     for (CALayer* layer in self.barLayers) {
         layer.backgroundColor = self.tintColor.CGColor;
     }
 }
+
+#pragma mark - Auto Layout
 
 - (CGSize)intrinsicContentSize
 {
@@ -127,6 +133,8 @@ static NSString* const kDecayAnimationKey = @"decay";
 
     [super updateConstraints];
 }
+
+#pragma mark - Animations
 
 - (void)startOscillation
 {

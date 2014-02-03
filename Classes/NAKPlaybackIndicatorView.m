@@ -18,6 +18,8 @@
 
 @implementation NAKPlaybackIndicatorView
 
+#pragma mark - Initialization
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -71,6 +73,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - Auto Layout
+
 - (void)updateConstraints
 {
     if (!self.hasInstalledConstraints) {
@@ -101,15 +105,19 @@
     return [self.contentView intrinsicContentSize];
 }
 
+- (UIView*)viewForBaselineLayout
+{
+    return self.contentView;
+}
+
+#pragma mark - Frame-Based Layout
+
 - (CGSize)sizeThatFits:(CGSize)size
 {
     return [self intrinsicContentSize];
 }
 
-- (UIView*)viewForBaselineLayout
-{
-    return self.contentView;
-}
+#pragma mark - Properties
 
 - (void)setHidesWhenStopped:(BOOL)hidesWhenStopped
 {
@@ -139,6 +147,8 @@
     }
 }
 
+#pragma mark - Helpers
+
 - (void)startAnimating
 {
     if (self.contentView.isOscillating) {
@@ -158,6 +168,8 @@
     [self.contentView stopOscillation];
     [self.contentView startDecay];
 }
+
+#pragma mark - Notification
 
 - (void)applicationWillEnterForeground:(NSNotification*)notification
 {
