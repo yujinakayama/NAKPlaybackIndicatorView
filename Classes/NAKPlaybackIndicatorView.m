@@ -12,7 +12,6 @@
 @interface NAKPlaybackIndicatorView ()
 
 @property (nonatomic, readonly) NAKPlaybackIndicatorContentView* contentView;
-@property (nonatomic, readwrite, getter = isAnimating) BOOL animating;
 @property (nonatomic, assign) BOOL hasInstalledConstraints;
 
 @end
@@ -44,6 +43,20 @@
     _contentView = [[NAKPlaybackIndicatorContentView alloc] init];
     [self addSubview:_contentView];
 
+    [self prepareLayoutPriorities];
+    [self setNeedsUpdateConstraints];
+
+    self.state = NAKPlaybackIndicatorViewStateStopped;
+    self.hidesWhenStopped = YES;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationWillEnterForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+}
+
+- (void)prepareLayoutPriorities
+{
     // Custom views should set default values for both orientations on creation,
     // based on their content, typically to NSLayoutPriorityDefaultLow or NSLayoutPriorityDefaultHigh.
     [self setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
@@ -51,11 +64,11 @@
 
     [self setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
     [self setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
+}
 
-    [self setNeedsUpdateConstraints];
-
-    self.state = NAKPlaybackIndicatorViewStateStopped;
-    self.hidesWhenStopped = YES;
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)updateConstraints
@@ -128,11 +141,9 @@
 
 - (void)startAnimating
 {
-    if (self.isAnimating) {
+    if (self.contentView.isOscillating) {
         return;
     }
-
-    self.animating = YES;
 
     [self.contentView stopDecay];
     [self.contentView startOscillation];
@@ -140,14 +151,22 @@
 
 - (void)stopAnimating
 {
-    if (!self.isAnimating) {
+    if (!self.contentView.isOscillating) {
         return;
     }
 
-    self.animating = NO;
-
     [self.contentView stopOscillation];
     [self.contentView startDecay];
+}
+
+- (void)applicationWillEnterForeground:(NSNotification*)notification
+{
+    // When an app entered background, UIKit removes all animations
+    // even if it's an infinite animation.
+    // So we restart the animation here if it should be when the app came back to foreground.
+    if (self.state == NAKPlaybackIndicatorViewStatePlaying) {
+        [self startAnimating];
+    }
 }
 
 @end

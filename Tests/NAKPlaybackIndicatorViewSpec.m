@@ -12,6 +12,21 @@
 #import <OCMock/OCMock.h>
 
 #import "NAKPlaybackIndicatorView.h"
+#import "NAKPlaybackIndicatorContentView.h"
+
+static void NARemoveAllAnimationsRecursively(CALayer* layer)
+{
+    [layer removeAllAnimations];
+    for (CALayer* sublayer in layer.sublayers) {
+        NARemoveAllAnimationsRecursively(sublayer);
+    }
+}
+
+@interface NAKPlaybackIndicatorView (Internal)
+
+@property (nonatomic, readonly) NAKPlaybackIndicatorContentView* contentView;
+
+@end
 
 SpecBegin(NAKPlaybackIndicatorView)
 
@@ -230,6 +245,40 @@ describe(@"NAKPlaybackIndicatorView", ^{
                     view.hidesWhenStopped = YES;
                     expect(view.isHidden).to.equal(NO);
                 });
+            });
+        });
+    });
+
+    context(@"when an app has entered background and came back to foreground", ^{
+        context(@"when -state is NAKPlaybackIndicatorViewStatePlaying", ^{
+            it(@"restart the animation which is removed by UIKit when the app entered background", ^{
+                view.state = NAKPlaybackIndicatorViewStatePlaying;
+                expect(view.contentView.isOscillating).to.equal(YES);
+
+                NARemoveAllAnimationsRecursively(view.layer); // Emulate removal of animations by UIKit
+                expect(view.contentView.isOscillating).to.equal(NO);
+
+                [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationWillEnterForegroundNotification
+                                                                    object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationDidBecomeActiveNotification
+                                                                    object:nil];
+                expect(view.contentView.isOscillating).to.equal(YES);
+            });
+        });
+
+        context(@"when -state is other than NAKPlaybackIndicatorViewStatePlaying", ^{
+            it(@"does nothing", ^{
+                view.state = NAKPlaybackIndicatorViewStatePaused;
+                expect(view.contentView.isOscillating).to.equal(NO);
+
+                NARemoveAllAnimationsRecursively(view.layer); // Emulate removal of animations by UIKit
+                expect(view.contentView.isOscillating).to.equal(NO);
+
+                [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationWillEnterForegroundNotification
+                                                                    object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationDidBecomeActiveNotification
+                                                                    object:nil];
+                expect(view.contentView.isOscillating).to.equal(NO);
             });
         });
     });

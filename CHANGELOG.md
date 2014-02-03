@@ -2,6 +2,8 @@
 
 ## Development
 
+* Resume the animation when an app has entered background and came back to foreground
+
 ## v0.0.2
 
 * Fix a failure with `pod try`

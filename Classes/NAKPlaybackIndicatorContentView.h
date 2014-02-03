@@ -16,6 +16,8 @@
 
 - (void)startOscillation;
 - (void)stopOscillation;
+- (BOOL)isOscillating;
+
 - (void)startDecay;
 - (void)stopDecay;
 

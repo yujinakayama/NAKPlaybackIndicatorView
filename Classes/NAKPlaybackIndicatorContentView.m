@@ -144,6 +144,12 @@ static NSString* const kDecayAnimationKey = @"decay";
     }
 }
 
+- (BOOL)isOscillating
+{
+    CAAnimation* animation = [self.barLayers.firstObject animationForKey:kOscillationAnimationKey];
+    return (animation != nil);
+}
+
 - (void)startDecay
 {
     for (CALayer* layer in self.barLayers) {
