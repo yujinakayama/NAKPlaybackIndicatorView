@@ -9,12 +9,12 @@ It has three vertical bars and they oscillate randomly.
 
 Requires iOS 7 or later.
 
-## Trying Demo App
+## Trying the Demo App
 
 You can try the demo app instantly with [CocoaPods](http://cocoapods.org):
 
 ```bash
-# This will open a Xcode workspace
+# This will open an Xcode workspace
 $ pod try NAKPlaybackIndicatorView
 ```
 
