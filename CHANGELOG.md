@@ -2,6 +2,8 @@
 
 ## Development
 
+## v0.0.3
+
 * Resume the animation when an app has entered background and came back to foreground
 
 ## v0.0.2
