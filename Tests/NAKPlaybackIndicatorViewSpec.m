@@ -14,11 +14,11 @@
 #import "NAKPlaybackIndicatorView.h"
 #import "NAKPlaybackIndicatorContentView.h"
 
-static void NARemoveAllAnimationsRecursively(CALayer* layer)
+static void NAKRemoveAllAnimationsRecursively(CALayer* layer)
 {
     [layer removeAllAnimations];
     for (CALayer* sublayer in layer.sublayers) {
-        NARemoveAllAnimationsRecursively(sublayer);
+        NAKRemoveAllAnimationsRecursively(sublayer);
     }
 }
 
@@ -255,7 +255,7 @@ describe(@"NAKPlaybackIndicatorView", ^{
                 view.state = NAKPlaybackIndicatorViewStatePlaying;
                 expect(view.contentView.isOscillating).to.equal(YES);
 
-                NARemoveAllAnimationsRecursively(view.layer); // Emulate removal of animations by UIKit
+                NAKRemoveAllAnimationsRecursively(view.layer); // Emulate removal of animations by UIKit
                 expect(view.contentView.isOscillating).to.equal(NO);
 
                 [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationWillEnterForegroundNotification
@@ -271,7 +271,7 @@ describe(@"NAKPlaybackIndicatorView", ^{
                 view.state = NAKPlaybackIndicatorViewStatePaused;
                 expect(view.contentView.isOscillating).to.equal(NO);
 
-                NARemoveAllAnimationsRecursively(view.layer); // Emulate removal of animations by UIKit
+                NAKRemoveAllAnimationsRecursively(view.layer); // Emulate removal of animations by UIKit
                 expect(view.contentView.isOscillating).to.equal(NO);
 
                 [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationWillEnterForegroundNotification
