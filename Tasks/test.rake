@@ -40,5 +40,5 @@ def run_test(device_name, xcpretty = true)
 
   command = xcodebuild.shelljoin
   command << ' | xcpretty --color' if xcpretty
-  system(command) || fail('Build failed!')
+  system(command) || fail('Test failed!')
 end

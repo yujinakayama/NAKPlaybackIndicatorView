@@ -11,7 +11,7 @@ namespace :doc do
     end
   end
 
-  desc 'Publish documentation with GitHub pages'
+  desc 'Publish documentation via GitHub pages'
   task ghpage: :html do
     commit_message = 'Auto-commit by doc:ghpage task'
     repo_url = 'git@github.com:yujinakayama/NAKPlaybackIndicatorView.git'
