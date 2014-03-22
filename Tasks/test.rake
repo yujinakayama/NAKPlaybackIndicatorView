@@ -1,44 +1,78 @@
 require 'shellwords'
 
+class XcodeTest
+  attr_reader :scheme, :device, :os
+
+  def initialize(scheme, device, os)
+    @scheme = scheme
+    @device = device
+    @os = os
+  end
+
+  def name
+    "#{device} iOS #{os}"
+  end
+
+  def id
+    name.downcase.gsub(' ', '_').gsub(/[\(\)\-]/, '')
+  end
+
+  def run(xcpretty = true)
+    command = xcodebuild_command
+    command << ' | xcpretty --color' if xcpretty
+    system(command) || fail('Test failed!')
+  end
+
+  private
+
+  def xcodebuild_command
+    command = ['xcodebuild']
+    command.concat(['-workspace', workspace])
+    command.concat(['-scheme', scheme])
+    command.concat(['-destination', destination.map { |key, value| "#{key}=#{value}" }.join(',')])
+    command << 'test'
+    command.shelljoin
+  end
+
+  def workspace
+    Dir['*.xcworkspace'].first
+  end
+
+  def destination
+    {
+      platform: 'iOS Simulator',
+          name: device,
+            OS: os
+    }
+  end
+end
+
 namespace :test do
   devices = [
     'iPhone Retina (4-inch)',
     'iPhone Retina (4-inch 64-bit)',
     'iPad',
     'iPad Retina'
-  ].each_with_object({}) do |device_name, hash|
-    task_name = device_name.downcase.gsub(' ', '_').gsub(/[\(\)\-]/, '')
-    hash[task_name] = device_name
-  end
+  ]
 
-  devices.each do |task_name, device_name|
-    desc "Run tests on #{device_name}"
-    task task_name do
-      puts " Running tests on #{device_name} ".center(80, '=')
-      run_test(device_name, !ENV['NO_XCPRETTY'])
+  oses = ['7.0', 'latest']
+
+  tests = []
+
+  devices.each do |device|
+    oses.each do |os|
+      tests << XcodeTest.new('NAKPlaybackIndicatorView', device, os)
     end
   end
 
-  desc 'Run tests on all devices'
-  task all: devices.keys
-end
+  tests.each do |test|
+    desc "Run test on #{test.name}"
+    task test.id do
+      puts " Running test on #{test.name} ".center(80, '=')
+      test.run(!ENV['NO_XCPRETTY'])
+    end
+  end
 
-def run_test(device_name, xcpretty = true)
-  workspace = Dir['*.xcworkspace'].first
-  scheme = 'NAKPlaybackIndicatorView'
-  destination = {
-    platform: 'iOS Simulator',
-        name: device_name
-  }
-  action = 'test'
-
-  xcodebuild = ['xcodebuild']
-  xcodebuild.concat(['-workspace', workspace])
-  xcodebuild.concat(['-scheme', scheme])
-  xcodebuild.concat(['-destination', destination.map { |key, value| "#{key}=#{value}" }.join(',')])
-  xcodebuild << action
-
-  command = xcodebuild.shelljoin
-  command << ' | xcpretty --color' if xcpretty
-  system(command) || fail('Test failed!')
+  desc 'Run test on all devices'
+  task all: tests.map(&:id)
 end
