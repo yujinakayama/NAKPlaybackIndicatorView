@@ -1,4 +1,5 @@
-[![Version](http://cocoapod-badges.herokuapp.com/v/NAKPlaybackIndicatorView/badge.png)](http://cocoadocs.org/docsets/NAKPlaybackIndicatorView) [![Platform](http://cocoapod-badges.herokuapp.com/p/NAKPlaybackIndicatorView/badge.png)](http://cocoadocs.org/docsets/NAKPlaybackIndicatorView) [![Build Status](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView.png?branch=master)](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView)
+[![Version](http://img.shields.io/cocoapods/v/NAKPlaybackIndicatorView.svg)](http://cocoadocs.org/docsets/NAKPlaybackIndicatorView)
+[![Build Status](http://img.shields.io/travis/yujinakayama/NAKPlaybackIndicatorView/master.svg)](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView)
 
 # ![Icon](Documentation/icon.png) NAKPlaybackIndicatorView
 
