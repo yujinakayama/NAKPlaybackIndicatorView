@@ -1,5 +1,5 @@
 [![Version](http://img.shields.io/cocoapods/v/NAKPlaybackIndicatorView.svg)](http://cocoadocs.org/docsets/NAKPlaybackIndicatorView)
-[![Build Status](http://img.shields.io/travis/yujinakayama/NAKPlaybackIndicatorView/master.svg)](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView)
+[![Build Status](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView.svg?branch=master)](https://travis-ci.org/yujinakayama/NAKPlaybackIndicatorView)
 
 # ![Icon](Documentation/icon.png) NAKPlaybackIndicatorView
 
