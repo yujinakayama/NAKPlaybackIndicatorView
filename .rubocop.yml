@@ -1,10 +1,10 @@
 
 AllCops:
-  Includes:
+  Include:
     - Rakefile
     - Gemfile
     - Podfile
-  Excludes:
+  Exclude:
     - vendor/*
 
 Encoding:
