@@ -251,7 +251,7 @@ describe(@"NAKPlaybackIndicatorView", ^{
 
     context(@"when an app has entered background and came back to foreground", ^{
         context(@"when -state is NAKPlaybackIndicatorViewStatePlaying", ^{
-            it(@"restart the animation which is removed by UIKit when the app entered background", ^{
+            it(@"restarts the animation which is removed by UIKit when the app entered background", ^{
                 view.state = NAKPlaybackIndicatorViewStatePlaying;
                 expect(view.contentView.isOscillating).to.equal(YES);
 
