@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'rubocop/rake_task'
 
-Rubocop::RakeTask.new(:style)
+RuboCop::RakeTask.new(:style)
 
 Dir['Tasks/**/*.rake'].each do |path|
   load(path)
