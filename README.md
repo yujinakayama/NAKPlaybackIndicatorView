@@ -19,10 +19,7 @@ You can try the demo app instantly with [CocoaPods](http://cocoapods.org):
 $ pod try NAKPlaybackIndicatorView
 ```
 
-If you're asked to choose which workspace or project to open,
-choose `NAKPlaybackIndicatorView.xcworkspace`.
-
-Then, in the opened workspace, choose the **Demo** scheme and run.
+In the opened workspace, choose the **Demo** scheme and run.
 
 ## Installation
 
