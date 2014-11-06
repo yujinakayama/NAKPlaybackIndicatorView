@@ -36,7 +36,8 @@ static NSString* const kLipsum =
     NSMutableArray* words = [NSMutableArray array];
 
     for (NSInteger i = 0; i < wordCount; i++) {
-        NSString* word = [self vocabulary][arc4random_uniform([self vocabulary].count)];
+        NSUInteger index = arc4random_uniform((u_int32_t)[self vocabulary].count);
+        NSString* word = [self vocabulary][index];
         [words addObject:word];
     }
 
