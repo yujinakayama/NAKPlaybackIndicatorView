@@ -7,10 +7,11 @@
 //
 
 #import "NAKPlaybackIndicatorContentView.h"
+#import "NAKPlaybackIndicatorView.h"
+/*
+static const NSInteger kBarCount = 4;
 
-static const NSInteger kBarCount = 3;
-
-static const CGFloat kBarWidth = 3.0;
+static const CGFloat kBarWidth = 2.0;
 static const CGFloat kBarIdleHeight = 3.0;
 
 static const CGFloat kHorizontalBarSpacing = 2.0; // Measured on iPad 2 (non-Retina)
@@ -18,6 +19,8 @@ static const CGFloat kRetinaHorizontalBarSpacing = 1.5; // Measured on iPhone 5s
 
 static const CGFloat kBarMinPeakHeight = 6.0;
 static const CGFloat kBarMaxPeakHeight = 12.0;
+*/
+
 
 static const CFTimeInterval kMinBaseOscillationPeriod = 0.6;
 static const CFTimeInterval kMaxBaseOscillationPeriod = 0.8;
@@ -27,10 +30,19 @@ static NSString* const kOscillationAnimationKey = @"oscillation";
 static const CFTimeInterval kDecayDuration = 0.3;
 static NSString* const kDecayAnimationKey = @"decay";
 
-@interface NAKPlaybackIndicatorContentView ()
+@interface NAKPlaybackIndicatorContentView (){
+    BOOL _isOscillating;
+
+    NSInteger _barCount;
+    CGFloat _barWidth;
+    CGFloat _barIdleHeight;
+    CGFloat _horizontalBarSpacing;
+    CGFloat _retinaHorizontalBarSpacing;
+    CGFloat _barMinPeakHeight;
+    CGFloat _barMaxPeakHeight;
+}
 
 @property (nonatomic, readonly) NSArray* barLayers;
-@property (nonatomic, assign) BOOL hasInstalledConstraints;
 
 @end
 
@@ -38,16 +50,35 @@ static NSString* const kDecayAnimationKey = @"decay";
 
 #pragma mark - Initialization
 
-- (id)init
-{
+
+- (instancetype)initWithConfigDictionary:(NSDictionary *)configDictionary{
     self = [super init];
     if (self) {
-        self.translatesAutoresizingMaskIntoConstraints = NO;
+       
+        _barCount = [[configDictionary objectForKey:kBarCount] integerValue];
+        _barWidth = [[configDictionary objectForKey:kBarWidth] floatValue];
+        _barIdleHeight = [[configDictionary objectForKey:kBarIdleHeight] floatValue];
+        _horizontalBarSpacing = [[configDictionary objectForKey:kHorizontalBarSpacing] floatValue];
+        _retinaHorizontalBarSpacing = [[configDictionary objectForKey:kRetinaHorizontalBarSpacing] floatValue];
+        _barMinPeakHeight = [[configDictionary objectForKey:kBarMinPeakHeight] floatValue];
+        _barMaxPeakHeight = [[configDictionary objectForKey:kBarMaxPeakHeight] floatValue];
+        
+        _isOscillating = NO;
+        
         [self prepareBarLayers];
         [self tintColorDidChange];
-        [self setNeedsUpdateConstraints];
     }
     return self;
+}
+
++ (NSDictionary *)defaultConfig{
+    return @{kBarCount:@(4),
+             kBarWidth:@(2.0),
+             kBarIdleHeight:@(3.0),
+             kHorizontalBarSpacing:@(2.0),
+             kRetinaHorizontalBarSpacing:@(1.5),
+             kBarMinPeakHeight:@(6.0),
+             kBarMaxPeakHeight:@(12.0)};
 }
 
 - (void)prepareBarLayers
@@ -55,7 +86,7 @@ static NSString* const kDecayAnimationKey = @"decay";
     NSMutableArray* barLayers = [NSMutableArray array];
     CGFloat xOffset = 0.0;
 
-    for (NSInteger i = 0; i < kBarCount; i++) {
+    for (NSInteger i = 0; i < _barCount; i++) {
         CALayer* layer = [self createBarLayerWithXOffset:xOffset];
         [barLayers addObject:layer];
         [self.layer addSublayer:layer];
@@ -70,8 +101,8 @@ static NSString* const kDecayAnimationKey = @"decay";
     CALayer* layer = [CALayer layer];
 
     layer.anchorPoint = CGPointMake(0.0, 1.0); // At the bottom-left corner
-    layer.position = CGPointMake(xOffset, kBarMaxPeakHeight); // In superview's coordinate
-    layer.bounds = CGRectMake(0.0, 0.0, kBarWidth, kBarIdleHeight);// In its own coordinate
+    layer.position = CGPointMake(xOffset, _barMaxPeakHeight); // In superview's coordinate
+    layer.bounds = CGRectMake(0.0, 0.0, _barWidth, _barIdleHeight);// In its own coordinate
 
     return layer;
 }
@@ -79,9 +110,9 @@ static NSString* const kDecayAnimationKey = @"decay";
 - (CGFloat)horizontalBarSpacing
 {
     if ([UIScreen mainScreen].scale == 2.0) {
-        return kRetinaHorizontalBarSpacing;
+        return _retinaHorizontalBarSpacing;
     } else {
-        return kHorizontalBarSpacing;
+        return _horizontalBarSpacing;
     }
 }
 
@@ -96,43 +127,19 @@ static NSString* const kDecayAnimationKey = @"decay";
 
 #pragma mark - Auto Layout
 
-- (CGSize)intrinsicContentSize
-{
-    CGRect unionFrame = CGRectZero;
+- (CGSize)sizeThatFits:(CGSize)size{
+    CGSize cs = [self contentSize];
+    return cs;
+}
 
+- (CGSize)contentSize{
+    CGRect unionFrame = CGRectZero;
     for (CALayer* layer in self.barLayers) {
         unionFrame = CGRectUnion(unionFrame, layer.frame);
     }
-
     return unionFrame.size;
 }
 
-- (void)updateConstraints
-{
-    if (!self.hasInstalledConstraints) {
-        CGSize size = [self intrinsicContentSize];
-
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                         attribute:NSLayoutAttributeWidth
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:nil
-                                                         attribute:NSLayoutAttributeNotAnAttribute
-                                                        multiplier:0.0
-                                                          constant:size.width]];
-
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                         attribute:NSLayoutAttributeHeight
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:nil
-                                                         attribute:NSLayoutAttributeNotAnAttribute
-                                                        multiplier:0.0
-                                                          constant:size.height]];
-
-        self.hasInstalledConstraints = YES;
-    }
-
-    [super updateConstraints];
-}
 
 #pragma mark - Animations
 
@@ -143,6 +150,7 @@ static NSString* const kDecayAnimationKey = @"decay";
     for (CALayer* layer in self.barLayers) {
         [self startOscillatingBarLayer:layer basePeriod:basePeriod];
     }
+    _isOscillating = YES;
 }
 
 - (void)stopOscillation
@@ -150,12 +158,12 @@ static NSString* const kDecayAnimationKey = @"decay";
     for (CALayer* layer in self.barLayers) {
         [layer removeAnimationForKey:kOscillationAnimationKey];
     }
+    _isOscillating = NO;
 }
 
 - (BOOL)isOscillating
 {
-    CAAnimation* animation = [self.barLayers.firstObject animationForKey:kOscillationAnimationKey];
-    return (animation != nil);
+    return _isOscillating;
 }
 
 - (void)startDecay
@@ -175,7 +183,7 @@ static NSString* const kDecayAnimationKey = @"decay";
 - (void)startOscillatingBarLayer:(CALayer*)layer basePeriod:(CFTimeInterval)basePeriod
 {
     // arc4random_uniform() will return a uniformly distributed random number **less** upper_bound.
-    CGFloat peakHeight = kBarMinPeakHeight + arc4random_uniform(kBarMaxPeakHeight - kBarMinPeakHeight + 1);
+    CGFloat peakHeight = _barMinPeakHeight + arc4random_uniform(_barMaxPeakHeight - _barMinPeakHeight + 1);
 
     CGRect toBounds = layer.bounds;
     toBounds.size.height = peakHeight;
@@ -185,7 +193,7 @@ static NSString* const kDecayAnimationKey = @"decay";
     animation.toValue = [NSValue valueWithCGRect:toBounds];
     animation.repeatCount = HUGE_VALF; // Forever
     animation.autoreverses = YES;
-    animation.duration = (basePeriod / 2) * (kBarMaxPeakHeight / peakHeight);
+    animation.duration = (basePeriod / 2) * (_barMaxPeakHeight / peakHeight);
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
 
     [layer addAnimation:animation forKey:kOscillationAnimationKey];

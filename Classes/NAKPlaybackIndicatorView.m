@@ -9,10 +9,19 @@
 #import "NAKPlaybackIndicatorView.h"
 #import "NAKPlaybackIndicatorContentView.h"
 
+
+NSString * const kBarCount = @"kBarCount";
+NSString * const kBarWidth = @"kBarWidth";
+NSString * const kBarIdleHeight = @"kBarIdleHeight";
+NSString * const kHorizontalBarSpacing = @"kHorizontalBarSpacing";
+NSString * const kRetinaHorizontalBarSpacing = @"kRetinaHorizontalBarSpacing";
+NSString * const kBarMinPeakHeight = @"kBarMinPeakHeight";
+NSString * const kBarMaxPeakHeight = @"kBarMaxPeakHeight";
+
+
 @interface NAKPlaybackIndicatorView ()
 
-@property (nonatomic, readonly) NAKPlaybackIndicatorContentView* contentView;
-@property (nonatomic, assign) BOOL hasInstalledConstraints;
+@property (nonatomic, strong) NAKPlaybackIndicatorContentView *contentView;
 
 @end
 
@@ -20,11 +29,22 @@
 
 #pragma mark - Initialization
 
+- (instancetype)initWithConfigDictionary:(NSDictionary *)configDictionary{
+    self = [super init];
+    if(self){
+        [self commonInitWithDictionary:configDictionary];
+    }
+    return self;
+}
+
++ (NSDictionary *)defaultConfigDictionary{
+    return [NAKPlaybackIndicatorContentView defaultConfig];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self commonInit];
     }
     return self;
 }
@@ -33,39 +53,24 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self commonInit];
     }
     return self;
 }
 
-- (void)commonInit
+- (void)commonInitWithDictionary:(NSDictionary *)dict
 {
     self.layer.masksToBounds = YES;
-
-    _contentView = [[NAKPlaybackIndicatorContentView alloc] init];
-    [self addSubview:_contentView];
-
-    [self prepareLayoutPriorities];
-    [self setNeedsUpdateConstraints];
-
+    
+    self.contentView = [[NAKPlaybackIndicatorContentView alloc] initWithConfigDictionary:dict];
+    [self addSubview:self.contentView];
+    
     self.state = NAKPlaybackIndicatorViewStateStopped;
     self.hidesWhenStopped = YES;
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(applicationWillEnterForeground:)
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
-}
-
-- (void)prepareLayoutPriorities
-{
-    // Custom views should set default values for both orientations on creation,
-    // based on their content, typically to NSLayoutPriorityDefaultLow or NSLayoutPriorityDefaultHigh.
-    [self setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-    [self setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
-
-    [self setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-    [self setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (void)dealloc
@@ -73,48 +78,16 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark - Auto Layout
-
-- (void)updateConstraints
-{
-    if (!self.hasInstalledConstraints) {
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                         attribute:NSLayoutAttributeCenterX
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:self.contentView
-                                                         attribute:NSLayoutAttributeCenterX
-                                                        multiplier:1.0
-                                                          constant:0.0]];
-
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self
-                                                         attribute:NSLayoutAttributeCenterY
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:self.contentView
-                                                         attribute:NSLayoutAttributeCenterY
-                                                        multiplier:1.0
-                                                          constant:0.0]];
-
-        self.hasInstalledConstraints = YES;
-    }
-
-    [super updateConstraints];
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    CGSize contentSize = [self.contentView contentSize];
+    
+    [self.contentView setFrame:CGRectMake(floorf(self.bounds.size.width/2.0-contentSize.width/2.0), floorf(self.bounds.size.height/2.0-contentSize.height/2.0), contentSize.width, contentSize.height)];
 }
 
-- (CGSize)intrinsicContentSize
-{
-    return [self.contentView intrinsicContentSize];
-}
-
-- (UIView*)viewForBaselineLayout
-{
-    return self.contentView;
-}
-
-#pragma mark - Frame-Based Layout
-
-- (CGSize)sizeThatFits:(CGSize)size
-{
-    return [self intrinsicContentSize];
+- (CGSize )sizeThatFits:(CGSize)size{
+    return [self.contentView sizeThatFits:size];
 }
 
 #pragma mark - Properties
@@ -177,6 +150,8 @@
     // even if it's an infinite animation.
     // So we restart the animation here if it should be when the app came back to foreground.
     if (self.state == NAKPlaybackIndicatorViewStatePlaying) {
+        [self.contentView stopOscillation];
+        [self.contentView stopDecay];
         [self startAnimating];
     }
 }

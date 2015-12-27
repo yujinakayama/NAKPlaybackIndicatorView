@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
+NSString * const kBarCount;
+NSString * const kBarWidth;
+NSString * const kBarIdleHeight;
+NSString * const kHorizontalBarSpacing;
+NSString * const kRetinaHorizontalBarSpacing;
+NSString * const kBarMinPeakHeight;
+NSString * const kBarMaxPeakHeight;
+
 /**
  Values for the [state]([NAKPlaybackIndicatorView state]) property.
  */
@@ -72,5 +81,9 @@ typedef NS_ENUM(NSInteger, NAKPlaybackIndicatorViewState) {
  the receiver will be shown automatically.
  */
 @property (nonatomic, assign) BOOL hidesWhenStopped;
+
+- (instancetype)initWithConfigDictionary:(NSDictionary *)configDictionary;
+
++ (NSDictionary *)defaultConfigDictionary;
 
 @end
