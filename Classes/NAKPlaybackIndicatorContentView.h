@@ -14,11 +14,17 @@
  */
 @interface NAKPlaybackIndicatorContentView : UIView
 
+- (instancetype)initWithConfigDictionary:(NSDictionary *)configDictionary;
+
++ (NSDictionary *)defaultConfig;
+
 - (void)startOscillation;
 - (void)stopOscillation;
 - (BOOL)isOscillating;
 
 - (void)startDecay;
 - (void)stopDecay;
+
+- (CGSize)contentSize;
 
 @end
