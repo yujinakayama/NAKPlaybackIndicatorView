@@ -3,14 +3,14 @@ PODS:
   - FBSnapshotTestCase (1.8.1)
   - NAKPlaybackIndicatorView (0.0.3)
   - OCMock (2.2.4)
-  - Specta (0.5.0)
+  - Specta (1.0.6)
 
 DEPENDENCIES:
   - Expecta (~> 0.2)
   - FBSnapshotTestCase (~> 1.0)
   - NAKPlaybackIndicatorView (from `NAKPlaybackIndicatorView.podspec`)
   - OCMock (~> 2.2)
-  - Specta (~> 0.2)
+  - Specta (~> 1.0)
 
 EXTERNAL SOURCES:
   NAKPlaybackIndicatorView:
@@ -21,8 +21,8 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 3dc3899168747a0319c5278f5b3445c13a6532dd
   NAKPlaybackIndicatorView: 1f120a2e470afcc44a42de04d11047bbaa553196
   OCMock: a6a7dc0e3997fb9f35d99f72528698ebf60d64f2
-  Specta: eb90708ed77569bbda089f8ead10bb99b8e9489e
+  Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
 
-PODFILE CHECKSUM: 0c320a729de6071f75064385bffa89c055955a9e
+PODFILE CHECKSUM: 96a0ded5787f1b9e3995f720cf78af3648e3541c
 
 COCOAPODS: 1.2.1
