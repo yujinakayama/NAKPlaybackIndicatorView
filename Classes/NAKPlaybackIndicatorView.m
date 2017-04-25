@@ -73,6 +73,14 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+// If present a model view would stop the animation by iOS system.
+// So override this method to check the state when the view re-displayed to users.
+- (void)willMoveToWindow:(UIWindow *)newWindow{
+    if (newWindow && self.state == NAKPlaybackIndicatorViewStatePlaying) {
+        [self startAnimating];
+    }
+}
+
 #pragma mark - Auto Layout
 
 - (void)updateConstraints
