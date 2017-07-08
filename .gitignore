@@ -21,10 +21,6 @@ DerivedData
 
 # CocoaPods
 Pods
-Podfile.lock
-
-# Bundler
-Gemfile.lock
 
 # AppleDoc
 /Documentation/html
