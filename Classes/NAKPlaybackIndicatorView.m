@@ -11,7 +11,7 @@
 
 @interface NAKPlaybackIndicatorView ()
 
-@property (nonatomic, readonly) NAKPlaybackIndicatorContentView* contentView;
+@property (nonatomic, readonly, nonnull) NAKPlaybackIndicatorContentView* contentView;
 @property (nonatomic, assign) BOOL hasInstalledConstraints;
 
 @end

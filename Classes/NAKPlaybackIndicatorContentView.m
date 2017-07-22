@@ -29,7 +29,7 @@ static NSString* const kDecayAnimationKey = @"decay";
 
 @interface NAKPlaybackIndicatorContentView ()
 
-@property (nonatomic, readonly) NSArray* barLayers;
+@property (nonatomic, readonly) NSArray<CALayer*>* barLayers;
 @property (nonatomic, assign) BOOL hasInstalledConstraints;
 
 @end
@@ -52,7 +52,7 @@ static NSString* const kDecayAnimationKey = @"decay";
 
 - (void)prepareBarLayers
 {
-    NSMutableArray* barLayers = [NSMutableArray array];
+    NSMutableArray<CALayer*>* barLayers = [NSMutableArray array];
     CGFloat xOffset = 0.0;
 
     for (NSInteger i = 0; i < kBarCount; i++) {

@@ -1,33 +1,194 @@
-//---------------------------------------------------------------------------------------
-//  $Id$
-//  Copyright (c) 2006-2009 by Mulle Kybernetik. See License file for details.
-//---------------------------------------------------------------------------------------
+/*
+ *  Copyright (c) 2006-2016 Erik Doernenburg and contributors
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); you may
+ *  not use these files except in compliance with the License. You may obtain
+ *  a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ *  License for the specific language governing permissions and limitations
+ *  under the License.
+ */
 
+#import <objc/runtime.h>
 #import "NSInvocation+OCMAdditions.h"
+#import "OCMFunctionsPrivate.h"
+#import "NSMethodSignature+OCMAdditions.h"
 
 
 @implementation NSInvocation(OCMAdditions)
 
-- (id)getArgumentAtIndexAsObject:(int)argIndex
++ (NSInvocation *)invocationForBlock:(id)block withArguments:(NSArray *)arguments
 {
-	const char* argType;
-	
-	argType = [[self methodSignature] getArgumentTypeAtIndex:argIndex];
-	while(strchr("rnNoORV", argType[0]) != NULL)
-		argType += 1;
-	
+	NSMethodSignature *sig = [NSMethodSignature signatureForBlock:block];
+	NSInvocation *inv = [self invocationWithMethodSignature:sig];
+
+	NSUInteger numArgsRequired = sig.numberOfArguments - 1;
+	if((arguments != nil) && ([arguments count] != numArgsRequired))
+		[NSException raise:NSInvalidArgumentException format:@"Specified too few arguments for block; expected %lu arguments.", (unsigned long) numArgsRequired];
+
+	for(NSUInteger i = 0, j = 1; i < numArgsRequired; ++i, ++j)
+	{
+		id arg = [arguments objectAtIndex:i];
+		[inv setArgumentWithObject:arg atIndex:j];
+	}
+
+	return inv;
+
+}
+
+
+static NSString *const OCMRetainedObjectArgumentsKey = @"OCMRetainedObjectArgumentsKey";
+
+- (void)retainObjectArgumentsExcludingObject:(id)objectToExclude
+{
+    if(objc_getAssociatedObject(self, OCMRetainedObjectArgumentsKey) != nil)
+    {
+        // looks like we've retained the arguments already; do nothing else
+        return;
+    }
+
+    NSMutableArray *retainedArguments = [[NSMutableArray alloc] init];
+
+    id target = [self target];
+    if((target != nil) && (target != objectToExclude) && !object_isClass(target))
+    {
+        // Bad things will happen if the target is a block since it's not being
+        // copied. There isn't a very good way to tell if an invocation's target
+        // is a block though (the argument type at index 0 is always "@" even if
+        // the target is a Class or block), and in practice it's OK since you
+        // can't mock a block.
+        [retainedArguments addObject:target];
+    }
+
+    NSUInteger numberOfArguments = [[self methodSignature] numberOfArguments];
+    for(NSUInteger index = 2; index < numberOfArguments; index++)
+    {
+        const char *argumentType = [[self methodSignature] getArgumentTypeAtIndex:index];
+        if(OCMIsObjectType(argumentType) && !OCMIsClassType(argumentType))
+        {
+            id argument;
+            [self getArgument:&argument atIndex:index];
+            if((argument != nil) && (argument != objectToExclude))
+            {
+                if(OCMIsBlockType(argumentType))
+                {
+                    // block types need to be copied in case they're stack blocks
+                    id blockArgument = [argument copy];
+                    [retainedArguments addObject:blockArgument];
+                    [blockArgument release];
+                }
+                else
+                {
+                    [retainedArguments addObject:argument];
+                }
+            }
+        }
+    }
+
+    const char *returnType = [[self methodSignature] methodReturnType];
+    if(OCMIsObjectType(returnType) && !OCMIsClassType(returnType))
+    {
+        id returnValue;
+        [self getReturnValue:&returnValue];
+        if((returnValue != nil) && (returnValue != objectToExclude))
+        {
+            if(OCMIsBlockType(returnType))
+            {
+                id blockReturnValue = [returnValue copy];
+                [retainedArguments addObject:blockReturnValue];
+                [blockReturnValue release];
+            }
+            else
+            {
+                [retainedArguments addObject:returnValue];
+            }
+        }
+    }
+
+    objc_setAssociatedObject(self, OCMRetainedObjectArgumentsKey, retainedArguments, OBJC_ASSOCIATION_RETAIN);
+    [retainedArguments release];
+}
+
+
+- (void)setArgumentWithObject:(id)arg atIndex:(NSInteger)idx
+{
+	const char *typeEncoding = [[self methodSignature] getArgumentTypeAtIndex:idx];
+	if((arg == nil) || [arg isKindOfClass:[NSNull class]])
+	{
+		if(typeEncoding[0] == '^')
+		{
+			void *nullPtr = NULL;
+			[self setArgument:&nullPtr atIndex:idx];
+		}
+		else if(typeEncoding[0] == '@')
+		{
+			id nilObj =  nil;
+			[self setArgument:&nilObj atIndex:idx];
+		}
+		else if(OCMNumberTypeForObjCType(typeEncoding))
+		{
+			NSUInteger argSize;
+			NSGetSizeAndAlignment(typeEncoding, NULL, &argSize);
+			void *argBuffer = calloc(1, argSize);
+			[self setArgument:argBuffer atIndex:idx];
+			free(argBuffer);
+		}
+		else
+		{
+			[NSException raise:NSInvalidArgumentException format:@"Unable to create default value for type '%s'.", typeEncoding];
+		}
+	}
+	else if(OCMIsObjectType(typeEncoding))
+	{
+		[self setArgument:&arg atIndex:idx];
+	}
+	else
+	{
+		if(![arg isKindOfClass:[NSValue class]])
+			[NSException raise:NSInvalidArgumentException format:@"Argument '%@' should be boxed in NSValue.", arg];
+
+		char const *valEncoding = [arg objCType];
+
+		/// @note Here we allow any data pointer to be passed as a void pointer and
+		/// any numerical types to be passed as arguments to the block.
+		BOOL takesVoidPtr = !strcmp(typeEncoding, "^v") && valEncoding[0] == '^';
+		BOOL takesNumber = OCMNumberTypeForObjCType(typeEncoding) && OCMNumberTypeForObjCType(valEncoding);
+
+		if(!takesVoidPtr && !takesNumber && !OCMEqualTypesAllowingOpaqueStructs(typeEncoding, valEncoding))
+			[NSException raise:NSInvalidArgumentException format:@"Argument type mismatch; type of argument required is '%s' but type of value provided is '%s'", typeEncoding, valEncoding];
+
+		NSUInteger argSize;
+		NSGetSizeAndAlignment(typeEncoding, &argSize, NULL);
+		void *argBuffer = malloc(argSize);
+		[arg getValue:argBuffer];
+		[self setArgument:argBuffer atIndex:idx];
+		free(argBuffer);
+	}
+
+}
+
+
+- (id)getArgumentAtIndexAsObject:(NSInteger)argIndex
+{
+	const char *argType = OCMTypeWithoutQualifiers([[self methodSignature] getArgumentTypeAtIndex:(NSUInteger)argIndex]);
+
 	if((strlen(argType) > 1) && (strchr("{^", argType[0]) == NULL) && (strcmp("@?", argType) != 0))
 		[NSException raise:NSInvalidArgumentException format:@"Cannot handle argument type '%s'.", argType];
-	
-	switch (argType[0]) 
+
+    if(OCMIsObjectType(argType))
+    {
+        id value;
+     	[self getArgument:&value atIndex:argIndex];
+     	return value;
+    }
+
+	switch(argType[0])
 	{
-		case '#':
-		case '@': 
-		{
-			id value;
-			[self getArgument:&value atIndex:argIndex];
-			return value;
-		}
 		case ':':
  		{
  			SEL s = (SEL)0;
@@ -38,87 +199,88 @@
 		{
 			int value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithInt:value];
+			return @(value);
 		}	
 		case 's':
 		{
 			short value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithShort:value];
+			return @(value);
 		}	
 		case 'l':
 		{
 			long value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithLong:value];
+			return @(value);
 		}	
 		case 'q':
 		{
 			long long value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithLongLong:value];
+			return @(value);
 		}	
 		case 'c':
 		{
 			char value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithChar:value];
+			return @(value);
 		}	
 		case 'C':
 		{
 			unsigned char value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithUnsignedChar:value];
+			return @(value);
 		}	
 		case 'I':
 		{
 			unsigned int value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithUnsignedInt:value];
+			return @(value);
 		}	
 		case 'S':
 		{
 			unsigned short value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithUnsignedShort:value];
+			return @(value);
 		}	
 		case 'L':
 		{
 			unsigned long value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithUnsignedLong:value];
+			return @(value);
 		}	
 		case 'Q':
 		{
 			unsigned long long value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithUnsignedLongLong:value];
+			return @(value);
 		}	
 		case 'f':
 		{
 			float value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithFloat:value];
+			return @(value);
 		}	
 		case 'd':
 		{
 			double value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithDouble:value];
+			return @(value);
 		}	
 		case 'D':
 		{
 			long double value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSValue valueWithBytes:&value objCType:@encode(typeof(value))];
+			return [NSValue valueWithBytes:&value objCType:@encode(__typeof__(value))];
 		}
 		case 'B':
 		{
 			bool value;
 			[self getArgument:&value atIndex:argIndex];
-			return [NSNumber numberWithBool:value];
+			return @(value);
 		}
 		case '^':
+        case '*':
         {
             void *value = NULL;
             [self getArgument:&value atIndex:argIndex];
@@ -127,7 +289,7 @@
 		case '{': // structure
 		{
 			NSUInteger argSize;
-			NSGetSizeAndAlignment([[self methodSignature] getArgumentTypeAtIndex:argIndex], &argSize, NULL);
+			NSGetSizeAndAlignment([[self methodSignature] getArgumentTypeAtIndex:(NSUInteger)argIndex], &argSize, NULL);
 			if(argSize == 0) // TODO: Can this happen? Is frameLength a good choice in that case?
                 argSize = [[self methodSignature] frameLength];
 			NSMutableData *argumentData = [[[NSMutableData alloc] initWithLength:argSize] autorelease];
@@ -150,21 +312,19 @@
 	
 	NSArray *selectorParts = [NSStringFromSelector([self selector]) componentsSeparatedByString:@":"];
 	NSMutableString *description = [[NSMutableString alloc] init];
-	unsigned int i;
+	NSUInteger i;
 	for(i = 2; i < numberOfArgs; i++)
 	{
 		[description appendFormat:@"%@%@:", (i > 2 ? @" " : @""), [selectorParts objectAtIndex:(i - 2)]];
-		[description appendString:[self argumentDescriptionAtIndex:i]];
+		[description appendString:[self argumentDescriptionAtIndex:(NSInteger)i]];
 	}
 	
 	return [description autorelease];
 }
 
-- (NSString *)argumentDescriptionAtIndex:(int)argIndex
+- (NSString *)argumentDescriptionAtIndex:(NSInteger)argIndex
 {
-	const char *argType = [[self methodSignature] getArgumentTypeAtIndex:argIndex];
-	if(strchr("rnNoORV", argType[0]) != NULL)
-		argType += 1;
+	const char *argType = OCMTypeWithoutQualifiers([[self methodSignature] getArgumentTypeAtIndex:(NSUInteger)argIndex]);
 
 	switch(*argType)
 	{
@@ -193,7 +353,7 @@
 }
 
 
-- (NSString *)objectDescriptionAtIndex:(int)anInt
+- (NSString *)objectDescriptionAtIndex:(NSInteger)anInt
 {
 	id object;
 	
@@ -207,14 +367,14 @@
 		return [object description] ?: @"<nil description>";
 }
 
-- (NSString *)boolDescriptionAtIndex:(int)anInt
+- (NSString *)boolDescriptionAtIndex:(NSInteger)anInt
 {
 	bool value;
 	[self getArgument:&value atIndex:anInt];
 	return value? @"YES" : @"NO";
 }
 
-- (NSString *)charDescriptionAtIndex:(int)anInt
+- (NSString *)charDescriptionAtIndex:(NSInteger)anInt
 {
 	unsigned char buffer[128];
 	memset(buffer, 0x0, 128);
@@ -228,7 +388,7 @@
 		return [NSString stringWithFormat:@"'%c'", *buffer];
 }
 
-- (NSString *)unsignedCharDescriptionAtIndex:(int)anInt
+- (NSString *)unsignedCharDescriptionAtIndex:(NSInteger)anInt
 {
 	unsigned char buffer[128];
 	memset(buffer, 0x0, 128);
@@ -237,7 +397,7 @@
 	return [NSString stringWithFormat:@"'%c'", *buffer];
 }
 
-- (NSString *)intDescriptionAtIndex:(int)anInt
+- (NSString *)intDescriptionAtIndex:(NSInteger)anInt
 {
 	int intValue;
 	
@@ -245,7 +405,7 @@
 	return [NSString stringWithFormat:@"%d", intValue];
 }
 
-- (NSString *)unsignedIntDescriptionAtIndex:(int)anInt
+- (NSString *)unsignedIntDescriptionAtIndex:(NSInteger)anInt
 {
 	unsigned int intValue;
 	
@@ -253,7 +413,7 @@
 	return [NSString stringWithFormat:@"%d", intValue];
 }
 
-- (NSString *)shortDescriptionAtIndex:(int)anInt
+- (NSString *)shortDescriptionAtIndex:(NSInteger)anInt
 {
 	short shortValue;
 	
@@ -261,7 +421,7 @@
 	return [NSString stringWithFormat:@"%hi", shortValue];
 }
 
-- (NSString *)unsignedShortDescriptionAtIndex:(int)anInt
+- (NSString *)unsignedShortDescriptionAtIndex:(NSInteger)anInt
 {
 	unsigned short shortValue;
 	
@@ -269,7 +429,7 @@
 	return [NSString stringWithFormat:@"%hu", shortValue];
 }
 
-- (NSString *)longDescriptionAtIndex:(int)anInt
+- (NSString *)longDescriptionAtIndex:(NSInteger)anInt
 {
 	long longValue;
 	
@@ -277,7 +437,7 @@
 	return [NSString stringWithFormat:@"%ld", longValue];
 }
 
-- (NSString *)unsignedLongDescriptionAtIndex:(int)anInt
+- (NSString *)unsignedLongDescriptionAtIndex:(NSInteger)anInt
 {
 	unsigned long longValue;
 	
@@ -285,7 +445,7 @@
 	return [NSString stringWithFormat:@"%lu", longValue];
 }
 
-- (NSString *)longLongDescriptionAtIndex:(int)anInt
+- (NSString *)longLongDescriptionAtIndex:(NSInteger)anInt
 {
 	long long longLongValue;
 	
@@ -293,7 +453,7 @@
 	return [NSString stringWithFormat:@"%qi", longLongValue];
 }
 
-- (NSString *)unsignedLongLongDescriptionAtIndex:(int)anInt
+- (NSString *)unsignedLongLongDescriptionAtIndex:(NSInteger)anInt
 {
 	unsigned long long longLongValue;
 	
@@ -301,7 +461,7 @@
 	return [NSString stringWithFormat:@"%qu", longLongValue];
 }
 
-- (NSString *)doubleDescriptionAtIndex:(int)anInt
+- (NSString *)doubleDescriptionAtIndex:(NSInteger)anInt
 {
 	double doubleValue;
 	
@@ -309,7 +469,7 @@
 	return [NSString stringWithFormat:@"%f", doubleValue];
 }
 
-- (NSString *)floatDescriptionAtIndex:(int)anInt
+- (NSString *)floatDescriptionAtIndex:(NSInteger)anInt
 {
 	float floatValue;
 	
@@ -317,7 +477,7 @@
 	return [NSString stringWithFormat:@"%f", floatValue];
 }
 
-- (NSString *)longDoubleDescriptionAtIndex:(int)anInt
+- (NSString *)longDoubleDescriptionAtIndex:(NSInteger)anInt
 {
 	long double longDoubleValue;
 	
@@ -325,12 +485,12 @@
 	return [NSString stringWithFormat:@"%Lf", longDoubleValue];
 }
 
-- (NSString *)structDescriptionAtIndex:(int)anInt
+- (NSString *)structDescriptionAtIndex:(NSInteger)anInt
 {
     return [NSString stringWithFormat:@"(%@)", [[self getArgumentAtIndexAsObject:anInt] description]];
 }
 
-- (NSString *)pointerDescriptionAtIndex:(int)anInt
+- (NSString *)pointerDescriptionAtIndex:(NSInteger)anInt
 {
 	void *buffer;
 	
@@ -338,18 +498,18 @@
 	return [NSString stringWithFormat:@"%p", buffer];
 }
 
-- (NSString *)cStringDescriptionAtIndex:(int)anInt
+- (NSString *)cStringDescriptionAtIndex:(NSInteger)anInt
 {
 	char buffer[104];
 	char *cStringPtr;
 	
 	[self getArgument:&cStringPtr atIndex:anInt];
-	strncpy(buffer, cStringPtr, 100);
-    strcpy(buffer + 100, "...");
+	strlcpy(buffer, cStringPtr, sizeof(buffer));
+	strlcpy(buffer + 100, "...", (sizeof(buffer) - 100));
 	return [NSString stringWithFormat:@"\"%s\"", buffer];
 }
 
-- (NSString *)selectorDescriptionAtIndex:(int)anInt
+- (NSString *)selectorDescriptionAtIndex:(NSInteger)anInt
 {
 	SEL selectorValue;
 	
