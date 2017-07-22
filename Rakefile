@@ -8,6 +8,6 @@ Dir['Tasks/**/*.rake'].each do |path|
 end
 
 desc 'Run CI task'
-task ci: %w(test:all style)
+task ci: %w[test:all style]
 
 task default: 'test:all'

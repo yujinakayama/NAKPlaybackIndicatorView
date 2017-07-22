@@ -26,7 +26,6 @@ end
 
 desc 'Release a new version of the Pod'
 task :release do
-
   puts '* Running version'
   sh 'rake version'
 
@@ -43,7 +42,7 @@ task :release do
     end
 
     puts "You are about to release `#{spec_version}`, is that correct? [y/n]"
-    exit if $stdin.gets.strip.downcase != 'y'
+    exit unless $stdin.gets.strip.casecmp('y').zero?
   end
 
   puts '* Running tests'
@@ -76,8 +75,6 @@ def remote_spec_version
   if spec_file_exist_on_remote?
     remote_spec = eval(`git show origin/master:#{podspec_path}`) # rubocop:disable Eval
     remote_spec.version
-  else
-    nil
   end
 end
 
@@ -91,7 +88,7 @@ def spec_file_exist_on_remote?
   echo 'false'
   fi`
 
-  'true' == test_condition.strip
+  test_condition.strip == 'true'
 end
 
 # @return [String] The relative path of the Podspec.
@@ -101,7 +98,7 @@ def podspec_path
   if podspecs.count == 1
     podspecs.first
   else
-    fail 'Could not select a podspec'
+    raise 'Could not select a podspec'
   end
 end
 

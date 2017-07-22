@@ -14,13 +14,13 @@ class XcodeTest
   end
 
   def id
-    name.downcase.gsub(' ', '_').gsub(/[\(\)\-]/, '')
+    name.downcase.tr(' ', '_').gsub(/[\(\)\-]/, '')
   end
 
   def run(xcpretty = true)
     command = xcodebuild_command
     command << ' | xcpretty --color' if xcpretty
-    system(command) || fail('Test failed!')
+    system(command) || raise('Test failed!')
   end
 
   private
