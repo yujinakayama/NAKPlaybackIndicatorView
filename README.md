@@ -5,10 +5,10 @@
 
 <img src="Documentation/music-app.png" width="320" height="150" alt="Music.app" align="right" />
 
-**NAKPlaybackIndicatorView** is a view that mimics the music playback indicator in the Music.app on iOS 7.
+**NAKPlaybackIndicatorView** is a view that mimics the music playback indicator in the Music.app on iOS.
 It has three vertical bars and they oscillate randomly.
 
-Requires iOS 7 or later.
+Requires iOS 8.0 or later.
 
 ## Trying the Demo App
 
