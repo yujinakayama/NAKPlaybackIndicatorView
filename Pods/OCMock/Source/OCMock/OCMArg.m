@@ -1,12 +1,24 @@
-//---------------------------------------------------------------------------------------
-//  $Id$
-//  Copyright (c) 2009-2013 by Mulle Kybernetik. See License file for details.
-//---------------------------------------------------------------------------------------
+/*
+ *  Copyright (c) 2009-2016 Erik Doernenburg and contributors
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); you may
+ *  not use these files except in compliance with the License. You may obtain
+ *  a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ *  License for the specific language governing permissions and limitations
+ *  under the License.
+ */
 
 #import <objc/runtime.h>
 #import <OCMock/OCMArg.h>
 #import <OCMock/OCMConstraint.h>
 #import "OCMPassByRefSetter.h"
+#import "OCMBlockArgCaller.h"
 
 @implementation OCMArg
 
@@ -40,6 +52,11 @@
 	return [OCMIsNotNilConstraint constraint];
 }
 
++ (id)isEqual:(id)value
+{
+    return value;
+}
+
 + (id)isNotEqual:(id)value
 {
 	OCMIsNotEqualConstraint *constraint = [OCMIsNotEqualConstraint constraint];
@@ -47,19 +64,22 @@
 	return constraint;
 }
 
++ (id)isKindOfClass:(Class)cls
+{
+	return [[[OCMBlockConstraint alloc] initWithConstraintBlock:^BOOL(id obj) {
+        return [obj isKindOfClass:cls];
+    }] autorelease];
+}
+
 + (id)checkWithSelector:(SEL)selector onObject:(id)anObject
 {
 	return [OCMConstraint constraintWithSelector:selector onObject:anObject];
 }
 
-#if NS_BLOCKS_AVAILABLE
-
-+ (id)checkWithBlock:(BOOL (^)(id))block 
++ (id)checkWithBlock:(BOOL (^)(id))block
 {
 	return [[[OCMBlockConstraint alloc] initWithConstraintBlock:block] autorelease];
 }
-
-#endif
 
 + (id *)setTo:(id)value
 {
@@ -70,6 +90,37 @@
 {
 	return (id *)[[[OCMPassByRefSetter alloc] initWithValue:value] autorelease];
 }
+
++ (id)invokeBlock
+{
+    return [[[OCMBlockArgCaller alloc] init] autorelease];
+}
+
++ (id)invokeBlockWithArgs:(id)first,... NS_REQUIRES_NIL_TERMINATION
+{
+    
+    NSMutableArray *params = [NSMutableArray array];
+    va_list args;
+    if(first)
+    {
+        [params addObject:first];
+        va_start(args, first);
+        id obj;
+        while((obj = va_arg(args, id)))
+        {
+            [params addObject:obj];
+        }
+        va_end(args);
+    }
+    return [[[OCMBlockArgCaller alloc] initWithBlockArguments:params] autorelease];
+    
+}
+
++ (id)defaultValue
+{
+    return [NSNull null];
+}
+
 
 + (id)resolveSpecialValues:(NSValue *)value
 {
@@ -91,6 +142,5 @@
     }
 	return value;
 }
-
 
 @end
