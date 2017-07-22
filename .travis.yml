@@ -1,3 +1,4 @@
 language: objective-c
+osx_image: xcode8.3
 env: LANG=en_US.UTF-8
 script: rake ci

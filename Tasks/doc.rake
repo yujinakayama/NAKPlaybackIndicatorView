@@ -29,29 +29,23 @@ namespace :doc do
 end
 
 def run_appledoc(output_type)
-  project_name = 'NAKPlaybackIndicatorView'
-  company = 'Yuji Nakayama'
-  company_id = 'me.yujinakayama'
-  output_path = 'Documentation'
-  # Omitting NAKPlaybackIndicatorContentView.h since it's private header.
-  source_paths = ['Classes/NAKPlaybackIndicatorView.h']
+  actions =
+    case output_type
+    when :docset then ['--install-docset']
+    when :html   then ['--create-html', '--no-create-docset']
+    else raise
+    end
 
-  action = case output_type
-           when :docset
-             ['--install-docset']
-           when :html
-             ['--create-html', '--no-create-docset']
-           else
-             fail "Unknown documentation type #{output_type}!"
-           end
-
-  command = ['appledoc']
-  command.concat(['--project-name', project_name])
-  command.concat(['--project-company', company])
-  command.concat(['--company-id', company_id])
-  command.concat(action)
-  command.concat(['--output', output_path])
-  command.concat(source_paths)
+  command = [
+    'appledoc',
+    '--project-name', 'NAKPlaybackIndicatorView',
+    '--project-company', 'Yuji Nakayama',
+    '--company-id', 'me.yujinakayama',
+    '--output', 'Documentation',
+    actions,
+    # Omitting NAKPlaybackIndicatorContentView.h since it's private header.
+    'Classes/NAKPlaybackIndicatorView.h'
+  ].flatten
 
   system(*command)
 end

@@ -14,13 +14,13 @@ class XcodeTest
   end
 
   def id
-    name.downcase.gsub(' ', '_').gsub(/[\(\)\-]/, '')
+    name.downcase.tr(' ', '_').gsub(/[\(\)\-]/, '')
   end
 
   def run(xcpretty = true)
     command = xcodebuild_command
     command << ' | xcpretty --color' if xcpretty
-    system(command) || fail('Test failed!')
+    system(command) || raise('Test failed!')
   end
 
   private
@@ -49,19 +49,19 @@ end
 
 namespace :test do
   devices = [
-    'iPhone Retina (4-inch)',
-    'iPhone Retina (4-inch 64-bit)',
-    'iPad',
-    'iPad Retina'
+    'iPhone 6',
+    'iPad Pro (12.9-inch)'
   ]
 
-  oses = ['7.0', 'latest']
+  oses = [
+    '9.3',
+    '10.3.1',
+    'latest'
+  ]
 
-  tests = []
-
-  devices.each do |device|
-    oses.each do |os|
-      tests << XcodeTest.new('NAKPlaybackIndicatorView', device, os)
+  tests = devices.each_with_object([]) do |device, array|
+    oses.map do |os|
+      array << XcodeTest.new('NAKPlaybackIndicatorView', device, os)
     end
   end
 
