@@ -28,6 +28,7 @@
 		B960613A18999C9F00A50F87 /* DMSongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B960613918999C9F00A50F87 /* DMSongCell.m */; };
 		B98DFF5B189FBDC300CB9A50 /* NAKPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EB23BC189FBBF50068241D /* NAKPlaybackIndicatorView.m */; };
 		B98DFF5C189FBDC600CB9A50 /* NAKPlaybackIndicatorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EB23BE189FBBF50068241D /* NAKPlaybackIndicatorContentView.m */; };
+		B9ADED161F23B08900DA8349 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9ADED151F23B08900DA8349 /* Launch Screen.storyboard */; };
 		B9B3C7F81F1070D200FDEDBA /* NAKPlaybackIndicatorViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B94EDD2D189AD92600552FA0 /* NAKPlaybackIndicatorViewSpec.m */; };
 		B9B3C7F91F1070D200FDEDBA /* SnapshotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD06D189801FA006F2740 /* SnapshotTests.m */; };
 		B9B3C7FB1F1073F200FDEDBA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9B3C7F21F1070AA00FDEDBA /* Info.plist */; };
@@ -83,6 +84,7 @@
 		B96061361899977000A50F87 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B960613818999C9F00A50F87 /* DMSongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSongCell.h; sourceTree = "<group>"; };
 		B960613918999C9F00A50F87 /* DMSongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSongCell.m; sourceTree = "<group>"; };
+		B9ADED151F23B08900DA8349 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B9B3C7EE1F1070AA00FDEDBA /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B3C7F21F1070AA00FDEDBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9EB23BB189FBBF50068241D /* NAKPlaybackIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAKPlaybackIndicatorView.h; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				B960613818999C9F00A50F87 /* DMSongCell.h */,
 				B960613918999C9F00A50F87 /* DMSongCell.m */,
 				B94978A8189C166100A0FD8B /* Fake MediaPlayer for Simulator */,
+				B9ADED151F23B08900DA8349 /* Launch Screen.storyboard */,
 				B9606117189993BC00A50F87 /* Images.xcassets */,
 				B960610C189993BC00A50F87 /* Supporting Files */,
 			);
@@ -367,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9ADED161F23B08900DA8349 /* Launch Screen.storyboard in Resources */,
 				B9606110189993BC00A50F87 /* InfoPlist.strings in Resources */,
 				B9606118189993BC00A50F87 /* Images.xcassets in Resources */,
 			);
@@ -642,7 +646,6 @@
 			baseConfigurationReference = 95905CEFB2C909D57F8B1CE8 /* Pods-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -660,7 +663,6 @@
 			baseConfigurationReference = 5508D6AED0F11CC91C882F6E /* Pods-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
 				INFOPLIST_FILE = "Demo/Demo-Info.plist";
