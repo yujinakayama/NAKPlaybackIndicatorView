@@ -5,7 +5,7 @@ AllCops:
     - Gemfile
     - Podfile
   Exclude:
-    - vendor/*
+    - vendor/**/*
 
 Encoding:
   Enabled: false
