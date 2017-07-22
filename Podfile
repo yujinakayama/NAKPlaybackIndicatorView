@@ -4,7 +4,7 @@ workspace 'NAKPlaybackIndicatorView'
 
 target 'Tests' do
   pod 'Specta',             '~> 1.0'
-  pod 'Expecta',            '~> 0.2'
+  pod 'Expecta',            '~> 1.0'
   pod 'OCMock',             '~> 2.2'
   pod 'FBSnapshotTestCase', '~> 1.0'
 end
