@@ -7,7 +7,6 @@
 //
 
 #import "DMMusicViewController.h"
-#import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
 #import "DMMusicPlayerController.h"
 #import "DMMediaItem.h"
 #import "DMSongCell.h"

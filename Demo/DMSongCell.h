@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import <NAKPlaybackIndicatorView/NAKPlaybackIndicatorView.h>
+#import "NAKPlaybackIndicatorView.h"
 
 @class DMMediaItem;
 

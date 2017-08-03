@@ -8,7 +8,3 @@ target 'Tests' do
   pod 'OCMock',             '~> 3.4'
   pod 'FBSnapshotTestCase', '~> 1.0'
 end
-
-target 'Demo' do
-  pod 'NAKPlaybackIndicatorView', path: 'NAKPlaybackIndicatorView.podspec'
-end
