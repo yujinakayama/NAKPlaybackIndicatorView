@@ -65,9 +65,9 @@ static NSString* const kLipsum =
     return vocabulary;
 }
 
-- (id)initWithTitle:(NSString *)title
-   playbackDuration:(NSTimeInterval)playbackDuration
-   albumTrackNumber:(NSUInteger)albumTrackNumber
+- (instancetype)initWithTitle:(NSString *)title
+             playbackDuration:(NSTimeInterval)playbackDuration
+             albumTrackNumber:(NSUInteger)albumTrackNumber
 {
     self = [super init];
     if (self) {

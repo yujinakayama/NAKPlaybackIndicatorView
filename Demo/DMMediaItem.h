@@ -16,9 +16,9 @@
 
 + (instancetype)randomSongWithAlbumTrackNumber:(NSUInteger)albumTrackNumber;
 
-- (id)initWithTitle:(NSString *)title
-   playbackDuration:(NSTimeInterval)playbackDuration
-   albumTrackNumber:(NSUInteger)albumTrackNumber;
+- (instancetype)initWithTitle:(NSString *)title
+             playbackDuration:(NSTimeInterval)playbackDuration
+             albumTrackNumber:(NSUInteger)albumTrackNumber;
 
 - (id)valueForProperty:(NSString*)property;
 

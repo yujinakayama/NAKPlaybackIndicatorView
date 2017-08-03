@@ -14,7 +14,7 @@
 
 @interface DMSongCell : UITableViewCell
 
-- (id)initWithReuseIdentifier:(NSString*)reuseIdentifier;
+- (instancetype)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 
 @property (nonatomic, strong) MPMediaItem* song;
 @property (nonatomic, assign) NAKPlaybackIndicatorViewState state;
