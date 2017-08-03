@@ -32,7 +32,6 @@
 		B9ADED161F23B08900DA8349 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9ADED151F23B08900DA8349 /* Launch Screen.storyboard */; };
 		B9B3C7F81F1070D200FDEDBA /* NAKPlaybackIndicatorViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B94EDD2D189AD92600552FA0 /* NAKPlaybackIndicatorViewSpec.m */; };
 		B9B3C7F91F1070D200FDEDBA /* SnapshotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD06D189801FA006F2740 /* SnapshotTests.m */; };
-		B9B3C7FB1F1073F200FDEDBA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9B3C7F21F1070AA00FDEDBA /* Info.plist */; };
 		D44B793A46567540F754A113 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFD6214A1FA47AFB541AF9F /* libPods-Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -316,7 +315,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = NA;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Yuji Nakayama";
 				TargetAttributes = {
 					B9B3C7ED1F1070AA00FDEDBA = {
@@ -371,7 +370,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9B3C7FB1F1073F200FDEDBA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,13 +502,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -543,13 +547,18 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -571,6 +580,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestHost/TestHost-Prefix.pch";
 				INFOPLIST_FILE = "TestHost/TestHost-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.yujinakayama.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -584,6 +594,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestHost/TestHost-Prefix.pch";
 				INFOPLIST_FILE = "TestHost/TestHost-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.yujinakayama.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -600,6 +611,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.yujinakayama.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "NAKPlaybackIndicatorView $(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -612,6 +624,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
 				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.yujinakayama.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "NAKPlaybackIndicatorView $(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
