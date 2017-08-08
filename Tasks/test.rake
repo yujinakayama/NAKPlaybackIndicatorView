@@ -50,6 +50,7 @@ end
 namespace :test do
   devices = [
     'iPhone 6',
+    'iPhone 6 Plus',
     'iPad Pro (12.9-inch)'
   ]
 
