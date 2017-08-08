@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Classes'
-  s.public_header_files = 'Classes/NAKPlaybackIndicatorView.h'
+  s.public_header_files = ['Classes/NAKPlaybackIndicatorView.h', 'Classes/NAKPlaybackIndicatorViewStyle.h']
   s.frameworks = 'QuartzCore'
 end
