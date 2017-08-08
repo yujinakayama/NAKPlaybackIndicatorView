@@ -103,7 +103,7 @@ NAKPlaybackIndicatorView *indicator = [[NAKPlaybackIndicatorView alloc] initWith
 
 ### Bar Count, Size, and Spacing
 
-Bars can be customized via a `NAKPlaybackIndicatorViewStyle`.
+Bars can be customized via `NAKPlaybackIndicatorViewStyle`.
 
 ### Color
 
