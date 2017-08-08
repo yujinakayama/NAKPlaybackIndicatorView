@@ -47,15 +47,23 @@
     _musicPlayer = (MPMusicPlayerController*)[DMMusicPlayerController iPodMusicPlayer];
     _musicPlayer.nowPlayingItem = songs.firstObject;
 #else
-    MPMediaQuery* query = [MPMediaQuery albumsQuery];
-    _collections = query.collections;
-    _collectionSections = query.collectionSections;
+    [MPMediaLibrary requestAuthorization:^(MPMediaLibraryAuthorizationStatus status) {
+        if (status == MPMediaLibraryAuthorizationStatusAuthorized) {
+            MPMediaQuery* query = [MPMediaQuery albumsQuery];
+            _collections = query.collections;
+            _collectionSections = query.collectionSections;
 
-    NSMutableArray* sectionIndexTitles = [NSMutableArray array];
-    for (MPMediaQuerySection* section in _collectionSections) {
-        [sectionIndexTitles addObject:section.title];
-    }
-    _sectionIndexTitles = sectionIndexTitles;
+            NSMutableArray* sectionIndexTitles = [NSMutableArray array];
+            for (MPMediaQuerySection* section in _collectionSections) {
+                [sectionIndexTitles addObject:section.title];
+            }
+            _sectionIndexTitles = sectionIndexTitles;
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+    }];
 
     _musicPlayer = [MPMusicPlayerController systemMusicPlayer];
 #endif
