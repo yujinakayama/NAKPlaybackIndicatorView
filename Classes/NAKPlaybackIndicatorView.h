@@ -50,6 +50,11 @@ typedef NS_ENUM(NSInteger, NAKPlaybackIndicatorViewState) {
 - (instancetype)initWithFrame:(CGRect)frame style:(NAKPlaybackIndicatorViewStyle*)style NS_DESIGNATED_INITIALIZER;
 
 /**
+ The style of the receiver.
+ */
+@property (nonatomic, readonly) NAKPlaybackIndicatorViewStyle* style;
+
+/**
  The current state of the receiver.
 
  You can control the receiver's appearance and behavior by setting this property.
