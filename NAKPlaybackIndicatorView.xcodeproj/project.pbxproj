@@ -15,7 +15,7 @@
 		B92DD047189801FA006F2740 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B92DD045189801FA006F2740 /* InfoPlist.strings */; };
 		B92DD049189801FA006F2740 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD048189801FA006F2740 /* main.m */; };
 		B92DD04D189801FA006F2740 /* THAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DD04C189801FA006F2740 /* THAppDelegate.m */; };
-		B92DD05B189801FA006F2740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92DD05A189801FA006F2740 /* Images.xcassets */; };
+		B943F3001F3A208600BD7A98 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B943F2FF1F3A208600BD7A98 /* Launch Screen.storyboard */; };
 		B9497866189BE09B00A0FD8B /* DMMusicPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9497865189BE09B00A0FD8B /* DMMusicPlayerController.m */; };
 		B94BDEA91899E069000527B0 /* DMMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B94BDEA81899E069000527B0 /* DMMediaItem.m */; };
 		B95BA00A1F3364A200340380 /* NAKPlaybackIndicatorViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B95BA0081F3364A200340380 /* NAKPlaybackIndicatorViewStyle.m */; };
@@ -61,9 +61,9 @@
 		B92DD04A189801FA006F2740 /* TestHost-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestHost-Prefix.pch"; sourceTree = "<group>"; };
 		B92DD04B189801FA006F2740 /* THAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAppDelegate.h; sourceTree = "<group>"; };
 		B92DD04C189801FA006F2740 /* THAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAppDelegate.m; sourceTree = "<group>"; };
-		B92DD05A189801FA006F2740 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B92DD061189801FA006F2740 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B92DD06D189801FA006F2740 /* SnapshotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnapshotTests.m; sourceTree = "<group>"; };
+		B943F2FF1F3A208600BD7A98 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B9497864189BE09B00A0FD8B /* DMMusicPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMusicPlayerController.h; sourceTree = "<group>"; };
 		B9497865189BE09B00A0FD8B /* DMMusicPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMusicPlayerController.m; sourceTree = "<group>"; };
 		B94BDEA71899E069000527B0 /* DMMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMediaItem.h; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			children = (
 				B92DD04B189801FA006F2740 /* THAppDelegate.h */,
 				B92DD04C189801FA006F2740 /* THAppDelegate.m */,
-				B92DD05A189801FA006F2740 /* Images.xcassets */,
+				B943F2FF1F3A208600BD7A98 /* Launch Screen.storyboard */,
 				B92DD043189801FA006F2740 /* Supporting Files */,
 			);
 			path = TestHost;
@@ -360,7 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B92DD05B189801FA006F2740 /* Images.xcassets in Resources */,
+				B943F3001F3A208600BD7A98 /* Launch Screen.storyboard in Resources */,
 				B92DD047189801FA006F2740 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,8 +586,6 @@
 		B92DD072189801FA006F2740 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestHost/TestHost-Prefix.pch";
 				INFOPLIST_FILE = "TestHost/TestHost-Info.plist";
@@ -600,8 +598,6 @@
 		B92DD073189801FA006F2740 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestHost/TestHost-Prefix.pch";
 				INFOPLIST_FILE = "TestHost/TestHost-Info.plist";
