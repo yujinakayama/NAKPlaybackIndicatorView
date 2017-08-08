@@ -37,7 +37,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>Plays music.</string>
+	<string>This app needs to access your media library to play songs.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
