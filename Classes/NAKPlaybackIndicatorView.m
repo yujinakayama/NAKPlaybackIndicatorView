@@ -11,6 +11,8 @@
 
 @interface NAKPlaybackIndicatorView ()
 
+- (instancetype)initWithCoder:(NSCoder*)aDecoder NS_DESIGNATED_INITIALIZER;
+
 @property (nonatomic, readonly, nonnull) NAKPlaybackIndicatorContentView* contentView;
 @property (nonatomic, assign) BOOL hasInstalledConstraints;
 
@@ -22,9 +24,19 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+    return [self initWithFrame:frame style:[NAKPlaybackIndicatorStyle defaultStyle]];
+}
+
+- (instancetype)initWithStyle:(NAKPlaybackIndicatorStyle*)style
+{
+    return [self initWithFrame:CGRectZero style:style];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame style:(NAKPlaybackIndicatorStyle*)style
+{
     self = [super initWithFrame:frame];
     if (self) {
-        [self commonInit];
+        [self commonInitWithStyle:style];
     }
     return self;
 }
@@ -33,16 +45,16 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self commonInit];
+        [self commonInitWithStyle:[NAKPlaybackIndicatorStyle defaultStyle]];
     }
     return self;
 }
 
-- (void)commonInit
+- (void)commonInitWithStyle:(NAKPlaybackIndicatorStyle*)style
 {
     self.layer.masksToBounds = YES;
 
-    _contentView = [[NAKPlaybackIndicatorContentView alloc] init];
+    _contentView = [[NAKPlaybackIndicatorContentView alloc] initWithStyle:style];
     [self addSubview:_contentView];
 
     [self prepareLayoutPriorities];

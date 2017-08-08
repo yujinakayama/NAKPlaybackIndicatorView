@@ -8,19 +8,8 @@
 
 #import "NAKPlaybackIndicatorContentView.h"
 
-static const NSInteger kBarCount = 3;
-
-static const CGFloat kBarWidth = 3.0;
-static const CGFloat kBarIdleHeight = 3.0;
-
-static const CGFloat kHorizontalBarSpacing = 1.5;
-
-static const CGFloat kBarMinPeakHeight = 6.0;
-static const CGFloat kBarMaxPeakHeight = 12.0;
-
 static const CFTimeInterval kMinBaseOscillationPeriod = 0.6;
 static const CFTimeInterval kMaxBaseOscillationPeriod = 0.8;
-
 static NSString* const kOscillationAnimationKey = @"oscillation";
 
 static const CFTimeInterval kDecayDuration = 0.3;
@@ -37,10 +26,11 @@ static NSString* const kDecayAnimationKey = @"decay";
 
 #pragma mark - Initialization
 
-- (instancetype)init
+- (instancetype)initWithStyle:(NAKPlaybackIndicatorStyle*)style
 {
     self = [super init];
     if (self) {
+        _style = style;
         self.translatesAutoresizingMaskIntoConstraints = NO;
         [self prepareBarLayers];
         [self tintColorDidChange];
@@ -54,11 +44,11 @@ static NSString* const kDecayAnimationKey = @"decay";
     NSMutableArray<CALayer*>* barLayers = [NSMutableArray array];
     CGFloat xOffset = 0.0;
 
-    for (NSInteger i = 0; i < kBarCount; i++) {
+    for (NSInteger i = 0; i < self.style.barCount; i++) {
         CALayer* layer = [self createBarLayerWithXOffset:xOffset];
         [barLayers addObject:layer];
         [self.layer addSublayer:layer];
-        xOffset = CGRectGetMaxX(layer.frame) + kHorizontalBarSpacing;
+        xOffset = CGRectGetMaxX(layer.frame) + self.style.actualBarSpacing;
     }
 
     _barLayers = barLayers;
@@ -69,8 +59,8 @@ static NSString* const kDecayAnimationKey = @"decay";
     CALayer* layer = [CALayer layer];
 
     layer.anchorPoint = CGPointMake(0.0, 1.0); // At the bottom-left corner
-    layer.position = CGPointMake(xOffset, kBarMaxPeakHeight); // In superview's coordinate
-    layer.bounds = CGRectMake(0.0, 0.0, kBarWidth, kBarIdleHeight);// In its own coordinate
+    layer.position = CGPointMake(xOffset, self.style.maxPeakBarHeight); // In superview's coordinate
+    layer.bounds = CGRectMake(0.0, 0.0, self.style.barWidth, self.style.idleBarHeight);// In its own coordinate
     layer.allowsEdgeAntialiasing = YES;
 
     return layer;
@@ -166,7 +156,7 @@ static NSString* const kDecayAnimationKey = @"decay";
 - (void)startOscillatingBarLayer:(CALayer*)layer basePeriod:(CFTimeInterval)basePeriod
 {
     // arc4random_uniform() will return a uniformly distributed random number **less** upper_bound.
-    CGFloat peakHeight = kBarMinPeakHeight + arc4random_uniform(kBarMaxPeakHeight - kBarMinPeakHeight + 1);
+    CGFloat peakHeight = self.style.minPeakBarHeight + arc4random_uniform(self.style.maxPeakBarHeight - self.style.minPeakBarHeight + 1);
 
     CGRect toBounds = layer.bounds;
     toBounds.size.height = peakHeight;
@@ -176,7 +166,7 @@ static NSString* const kDecayAnimationKey = @"decay";
     animation.toValue = [NSValue valueWithCGRect:toBounds];
     animation.repeatCount = HUGE_VALF; // Forever
     animation.autoreverses = YES;
-    animation.duration = (basePeriod / 2) * (kBarMaxPeakHeight / peakHeight);
+    animation.duration = (basePeriod / 2) * (self.style.maxPeakBarHeight / peakHeight);
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
 
     [layer addAnimation:animation forKey:kOscillationAnimationKey];
