@@ -57,7 +57,7 @@
     }
     _sectionIndexTitles = sectionIndexTitles;
 
-    _musicPlayer = [MPMusicPlayerController iPodMusicPlayer];
+    _musicPlayer = [MPMusicPlayerController systemMusicPlayer];
 #endif
 
     [[NSNotificationCenter defaultCenter] addObserver:self
