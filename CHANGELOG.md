@@ -2,6 +2,8 @@
 
 ## Development
 
+## v0.1.0
+
 * Introduce `NAKPlaybackIndicatorViewStyle` class, which allows you to customize `NAKPlaybackIndicatorView`.
 * Add `+[NAKPlaybackIndicatorViewStyle iOS10Style]`.
 * Require iOS 8 or later.
