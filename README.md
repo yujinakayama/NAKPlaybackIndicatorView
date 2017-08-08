@@ -120,7 +120,7 @@ Or if you explicitly specify size, the bars will be placed in the center of the 
 
 ## Class Reference
 
-NAKPlaybackIndicatorView's reference is available [here](http://yujinakayama.me/NAKPlaybackIndicatorView/).
+NAKPlaybackIndicatorView's class reference is available on [CocoaDocs.org](http://cocoadocs.org/docsets/NAKPlaybackIndicatorView/0.1.0).
 
 ## License
 
