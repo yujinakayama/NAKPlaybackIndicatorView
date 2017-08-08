@@ -12,6 +12,10 @@
 
 + (instancetype)defaultStyle;
 
++ (instancetype)iOS7Style;
+
++ (instancetype)iOS10Style;
+
 - (instancetype)initWithBarCount:(NSUInteger)barCount
                         barWidth:(CGFloat)barWidth
                    minBarSpacing:(CGFloat)minBarSpacing

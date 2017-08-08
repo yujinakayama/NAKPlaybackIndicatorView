@@ -12,7 +12,20 @@
 
 + (instancetype)defaultStyle
 {
+    return [self iOS7Style];
+}
+
++ (instancetype)iOS7Style
+{
     return [[self alloc] init];
+}
+
++ (instancetype)iOS10Style
+{
+    return [[self alloc] initWithBarCount:4
+                                 barWidth:2.8
+                            minBarSpacing:1.7
+                         maxPeakBarHeight:12.0];
 }
 
 - (instancetype)init
