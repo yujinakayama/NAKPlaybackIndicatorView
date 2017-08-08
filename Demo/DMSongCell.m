@@ -27,11 +27,12 @@ static const CGFloat kPlaybackDurationLabelRightSpacing = 8.0;
 
 @implementation DMSongCell
 
-- (instancetype)initWithReuseIdentifier:(NSString*)reuseIdentifier
+- (instancetype)initWithPlaybackIndicatorStyle:(NAKPlaybackIndicatorStyle *)playbackIndicatorStyle
+                               reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
-        _playbackIndicatorView = [[NAKPlaybackIndicatorView alloc] init];
+        _playbackIndicatorView = [[NAKPlaybackIndicatorView alloc] initWithStyle:playbackIndicatorStyle];
         _playbackIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:_playbackIndicatorView];
 
