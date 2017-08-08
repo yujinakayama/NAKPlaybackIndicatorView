@@ -28,12 +28,21 @@
     // Be careful not to commit with recordMode on though, or your tests will never fail.
     self.recordMode = NO;
 
-    _view = [[NAKPlaybackIndicatorView alloc] initWithFrame:[self minimumFrame]];
+    _view = [[NAKPlaybackIndicatorView alloc] init];
+    [_view sizeToFit];
     _view.state = NAKPlaybackIndicatorViewStatePaused;
 }
 
 - (void)testPausedContent
 {
+    FBSnapshotVerifyView(_view, nil);
+}
+
+- (void)testIOS10StylePausedContent
+{
+    _view = [[NAKPlaybackIndicatorView alloc] initWithStyle:[NAKPlaybackIndicatorStyle iOS10Style]];
+    [_view sizeToFit];
+    _view.state = NAKPlaybackIndicatorViewStatePaused;
     FBSnapshotVerifyView(_view, nil);
 }
 
@@ -70,11 +79,6 @@
 
     // It seems the superview's tint color is not propagated in the current run loop.
     // FBSnapshotVerifyView(_view, nil);
-}
-
-- (CGRect)minimumFrame
-{
-    return CGRectMake(0.0, 0.0, 13.0, 12.0);
 }
 
 - (UIColor*)musicAppTintColor

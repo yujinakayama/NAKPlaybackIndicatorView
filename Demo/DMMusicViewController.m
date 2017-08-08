@@ -18,6 +18,8 @@
 @property (nonatomic, readonly) NSArray* collectionSections;
 @property (nonatomic, readonly) NSArray* sectionIndexTitles;
 
+@property (nonatomic, readonly) NSArray<NSDictionary*>* styles;
+@property (nonatomic, readonly) UISegmentedControl* styleSegmentedControl;
 @property (nonatomic, readonly) UIBarButtonItem* playBarButtonItem;
 @property (nonatomic, readonly) UIBarButtonItem* pauseBarButtonItem;
 
@@ -73,7 +75,17 @@
 
 - (void)prepareUI
 {
-    self.navigationItem.title = @"Music";
+    _styles = @[
+        @{ @"style": [NAKPlaybackIndicatorStyle iOS7Style],  @"text": @"iOS 7 Style" },
+        @{ @"style": [NAKPlaybackIndicatorStyle iOS10Style], @"text": @"iOS 10 Style" }
+    ];
+
+    _styleSegmentedControl = [[UISegmentedControl alloc] initWithItems:[self styleTexts]];
+    [self.styleSegmentedControl addTarget:self
+                                   action:@selector(styleSegmentedControlValueDidChange:)
+                         forControlEvents:UIControlEventValueChanged];
+    self.styleSegmentedControl.selectedSegmentIndex = 0;
+    self.navigationItem.titleView = self.styleSegmentedControl;
 
     _playBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
                                                                        target:self
@@ -131,12 +143,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *kCellIdentifier = @"Cell";
+    NSString* cellIdentifier = [self currentStyleText];
 
-    DMSongCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    DMSongCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 
     if (!cell) {
-        cell = [[DMSongCell alloc] initWithReuseIdentifier:kCellIdentifier];
+        cell = [[DMSongCell alloc] initWithPlaybackIndicatorStyle:[self currentStyle] reuseIdentifier:cellIdentifier];
     }
 
     cell.song = [self songAtIndexPath:indexPath];
@@ -169,6 +181,25 @@
 }
 
 #pragma mark - Helpers
+
+- (NSMutableArray<NSString*>*)styleTexts
+{
+    NSMutableArray<NSString*>* styleTexts = [NSMutableArray arrayWithCapacity:self.styles.count];
+    for (NSDictionary* dictionary in self.styles) {
+        [styleTexts addObject:dictionary[@"text"]];
+    }
+    return styleTexts;
+}
+
+- (NAKPlaybackIndicatorStyle*)currentStyle
+{
+    return self.styles[self.styleSegmentedControl.selectedSegmentIndex][@"style"];
+}
+
+- (NSString*)currentStyleText
+{
+    return self.styles[self.styleSegmentedControl.selectedSegmentIndex][@"text"];
+}
 
 - (MPMediaItem*)songAtIndexPath:(NSIndexPath*)indexPath
 {
@@ -239,6 +270,11 @@
 }
 
 #pragma mark - Actions
+
+- (void)styleSegmentedControlValueDidChange:(id)sender
+{
+    [self.tableView reloadData];
+}
 
 - (void)playBarButtonItemDidPush:(id)sender
 {

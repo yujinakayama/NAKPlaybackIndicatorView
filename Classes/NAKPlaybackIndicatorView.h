@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NAKPlaybackIndicatorStyle.h"
 
 /**
  Values for the [state]([NAKPlaybackIndicatorView state]) property.
@@ -35,7 +36,7 @@ typedef NS_ENUM(NSInteger, NAKPlaybackIndicatorViewState) {
 /**
  `NAKPlaybackIndicatorView` is a view that mimics the music playback indicator in the Music.app on iOS 7.
 
- It has three vertical bars and they oscillate randomly.
+ It has some vertical bars which oscillate randomly.
  The color of the bars can be changed by setting `tintColor` property (`UIView`) of the receiver or its ancestor view.
 
  Out of the box it works well with Auto Layout system as it provides sensible layout information
@@ -43,6 +44,10 @@ typedef NS_ENUM(NSInteger, NAKPlaybackIndicatorViewState) {
  Of course, it can work with frame-based layout system also.
  */
 @interface NAKPlaybackIndicatorView : UIView
+
+- (instancetype)initWithStyle:(NAKPlaybackIndicatorStyle*)style;
+
+- (instancetype)initWithFrame:(CGRect)frame style:(NAKPlaybackIndicatorStyle*)style NS_DESIGNATED_INITIALIZER;
 
 /**
  The current state of the receiver.
