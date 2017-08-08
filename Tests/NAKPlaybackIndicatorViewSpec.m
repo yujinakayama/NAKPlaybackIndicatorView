@@ -39,36 +39,17 @@ describe(@"NAKPlaybackIndicatorView", ^{
 
     describe(@"-intrinsicContentSize", ^{
         it(@"returns minimum size to display the content", ^{
-            CGSize expectedSize;
-
-            if ([UIScreen mainScreen].scale == 2.0) {
-                expectedSize = CGSizeMake(12.0, 12.0);
-            } else {
-                expectedSize = CGSizeMake(13.0, 12.0);
-            }
-
-            expect([view intrinsicContentSize]).to.equal(expectedSize);
+            expect([view intrinsicContentSize]).to.equal(CGSizeMake(12.0, 12.0));
         });
     });
 
     describe(@"-sizeToFit", ^{
         it(@"resizes the view to fit to the content", ^{
             UIView* baseView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 100.0, 100.0)];
-
             view = [[NAKPlaybackIndicatorView alloc] initWithFrame:CGRectMake(10.0, 10.0, 50.0, 50.0)];
             [baseView addSubview:view];
-
-            CGRect expectedRect;
-
-            if ([UIScreen mainScreen].scale == 2.0) {
-                expectedRect = CGRectMake(10.0, 10.0, 12.0, 12.0);
-            } else {
-                expectedRect = CGRectMake(10.0, 10.0, 13.0, 12.0);
-            }
-
             [view sizeToFit];
-
-            expect(view.frame).to.equal(expectedRect);
+            expect(view.frame).to.equal(CGRectMake(10.0, 10.0, 12.0, 12.0));
         });
     });
 

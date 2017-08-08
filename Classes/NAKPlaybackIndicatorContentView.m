@@ -13,8 +13,7 @@ static const NSInteger kBarCount = 3;
 static const CGFloat kBarWidth = 3.0;
 static const CGFloat kBarIdleHeight = 3.0;
 
-static const CGFloat kHorizontalBarSpacing = 2.0; // Measured on iPad 2 (non-Retina)
-static const CGFloat kRetinaHorizontalBarSpacing = 1.5; // Measured on iPhone 5s (Retina)
+static const CGFloat kHorizontalBarSpacing = 1.5;
 
 static const CGFloat kBarMinPeakHeight = 6.0;
 static const CGFloat kBarMaxPeakHeight = 12.0;
@@ -59,7 +58,7 @@ static NSString* const kDecayAnimationKey = @"decay";
         CALayer* layer = [self createBarLayerWithXOffset:xOffset];
         [barLayers addObject:layer];
         [self.layer addSublayer:layer];
-        xOffset = CGRectGetMaxX(layer.frame) + [self horizontalBarSpacing];
+        xOffset = CGRectGetMaxX(layer.frame) + kHorizontalBarSpacing;
     }
 
     _barLayers = barLayers;
@@ -72,17 +71,9 @@ static NSString* const kDecayAnimationKey = @"decay";
     layer.anchorPoint = CGPointMake(0.0, 1.0); // At the bottom-left corner
     layer.position = CGPointMake(xOffset, kBarMaxPeakHeight); // In superview's coordinate
     layer.bounds = CGRectMake(0.0, 0.0, kBarWidth, kBarIdleHeight);// In its own coordinate
+    layer.allowsEdgeAntialiasing = YES;
 
     return layer;
-}
-
-- (CGFloat)horizontalBarSpacing
-{
-    if ([UIScreen mainScreen].scale == 2.0) {
-        return kRetinaHorizontalBarSpacing;
-    } else {
-        return kHorizontalBarSpacing;
-    }
 }
 
 #pragma mark - Tint Color
