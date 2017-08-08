@@ -24,15 +24,15 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    return [self initWithFrame:frame style:[NAKPlaybackIndicatorStyle defaultStyle]];
+    return [self initWithFrame:frame style:[NAKPlaybackIndicatorViewStyle defaultStyle]];
 }
 
-- (instancetype)initWithStyle:(NAKPlaybackIndicatorStyle*)style
+- (instancetype)initWithStyle:(NAKPlaybackIndicatorViewStyle*)style
 {
     return [self initWithFrame:CGRectZero style:style];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame style:(NAKPlaybackIndicatorStyle*)style
+- (instancetype)initWithFrame:(CGRect)frame style:(NAKPlaybackIndicatorViewStyle*)style
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -45,12 +45,12 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self commonInitWithStyle:[NAKPlaybackIndicatorStyle defaultStyle]];
+        [self commonInitWithStyle:[NAKPlaybackIndicatorViewStyle defaultStyle]];
     }
     return self;
 }
 
-- (void)commonInitWithStyle:(NAKPlaybackIndicatorStyle*)style
+- (void)commonInitWithStyle:(NAKPlaybackIndicatorViewStyle*)style
 {
     self.layer.masksToBounds = YES;
 

@@ -40,7 +40,7 @@
 
 - (void)testIOS10StylePausedContent
 {
-    _view = [[NAKPlaybackIndicatorView alloc] initWithStyle:[NAKPlaybackIndicatorStyle iOS10Style]];
+    _view = [[NAKPlaybackIndicatorView alloc] initWithStyle:[NAKPlaybackIndicatorViewStyle iOS10Style]];
     [_view sizeToFit];
     _view.state = NAKPlaybackIndicatorViewStatePaused;
     FBSnapshotVerifyView(_view, nil);

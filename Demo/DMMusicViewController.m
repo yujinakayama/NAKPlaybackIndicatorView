@@ -84,8 +84,8 @@
 - (void)prepareUI
 {
     _styles = @[
-        @{ @"style": [NAKPlaybackIndicatorStyle iOS7Style],  @"text": @"iOS 7 Style" },
-        @{ @"style": [NAKPlaybackIndicatorStyle iOS10Style], @"text": @"iOS 10 Style" }
+        @{ @"style": [NAKPlaybackIndicatorViewStyle iOS7Style],  @"text": @"iOS 7 Style" },
+        @{ @"style": [NAKPlaybackIndicatorViewStyle iOS10Style], @"text": @"iOS 10 Style" }
     ];
 
     _styleSegmentedControl = [[UISegmentedControl alloc] initWithItems:[self styleTexts]];
@@ -156,7 +156,7 @@
     DMSongCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 
     if (!cell) {
-        cell = [[DMSongCell alloc] initWithPlaybackIndicatorStyle:[self currentStyle] reuseIdentifier:cellIdentifier];
+        cell = [[DMSongCell alloc] initWithPlaybackIndicatorViewStyle:[self currentStyle] reuseIdentifier:cellIdentifier];
     }
 
     cell.song = [self songAtIndexPath:indexPath];
@@ -199,7 +199,7 @@
     return styleTexts;
 }
 
-- (NAKPlaybackIndicatorStyle*)currentStyle
+- (NAKPlaybackIndicatorViewStyle*)currentStyle
 {
     return self.styles[self.styleSegmentedControl.selectedSegmentIndex][@"style"];
 }

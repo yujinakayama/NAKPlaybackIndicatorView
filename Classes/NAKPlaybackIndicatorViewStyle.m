@@ -1,14 +1,14 @@
 //
-//  NAKPlaybackIndicatorStyle.m
+//  NAKPlaybackIndicatorViewStyle.m
 //  NAKPlaybackIndicatorView
 //
 //  Created by Yuji Nakayama on 7/27/17.
 //  Copyright © 2017 Yuji Nakayama. All rights reserved.
 //
 
-#import "NAKPlaybackIndicatorStyle.h"
+#import "NAKPlaybackIndicatorViewStyle.h"
 
-@implementation NAKPlaybackIndicatorStyle
+@implementation NAKPlaybackIndicatorViewStyle
 
 + (instancetype)defaultStyle
 {

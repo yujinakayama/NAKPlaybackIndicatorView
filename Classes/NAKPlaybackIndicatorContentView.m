@@ -26,7 +26,7 @@ static NSString* const kDecayAnimationKey = @"decay";
 
 #pragma mark - Initialization
 
-- (instancetype)initWithStyle:(NAKPlaybackIndicatorStyle*)style
+- (instancetype)initWithStyle:(NAKPlaybackIndicatorViewStyle*)style
 {
     self = [super init];
     if (self) {

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NAKPlaybackIndicatorStyle.h"
+#import "NAKPlaybackIndicatorViewStyle.h"
 
 /**
  Values for the [state]([NAKPlaybackIndicatorView state]) property.
@@ -45,9 +45,9 @@ typedef NS_ENUM(NSInteger, NAKPlaybackIndicatorViewState) {
  */
 @interface NAKPlaybackIndicatorView : UIView
 
-- (instancetype)initWithStyle:(NAKPlaybackIndicatorStyle*)style;
+- (instancetype)initWithStyle:(NAKPlaybackIndicatorViewStyle*)style;
 
-- (instancetype)initWithFrame:(CGRect)frame style:(NAKPlaybackIndicatorStyle*)style NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFrame:(CGRect)frame style:(NAKPlaybackIndicatorViewStyle*)style NS_DESIGNATED_INITIALIZER;
 
 /**
  The current state of the receiver.

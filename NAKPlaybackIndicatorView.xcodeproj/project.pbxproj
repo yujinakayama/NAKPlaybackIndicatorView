@@ -18,8 +18,8 @@
 		B92DD05B189801FA006F2740 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92DD05A189801FA006F2740 /* Images.xcassets */; };
 		B9497866189BE09B00A0FD8B /* DMMusicPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9497865189BE09B00A0FD8B /* DMMusicPlayerController.m */; };
 		B94BDEA91899E069000527B0 /* DMMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B94BDEA81899E069000527B0 /* DMMediaItem.m */; };
-		B95BA00A1F3364A200340380 /* NAKPlaybackIndicatorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B95BA0081F3364A200340380 /* NAKPlaybackIndicatorStyle.m */; };
-		B95BA00C1F339E6800340380 /* NAKPlaybackIndicatorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B95BA0081F3364A200340380 /* NAKPlaybackIndicatorStyle.m */; };
+		B95BA00A1F3364A200340380 /* NAKPlaybackIndicatorViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B95BA0081F3364A200340380 /* NAKPlaybackIndicatorViewStyle.m */; };
+		B95BA00C1F339E6800340380 /* NAKPlaybackIndicatorViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = B95BA0081F3364A200340380 /* NAKPlaybackIndicatorViewStyle.m */; };
 		B9606108189993BC00A50F87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03C189801F9006F2740 /* Foundation.framework */; };
 		B9606109189993BC00A50F87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD03E189801FA006F2740 /* CoreGraphics.framework */; };
 		B960610A189993BC00A50F87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92DD040189801FA006F2740 /* UIKit.framework */; };
@@ -69,8 +69,8 @@
 		B94BDEA71899E069000527B0 /* DMMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMMediaItem.h; sourceTree = "<group>"; };
 		B94BDEA81899E069000527B0 /* DMMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMMediaItem.m; sourceTree = "<group>"; };
 		B94EDD2D189AD92600552FA0 /* NAKPlaybackIndicatorViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorViewSpec.m; sourceTree = "<group>"; };
-		B95BA0071F3364A200340380 /* NAKPlaybackIndicatorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAKPlaybackIndicatorStyle.h; sourceTree = "<group>"; };
-		B95BA0081F3364A200340380 /* NAKPlaybackIndicatorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorStyle.m; sourceTree = "<group>"; };
+		B95BA0071F3364A200340380 /* NAKPlaybackIndicatorViewStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAKPlaybackIndicatorViewStyle.h; sourceTree = "<group>"; };
+		B95BA0081F3364A200340380 /* NAKPlaybackIndicatorViewStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorViewStyle.m; sourceTree = "<group>"; };
 		B9606107189993BC00A50F87 /* NAKPlaybackIndicatorView Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NAKPlaybackIndicatorView Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B960610D189993BC00A50F87 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
 		B960610F189993BC00A50F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -248,8 +248,8 @@
 			children = (
 				B9EB23BB189FBBF50068241D /* NAKPlaybackIndicatorView.h */,
 				B9EB23BC189FBBF50068241D /* NAKPlaybackIndicatorView.m */,
-				B95BA0071F3364A200340380 /* NAKPlaybackIndicatorStyle.h */,
-				B95BA0081F3364A200340380 /* NAKPlaybackIndicatorStyle.m */,
+				B95BA0071F3364A200340380 /* NAKPlaybackIndicatorViewStyle.h */,
+				B95BA0081F3364A200340380 /* NAKPlaybackIndicatorViewStyle.m */,
 				B9EB23BD189FBBF50068241D /* NAKPlaybackIndicatorContentView.h */,
 				B9EB23BE189FBBF50068241D /* NAKPlaybackIndicatorContentView.m */,
 			);
@@ -437,7 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B95BA00C1F339E6800340380 /* NAKPlaybackIndicatorStyle.m in Sources */,
+				B95BA00C1F339E6800340380 /* NAKPlaybackIndicatorViewStyle.m in Sources */,
 				B98DFF5C189FBDC600CB9A50 /* NAKPlaybackIndicatorContentView.m in Sources */,
 				B92DD049189801FA006F2740 /* main.m in Sources */,
 				B98DFF5B189FBDC300CB9A50 /* NAKPlaybackIndicatorView.m in Sources */,
@@ -450,7 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90656191F335EF40053A858 /* NAKPlaybackIndicatorContentView.m in Sources */,
-				B95BA00A1F3364A200340380 /* NAKPlaybackIndicatorStyle.m in Sources */,
+				B95BA00A1F3364A200340380 /* NAKPlaybackIndicatorViewStyle.m in Sources */,
 				B94BDEA91899E069000527B0 /* DMMediaItem.m in Sources */,
 				B9606112189993BC00A50F87 /* main.m in Sources */,
 				B90656181F335EF10053A858 /* NAKPlaybackIndicatorView.m in Sources */,

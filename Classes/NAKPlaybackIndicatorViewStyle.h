@@ -1,5 +1,5 @@
 //
-//  NAKPlaybackIndicatorStyle.h
+//  NAKPlaybackIndicatorViewStyle.h
 //  NAKPlaybackIndicatorView
 //
 //  Created by Yuji Nakayama on 7/27/17.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NAKPlaybackIndicatorStyle : NSObject
+@interface NAKPlaybackIndicatorViewStyle : NSObject
 
 + (instancetype)defaultStyle;
 

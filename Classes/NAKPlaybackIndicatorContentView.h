@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import "NAKPlaybackIndicatorStyle.h"
+#import "NAKPlaybackIndicatorViewStyle.h"
 
 /**
  This is an internal private class. Do not use this class directly.
@@ -16,7 +16,7 @@
 @interface NAKPlaybackIndicatorContentView : UIView
 
 // We don't specify NS_DESIGNATED_INITIALIZER since this is an internal private class.
-- (instancetype)initWithStyle:(NAKPlaybackIndicatorStyle*)style;
+- (instancetype)initWithStyle:(NAKPlaybackIndicatorViewStyle*)style;
 
 - (void)startOscillation;
 - (void)stopOscillation;
@@ -25,6 +25,6 @@
 - (void)startDecay;
 - (void)stopDecay;
 
-@property (nonatomic, readonly) NAKPlaybackIndicatorStyle* style;
+@property (nonatomic, readonly) NAKPlaybackIndicatorViewStyle* style;
 
 @end
