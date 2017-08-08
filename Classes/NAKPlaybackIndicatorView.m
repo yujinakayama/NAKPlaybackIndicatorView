@@ -117,6 +117,13 @@
     return [self.contentView intrinsicContentSize];
 }
 
+// iOS 9 or later
+- (UIView*)viewForLastBaselineLayout
+{
+    return self.contentView;
+}
+
+// iOS 8
 - (UIView*)viewForBaselineLayout
 {
     return self.contentView;

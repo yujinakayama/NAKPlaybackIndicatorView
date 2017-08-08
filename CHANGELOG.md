@@ -7,6 +7,7 @@
 * Require iOS 8 or later.
 * Add support for 3x Retina devices.
 * Drop support for non-Retina devices.
+* Support `-[UIView viewForLastBaselineLayout]` to adapt to iOS 9 API.
 
 ## v0.0.3
 
