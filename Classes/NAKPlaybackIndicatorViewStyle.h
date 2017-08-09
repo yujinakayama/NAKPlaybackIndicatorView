@@ -18,19 +18,19 @@
 
 - (instancetype)initWithBarCount:(NSUInteger)barCount
                         barWidth:(CGFloat)barWidth
-                   minBarSpacing:(CGFloat)minBarSpacing
+                   maxBarSpacing:(CGFloat)maxBarSpacing
                 maxPeakBarHeight:(CGFloat)maxPeakBarHeight;
 
 - (instancetype)initWithBarCount:(NSUInteger)barCount
                         barWidth:(CGFloat)barWidth
-                   minBarSpacing:(CGFloat)minBarSpacing
+                   maxBarSpacing:(CGFloat)maxBarSpacing
                    idleBarHeight:(CGFloat)idleBarHeight
                 minPeakBarHeight:(CGFloat)minPeakBarHeight
                 maxPeakBarHeight:(CGFloat)maxPeakBarHeight NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, readonly) NSUInteger barCount;
 @property (nonatomic, readonly) CGFloat barWidth;
-@property (nonatomic, readonly) CGFloat minBarSpacing;
+@property (nonatomic, readonly) CGFloat maxBarSpacing;
 @property (nonatomic, readonly) CGFloat actualBarSpacing;
 @property (nonatomic, readonly) CGFloat idleBarHeight;
 @property (nonatomic, readonly) CGFloat minPeakBarHeight;

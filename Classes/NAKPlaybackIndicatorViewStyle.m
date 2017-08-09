@@ -24,7 +24,7 @@
 {
     return [[self alloc] initWithBarCount:4
                                  barWidth:2.8
-                            minBarSpacing:1.7
+                            maxBarSpacing:1.7
                          maxPeakBarHeight:12.0];
 }
 
@@ -32,18 +32,18 @@
 {
     return [self initWithBarCount:3
                          barWidth:3.0
-                    minBarSpacing:1.5
+                    maxBarSpacing:1.5
                  maxPeakBarHeight:12.0];
 }
 
 - (instancetype)initWithBarCount:(NSUInteger)barCount
                         barWidth:(CGFloat)barWidth
-                   minBarSpacing:(CGFloat)minBarSpacing
+                   maxBarSpacing:(CGFloat)maxBarSpacing
                 maxPeakBarHeight:(CGFloat)maxPeakBarHeight
 {
     return [self initWithBarCount:barCount
                          barWidth:barWidth
-                    minBarSpacing:minBarSpacing
+                    maxBarSpacing:maxBarSpacing
                     idleBarHeight:round(barWidth)
                  minPeakBarHeight:maxPeakBarHeight / 2
                  maxPeakBarHeight:maxPeakBarHeight];
@@ -51,7 +51,7 @@
 
 - (instancetype)initWithBarCount:(NSUInteger)barCount
                         barWidth:(CGFloat)barWidth
-                   minBarSpacing:(CGFloat)minBarSpacing
+                   maxBarSpacing:(CGFloat)maxBarSpacing
                    idleBarHeight:(CGFloat)idleBarHeight
                 minPeakBarHeight:(CGFloat)minPeakBarHeight
                 maxPeakBarHeight:(CGFloat)maxPeakBarHeight
@@ -60,7 +60,7 @@
     if (self) {
         _barCount = barCount;
         _barWidth = barWidth;
-        _minBarSpacing = minBarSpacing;
+        _maxBarSpacing = maxBarSpacing;
         _idleBarHeight = idleBarHeight;
         _minPeakBarHeight = minPeakBarHeight;
         _maxPeakBarHeight = maxPeakBarHeight;
@@ -71,7 +71,7 @@
 - (CGFloat)actualBarSpacing
 {
     CGFloat screenScale = [[UIScreen mainScreen] scale];
-    return floor((self.minBarSpacing + self.barWidth) * screenScale) / screenScale - self.barWidth;
+    return floor((self.maxBarSpacing + self.barWidth) * screenScale) / screenScale - self.barWidth;
 }
 
 @end

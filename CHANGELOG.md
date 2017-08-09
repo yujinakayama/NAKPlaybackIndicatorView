@@ -2,6 +2,8 @@
 
 ## Development
 
+* Rename wrongly named `-[NAKPlaybackIndicatorViewStyle minBarSpacing]` to `maxBarSpacing`.
+
 ## v0.1.0
 
 * Introduce `NAKPlaybackIndicatorViewStyle` class, which allows you to customize `NAKPlaybackIndicatorView`.
