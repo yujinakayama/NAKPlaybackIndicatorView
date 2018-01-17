@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "~> 2.2.2"
 
 gem 'cocoapods', '~> 0.34'
 gem 'rake',      '~> 10.1'
