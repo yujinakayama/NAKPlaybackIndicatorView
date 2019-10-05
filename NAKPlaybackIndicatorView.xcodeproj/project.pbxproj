@@ -322,12 +322,15 @@
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Yuji Nakayama";
 				TargetAttributes = {
+					B92DD038189801F9006F2740 = {
+						DevelopmentTeam = 8LSN3WQC77;
+					};
 					B9606106189993BC00A50F87 = {
 						DevelopmentTeam = 8LSN3WQC77;
 					};
 					B9B3C7ED1F1070AA00FDEDBA = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 5NKMULV7SQ;
+						DevelopmentTeam = 8LSN3WQC77;
 						ProvisioningStyle = Automatic;
 						TestTargetID = B92DD038189801F9006F2740;
 					};
@@ -573,6 +576,7 @@
 		B92DD072189801FA006F2740 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8LSN3WQC77;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestHost/TestHost-Prefix.pch";
 				INFOPLIST_FILE = "TestHost/TestHost-Info.plist";
@@ -585,6 +589,7 @@
 		B92DD073189801FA006F2740 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8LSN3WQC77;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestHost/TestHost-Prefix.pch";
 				INFOPLIST_FILE = "TestHost/TestHost-Info.plist";
@@ -638,7 +643,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 5NKMULV7SQ;
+				DEVELOPMENT_TEAM = 8LSN3WQC77;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -671,7 +676,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 5NKMULV7SQ;
+				DEVELOPMENT_TEAM = 8LSN3WQC77;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
