@@ -52,14 +52,14 @@
     [MPMediaLibrary requestAuthorization:^(MPMediaLibraryAuthorizationStatus status) {
         if (status == MPMediaLibraryAuthorizationStatusAuthorized) {
             MPMediaQuery* query = [MPMediaQuery albumsQuery];
-            _collections = query.collections;
-            _collectionSections = query.collectionSections;
+            self->_collections = query.collections;
+            self->_collectionSections = query.collectionSections;
 
             NSMutableArray* sectionIndexTitles = [NSMutableArray array];
-            for (MPMediaQuerySection* section in _collectionSections) {
+            for (MPMediaQuerySection* section in self->_collectionSections) {
                 [sectionIndexTitles addObject:section.title];
             }
-            _sectionIndexTitles = sectionIndexTitles;
+            self->_sectionIndexTitles = sectionIndexTitles;
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
