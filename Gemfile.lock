@@ -80,7 +80,7 @@ GEM
     ruby-macho (1.4.0)
     ruby-progressbar (1.10.1)
     thread_safe (0.3.6)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
     xcodeproj (1.12.0)
